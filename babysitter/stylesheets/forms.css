@@ -6,10 +6,16 @@ html {
     box-sizing: inherit;
 }
 
+body {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
 /* form container */
 form {
     margin: 2rem;
     padding: 2rem 10%;
+    background-color: lightskyblue;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .form-intro {
