@@ -1,0 +1,60 @@
+html {
+    box-sizing: border-box;
+    font-size: 8px;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2rem;
+    background-color: lightskyblue;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+h2, p {
+    margin: 0;
+}
+
+h2 {
+    font-size: 3rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+p {
+    font-size: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+
+table {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+th, td {
+    width: 10vw;
+    height: 10vw;
+    text-align: center;
+    border: 1px solid black;
+    font-size: 1.5rem;
+}
+
+.time-of-day {
+    text-align: left;
+    width: auto;
+    padding: 1.5vw;
+}
+
+.day-box:hover {
+    background-color: lightskyblue;
+}
+
+.selected {
+    background-color: lightskyblue;
+}
