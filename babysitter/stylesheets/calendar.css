@@ -20,6 +20,8 @@ body {
     border-radius: 1rem;
 }
 
+/* form */
+
 .form-intro, p {
     margin: 0;
 }
@@ -31,16 +33,23 @@ body {
     font-weight: 700;
 }
 
+.btn-default {
+    background: lightskyblue;
+    color: white;
+}
+
 p {
     font-size: 1.5rem;
     padding-bottom: 1.5rem;
 }
 
+/* chart */
 
 table {
     margin-right: auto;
     margin-left: auto;
     background: white;
+    margin-bottom: 1.5rem;
 }
 
 th, td {
