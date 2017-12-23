@@ -1,6 +1,8 @@
 html {
     box-sizing: border-box;
     font-size: 8px;
+    height: 100%;
+    background: rgb(242,242,242);
 }
 
 *, *:before, *:after {
@@ -10,20 +12,23 @@ html {
 body {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     padding: 2rem;
-    background-color: lightskyblue;
+    height: 100%;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin: 2rem;
+    background: rgba(252, 252, 252);
+    border-radius: 1rem;
 }
 
-h2, p {
+.form-intro, p {
     margin: 0;
 }
 
-h2 {
-    font-size: 3rem;
+.form-intro {
+    font-size: 2.5rem;
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
+    font-weight: 700;
 }
 
 p {
@@ -35,6 +40,7 @@ p {
 table {
     margin-right: auto;
     margin-left: auto;
+    background: white;
 }
 
 th, td {
