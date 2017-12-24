@@ -22,6 +22,11 @@ form {
     border-radius: 1rem;
 }
 
+label {
+    font-size: 1.75rem;
+    padding-left: 0;
+}
+
 .form-intro {
     font-size: 2.5rem;
     font-weight: 700;
@@ -35,8 +40,24 @@ form {
     width: 100%;
 }
 
-/* edits the input boxes */
-/* .form-control {
-    width: 50%;
-    min-width: 100px;
-} */
+/* additional form information */
+
+.form-image {
+    width: 8rem;
+}
+
+#car {
+    width: 2rem;
+    height: 2rem;
+    position:relative;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.shift {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 1.5rem 0;
+}
+
+
