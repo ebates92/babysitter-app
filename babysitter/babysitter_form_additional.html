@@ -30,7 +30,7 @@
             <label for="smoking">Do you smoke?</label>
             <div class="shift">
                 <label class="custom-control custom-radio">
-                    <input id="radio1" name="smoking" type="radio" class="custom-control-input">
+                    <input id="likes-pets" name="smoking" type="radio" class="custom-control-input">
                     <span class="custom-control-description"><img class="form-image" src="images/smoking.png"></span>
                 </label>
                 <label class="custom-control custom-radio">
@@ -43,7 +43,7 @@
             <label for="pets">Comfortable with pets?</label>
             <div class="shift">
                 <label class="custom-control custom-radio">
-                    <input id="radio1" name="pets" type="radio" class="custom-control-input">
+                    <input id="radio1" name="pets" type="radio" class="custom-control-input likes-pets">
                     <span class="custom-control-description"><img class="form-image" src="images/cat_dog_image.png"></span>
                 </label>
                 <label class="custom-control custom-radio">
@@ -51,6 +51,11 @@
                     <span class="custom-control-description"><img class="form-image" src="images/cat_dog_image_no.png"></span>
                 </label>
             </div>
+            <div id="pets" class="shift hidden">
+                <label class="checkbox-inline"><input type="checkbox" name="dog" value=""><img class="form-image" src="images/dog_image.png"></label>
+                <label class="checkbox-inline"><input type="checkbox" name="cat" value=""><img class="form-image" src="images/cat_image.png"></label>
+            </div>
+            
 
             <!-- submit -->
             <div class=space></div>
@@ -59,6 +64,6 @@
     </form>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="scripts/main.js"></script>
+    <script src="scripts/forms-more.js"></script>
 </body>
 </html>
