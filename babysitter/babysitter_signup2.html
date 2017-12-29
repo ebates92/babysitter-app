@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="stylesheets/forms.css">
+    <title>BabySitter App</title>
+</head>
+<body>
+      <form>
+          <div class="form-intro">Preferences</div>
+          <div class="form-group">
+              <label for="usr">Birthdate (Must be at least 18 years old):</label>
+              <input type="text" class="form-control" id="usr" placeholder="mm/dd/yyyy">
+            </div>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="Male" checked>
+            Male
+          </label>
+        </div>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="Female">
+            Female
+          </label>
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">Max Number of Children to Babysit:</label>
+            <select class="form-control" id="exampleFormControlSelect1">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </div>
+          <div class="form-group">
+              <label for="hourlyRate">Preferred Hourly Rate:</label>
+              <input name="rangeInput" id="hourlyRate" type="range" min="5" max="50" value="15" onchange="updateRange(this.value);">
+              <label for="textInput">$</label>
+              <input type="text" id="textInput" value="" disabled>
+            </div>
+            <div class="form-group">
+                <label for="maxMiles">Miles you are willing to travel:</label>
+                <input name="rangeInput2" id="maxMiles" type="range" min="5" max="50" value="25" onchange="updateRange2(this.value);">
+                <input type="text" id="textInput2" value="" disabled><label for="maxMiles"> Miles</label>
+              </div>
+              <div class="form-group">
+                  <label for="exampleFormControlSelect2">Age Groups you are experienced with:</label>
+                  <select multiple class="form-control" id="exampleFormControlSelect2">
+                    <option>0 - 6 months</option>
+                    <option>7 months - 3 years</option>
+                    <option>4 - 6 years</option>
+                    <option>7 - 11 years</option>
+                    <option>12+ years</option>
+                  </select>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+      </form>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="scripts/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="stylesheets/forms.css">
+    <title>BabySitter App</title>
+</head>
+<body>
+    <form onsubmit="return false;">
+        <div class="form-intro">Professional Experience</div>
+        <div class="form-group">
+            <label for="textarea">Describe your experience caring for children:</label>
+            <textarea class="form-control" id="textarea" rows="3" maxlength="500" placeholder="500 character max"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="education">Highest Level of Education Completed:</label>
+            <select class="form-control" id="education">
+                <option>High school graduate, diploma or the equivalent</option>
+                <option>Some College, no degree</option>
+                <option>Trade/technical/vocational training</option>
+                <option>Associate's Degree</option>
+                <option>Bachelor's Degree</option>
+                <option>Master's Degree</option>
+                <option>Doctorate</option>
+            </select>
+        </div>
+        <div class="form-group">
+                <label for="institution">Name of institution:</label>
+                <input type="text" class="form-control" id="institution">
+              </div>
+        <div class="form-group">
+                <label for="experience">Years of Paid Experience</label>
+                <select class="form-control" id="experience">
+                  <option>0 - 1</option>
+                  <option>1 - 2</option>
+                  <option>2 - 3</option>
+                  <option>3 - 4</option>
+                  <option>5+</option>
+                </select>
+        </div>
+        <div class="form-group">
+            <label for="language">Please list the languages you are fluent in:</label>
+            <input type='text' id='language' onclick="this.value=''" placeholder="Five languages max" data-language-input />
+            <input type='button' value='Add language' id='add' data-add-language />
+            <div class="alert hide" role="alert" data-alert></div>
+        </div>
+        <div>
+            <ul id='list'>
+                    
+            </ul>
+        </div>
+        <button type="submit" id="submit" class="btn btn-primary">Submit</button>
+        
+    </form>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="scripts/professional_experience.js"></script>
+</body>
+</html>
