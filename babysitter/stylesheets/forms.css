@@ -70,4 +70,10 @@ label {
     z-index: 0;
 }
 
+.cat-image {
+    width: 6rem;
+}
 
+#pets {
+    border-top: 1px solid grey;
+}
