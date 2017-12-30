@@ -1,0 +1,317 @@
+[       
+    {
+        "image": "json_images/eric-schultheis.jpg",
+        "first-name": "Eric",
+        "last-name": "Schultheiss",
+        "address": "30 Leslie Street NE",
+        "zip-code": "30307",
+        "email-address": "ebates92@gmail.com",
+        "password": "SuperH@rdP@ssw0rd",
+        "birthdate":"09/02/1988",
+        "gender":"male",
+        "max-children":"3",
+        "hourly-rate": "15",
+        "miles-willing":"25",
+        "age-group": "0 - 6 months, 7 months - 3 years",
+        "description": "children are the seed of all evil and must be cleansed.",
+        "education":"mind your own business.",
+        "school-name": "Hogwarts",
+        "paid-experience": "2-3",
+        "languages": "english",
+        "transportation": "yes",
+        "availability": {
+            "morning": {
+                "0":"yes",
+                "1":"yes",
+                "2":"yes",
+                "3":"yes",
+                "4":"yes",
+                "5":"yes",
+                "6":"yes"
+            },
+            "afternoon": {
+                "0":"yes",
+                "1":"yes",
+                "2":"yes",
+                "3":"yes",
+                "4":"yes",
+                "5":"yes",
+                "6":"yes"
+            },
+            "evening": {
+                "0":"yes",
+                "1":"yes",
+                "2":"yes",
+                "3":"yes",
+                "4":"yes",
+                "5":"yes",
+                "6":"yes"
+            },
+            "overnight": {
+                "0":"yes",
+                "1":"yes",
+                "2":"yes",
+                "3":"yes",
+                "4":"yes",
+                "5":"yes",
+                "6":"yes"
+            }
+        },
+        "smoke":"no",
+        "pets":"yes",
+        "cats":"yes",
+        "dogs":"no"
+    },
+    {
+        "image": "json_images/good-babysitter.jpg",
+        "first-name": "Good",
+        "last-name": "Schultheiss",
+        "address": "30 Leslie Street NE",
+        "zip-code": "30307",
+        "email-address": "ebates92@gmail.com",
+        "password": "SuperH@rdP@ssw0rd",
+        "birthdate":"09/02/1988",
+        "gender":"male",
+        "max-children":"3",
+        "hourly-rate": "15",
+        "miles-willing":"25",
+        "age-group": "0 - 6 months, 7 months - 3 years",
+        "description": "children are the seed of all evil and must be cleansed.",
+        "education":"mind your own business.",
+        "school-name": "Hogwarts",
+        "paid-experience": "2-3",
+        "languages": "english",
+        "transportation": "yes",
+        "availability": {
+            "morning": {
+                "0":"yes",
+                "1":"yes",
+                "2":"yes",
+                "3":"yes",
+                "4":"yes",
+                "5":"yes",
+                "6":"yes"
+            },
+            "afternoon": {
+                "0":"yes",
+                "1":"yes",
+                "2":"yes",
+                "3":"yes",
+                "4":"yes",
+                "5":"yes",
+                "6":"yes"
+            },
+            "evening": {
+                "0":"yes",
+                "1":"yes",
+                "2":"yes",
+                "3":"yes",
+                "4":"yes",
+                "5":"yes",
+                "6":"yes"
+            },
+            "overnight": {
+                "0":"yes",
+                "1":"yes",
+                "2":"yes",
+                "3":"yes",
+                "4":"yes",
+                "5":"yes",
+                "6":"yes"
+            }
+        },
+        "smoke":"no",
+        "pets":"yes",
+        "cats":"yes",
+        "dogs":"no"
+    },
+    {
+        "image": "json_images/grumpy-cat.jpeg",
+        "first-name": "Cat",
+        "last-name": "Schultheiss",
+        "address": "30 Leslie Street NE",
+        "zip-code": "30307",
+        "email-address": "ebates92@gmail.com",
+        "password": "SuperH@rdP@ssw0rd",
+        "birthdate":"09/02/1988",
+        "gender":"male",
+        "max-children":"3",
+        "hourly-rate": "15",
+        "miles-willing":"25",
+        "age-group": "0 - 6 months, 7 months - 3 years",
+        "description": "children are the seed of all evil and must be cleansed.",
+        "education":"mind your own business.",
+        "school-name": "Hogwarts",
+        "paid-experience": "2-3",
+        "languages": "english",
+        "transportation": "yes",
+        "availability": {
+            "morning": {
+                "0":"yes",
+                "1":"yes",
+                "2":"yes",
+                "3":"yes",
+                "4":"yes",
+                "5":"yes",
+                "6":"yes"
+            },
+            "afternoon": {
+                "0":"yes",
+                "1":"yes",
+                "2":"yes",
+                "3":"yes",
+                "4":"yes",
+                "5":"yes",
+                "6":"yes"
+            },
+            "evening": {
+                "0":"yes",
+                "1":"yes",
+                "2":"yes",
+                "3":"yes",
+                "4":"yes",
+                "5":"yes",
+                "6":"yes"
+            },
+            "overnight": {
+                "0":"yes",
+                "1":"yes",
+                "2":"yes",
+                "3":"yes",
+                "4":"yes",
+                "5":"yes",
+                "6":"yes"
+            }
+        },
+        "smoke":"no",
+        "pets":"yes",
+        "cats":"yes",
+        "dogs":"no"
+    },
+    {
+        "image": "json_images/kyle-brauer.jpg",
+        "first-name": "Kyle",
+        "last-name": "Schultheiss",
+        "address": "30 Leslie Street NE",
+        "zip-code": "30307",
+        "email-address": "ebates92@gmail.com",
+        "password": "SuperH@rdP@ssw0rd",
+        "birthdate":"09/02/1988",
+        "gender":"male",
+        "max-children":"3",
+        "hourly-rate": "15",
+        "miles-willing":"25",
+        "age-group": "0 - 6 months, 7 months - 3 years",
+        "description": "children are the seed of all evil and must be cleansed.",
+        "education":"mind your own business.",
+        "school-name": "Hogwarts",
+        "paid-experience": "2-3",
+        "languages": "english",
+        "transportation": "yes",
+        "availability": {
+            "morning": {
+                "0":"yes",
+                "1":"yes",
+                "2":"yes",
+                "3":"yes",
+                "4":"yes",
+                "5":"yes",
+                "6":"yes"
+            },
+            "afternoon": {
+                "0":"yes",
+                "1":"yes",
+                "2":"yes",
+                "3":"yes",
+                "4":"yes",
+                "5":"yes",
+                "6":"yes"
+            },
+            "evening": {
+                "0":"yes",
+                "1":"yes",
+                "2":"yes",
+                "3":"yes",
+                "4":"yes",
+                "5":"yes",
+                "6":"yes"
+            },
+            "overnight": {
+                "0":"yes",
+                "1":"yes",
+                "2":"yes",
+                "3":"yes",
+                "4":"yes",
+                "5":"yes",
+                "6":"yes"
+            }
+        },
+        "smoke":"no",
+        "pets":"yes",
+        "cats":"yes",
+        "dogs":"no"
+    },
+    {
+        "image": "json_images/mj-baby.jpeg",
+        "first-name": "MJ",
+        "last-name": "Schultheiss",
+        "address": "30 Leslie Street NE",
+        "zip-code": "30307",
+        "email-address": "ebates92@gmail.com",
+        "password": "SuperH@rdP@ssw0rd",
+        "birthdate":"09/02/1988",
+        "gender":"male",
+        "max-children":"3",
+        "hourly-rate": "15",
+        "miles-willing":"25",
+        "age-group": "0 - 6 months, 7 months - 3 years",
+        "description": "children are the seed of all evil and must be cleansed.",
+        "education":"mind your own business.",
+        "school-name": "Hogwarts",
+        "paid-experience": "2-3",
+        "languages": "english",
+        "transportation": "yes",
+        "availability": {
+            "morning": {
+                "0":"yes",
+                "1":"yes",
+                "2":"yes",
+                "3":"yes",
+                "4":"yes",
+                "5":"yes",
+                "6":"yes"
+            },
+            "afternoon": {
+                "0":"yes",
+                "1":"yes",
+                "2":"yes",
+                "3":"yes",
+                "4":"yes",
+                "5":"yes",
+                "6":"yes"
+            },
+            "evening": {
+                "0":"yes",
+                "1":"yes",
+                "2":"yes",
+                "3":"yes",
+                "4":"yes",
+                "5":"yes",
+                "6":"yes"
+            },
+            "overnight": {
+                "0":"yes",
+                "1":"yes",
+                "2":"yes",
+                "3":"yes",
+                "4":"yes",
+                "5":"yes",
+                "6":"yes"
+            }
+        },
+        "smoke":"no",
+        "pets":"yes",
+        "cats":"yes",
+        "dogs":"no"
+    }
+]
