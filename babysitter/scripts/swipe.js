@@ -374,8 +374,16 @@ function swipeLeftRight () {
     // adds touch start event
     swipeCard.addEventListener("touchstart", function(startEvent) {
         event.preventDefault();
-        var touchArray = startEvent.targetTouches;
-        primaryStart = touchArray.item(0);
+        var startArray = startEvent.targetTouches;
+        primaryStart = startArray.item(0);
+        swipeCard.addEventListener('touchmove', function(moveEvent){
+            event.preventDefault();
+            console.log(moveEvent);
+            var moveArray = moveEvent.changedTouches;
+            var primaryMove = moveArray[0];
+            var distanceMovedX = primaryMove.screenX - primaryStart.screenX;
+            console.log(distanceMovedX);
+        });
     });
     // adds touchend event and determines the distance traveled across x coordinate to determine swipe ressult
     swipeCard.addEventListener("touchend", function(endEvent) {
@@ -398,10 +406,7 @@ function swipeLeftRight () {
 
 
 
-            // swipeCard.addEventListener('touchmove', function(moveEvent){
-            //     event.preventDefault();
-            //     var primaryMove = moveEvent.item(0);
-            // })
+            
 
 bodyContainer();
 swipeLeftRight();
