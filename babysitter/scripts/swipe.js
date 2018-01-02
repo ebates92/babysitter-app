@@ -371,17 +371,29 @@ function swipeLeftRight () {
     var mainBoxArray = document.querySelectorAll(".main-box");
     var swipeCard = mainBoxArray[0];
     var primaryStart;
+    // adds touch start event
     swipeCard.addEventListener("touchstart", function(startEvent) {
         event.preventDefault();
         var touchArray = startEvent.targetTouches;
         primaryStart = touchArray.item(0);
     });
+    // adds touchend event and determines the distance traveled across x coordinate to determine swipe ressult
     swipeCard.addEventListener("touchend", function(endEvent) {
         event.preventDefault();
         var endArray = endEvent.changedTouches;
         var primaryEnd = endArray.item(0);
-
-    })
+        var requiredDistance = 80;
+        var distanceMovedX = primaryEnd.screenX - primaryStart.screenX;
+        console.log(distanceMovedX);
+        // determines if necessary distance traveled is met
+        if (requiredDistance < distanceMovedX) {
+            console.log("true");
+        } else if (-requiredDistance > distanceMovedX) {
+            console.log('false');
+        } else {
+            console.log('reswipe');
+        };
+    });
 };
 
 
