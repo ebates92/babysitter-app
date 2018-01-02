@@ -8,8 +8,24 @@ html {
 
 /* swipe */
 
+.main-box {
+    display: grid;
+    grid-template-rows: 8.5fr 1.5fr;
+}
+
+.babysitter-description {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+}
+
 img {
     width: 100%;
     height: 100%;
     display: block;
+}
+
+p {
+    margin:0;
+    align-self: center;
 }

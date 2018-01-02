@@ -365,5 +365,31 @@ function grabBabysitters () {
     return BABYSITTERIDS[random];
 }
 
-bodyContainer();
+// swipe functionality
 
+function swipeLeftRight () {
+    var mainBoxArray = document.querySelectorAll(".main-box");
+    var swipeCard = mainBoxArray[0];
+    var primaryStart;
+    swipeCard.addEventListener("touchstart", function(startEvent) {
+        event.preventDefault();
+        var touchArray = startEvent.targetTouches;
+        primaryStart = touchArray.item(0);
+    });
+    swipeCard.addEventListener("touchend", function(endEvent) {
+        event.preventDefault();
+        var endArray = endEvent.changedTouches;
+        var primaryEnd = endArray.item(0);
+
+    })
+};
+
+
+
+            // swipeCard.addEventListener('touchmove', function(moveEvent){
+            //     event.preventDefault();
+            //     var primaryMove = moveEvent.item(0);
+            // })
+
+bodyContainer();
+swipeLeftRight();
