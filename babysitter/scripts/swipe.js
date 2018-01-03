@@ -327,10 +327,21 @@ function bodyContainer () {
     var babySitterId = grabBabysitters();
 
     // swipe container
-    var $container = $('<div>', {
-        'class': 'main-box',
-        'id': babySitterId
-    });
+
+        // if making a second container, needs to be at -1 z-index
+    var mainBoxArray = document.querySelectorAll(".main-box")
+    if (mainBoxArray[0]) {
+        var $container = $('<div>', {
+            'class': 'main-box behind',
+            'id': babySitterId
+        });
+    } else {
+        var $container = $('<div>', {
+            'class': 'main-box',
+            'id': babySitterId
+        });
+    };
+
 
     // anchor tag for image to sit in
     var $anchor = $('<a>', {
@@ -356,7 +367,7 @@ function bodyContainer () {
                 .append($image)
             )
             .append($babysitterDescription)
-        );
+        );    
 };
 
 // looks through database for random image
@@ -376,13 +387,14 @@ function swipeLeftRight () {
         event.preventDefault();
         var startArray = startEvent.targetTouches;
         primaryStart = startArray.item(0);
+        // track movement of touch across the screen
         swipeCard.addEventListener('touchmove', function(moveEvent){
             event.preventDefault();
             console.log(moveEvent);
             var moveArray = moveEvent.changedTouches;
             var primaryMove = moveArray[0];
             var distanceMovedX = primaryMove.screenX - primaryStart.screenX;
-            console.log(distanceMovedX);
+            swipeCard.style.left = distanceMovedX + 'px';
         });
     });
     // adds touchend event and determines the distance traveled across x coordinate to determine swipe ressult
@@ -396,17 +408,23 @@ function swipeLeftRight () {
         // determines if necessary distance traveled is met
         if (requiredDistance < distanceMovedX) {
             console.log("true");
+            removeSwipeCard();
         } else if (-requiredDistance > distanceMovedX) {
             console.log('false');
+            removeSwipeCard();
         } else {
             console.log('reswipe');
         };
     });
 };
 
+function removeSwipeCard () {
+    var mainBoxArray = document.querySelectorAll(".main-box");
+    var swipeCard = mainBoxArray[0];
+    document.querySelector('body').removeChild(swipeCard);
+};
 
-
-            
-
+  
+bodyContainer();
 bodyContainer();
 swipeLeftRight();

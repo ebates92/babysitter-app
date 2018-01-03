@@ -11,6 +11,7 @@ html {
 .main-box {
     display: grid;
     grid-template-rows: 8.5fr 1.5fr;
+    position: absolute;
 }
 
 .babysitter-description {
@@ -28,4 +29,8 @@ img {
 p {
     margin:0;
     align-self: center;
+}
+
+.behind {
+    z-index: -1;
 }
