@@ -1,10 +1,8 @@
-html {
-    box-sizing: border-box;
+body {
+    width: 100%;
+    height: 100%;
 }
 
-*, *:before, *:after {
-    box-sizing: inherit;
-}
 
 /* swipe */
 
@@ -12,6 +10,9 @@ html {
     display: grid;
     grid-template-rows: 8.5fr 1.5fr;
     position: absolute;
+    width: auto;
+    height: auto;
+    padding: 2rem;
 }
 
 .babysitter-description {
@@ -21,8 +22,8 @@ html {
 }
 
 img {
-    width: 100%;
-    height: 100%;
+    width: 24rem;
+    height: 34rem;
     display: block;
 }
 

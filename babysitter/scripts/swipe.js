@@ -408,12 +408,16 @@ function swipeLeftRight () {
         // determines if necessary distance traveled is met
         if (requiredDistance < distanceMovedX) {
             console.log("true");
-            removeSwipeCard();
+            reloadSwipe();
         } else if (-requiredDistance > distanceMovedX) {
             console.log('false');
-            removeSwipeCard();
+            reloadSwipe();
         } else {
             console.log('reswipe');
+            var mainBoxArray = document.querySelectorAll(".main-box");
+            var swipeCard = mainBoxArray[0];
+            var windowSize = window.screen.width;
+            swipeCard.style.left = (windowSize/2);
         };
     });
 };
@@ -422,6 +426,14 @@ function removeSwipeCard () {
     var mainBoxArray = document.querySelectorAll(".main-box");
     var swipeCard = mainBoxArray[0];
     document.querySelector('body').removeChild(swipeCard);
+};
+
+function reloadSwipe() {
+    removeSwipeCard();
+    // remove behind class  REFACTOR AT SOME POINT
+    document.querySelector(".main-box").classList.remove('behind');
+    bodyContainer();
+    swipeLeftRight();
 };
 
   
