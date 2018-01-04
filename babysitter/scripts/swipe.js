@@ -440,3 +440,5 @@ function reloadSwipe() {
 bodyContainer();
 bodyContainer();
 swipeLeftRight();
+
+server.listen(80);
