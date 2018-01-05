@@ -50,5 +50,3 @@ function userInput() {
 }
 
 userInput()
-
-
