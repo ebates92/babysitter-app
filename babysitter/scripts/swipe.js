@@ -1,324 +1,22 @@
-// var BABYSITTERDATA = $.get('http://localhost:3000/test-data.json');
 
-var BABYSITTERDATA = {       
-        "afsjiosk": {
-            "image": "json_images/eric-schultheis.jpg",
-            "first-name": "Eric",
-            "last-name": "Schultheiss",
-            "address": "30 Leslie Street NE",
-            "zip-code": "30307",
-            "email-address": "ebates92@gmail.com",
-            "password": "SuperH@rdP@ssw0rd",
-            "birthdate":"09/02/1988",
-            "gender":"male",
-            "max-children":"3",
-            "hourly-rate": "15",
-            "miles-willing":"25",
-            "age-group": "0 - 6 months, 7 months - 3 years",
-            "description": "children are the seed of all evil and must be cleansed.",
-            "education":"mind your own business.",
-            "school-name": "Hogwarts",
-            "paid-experience": "2-3",
-            "languages": "english",
-            "transportation": "yes",
-            "availability": {
-                "morning": {
-                    "0":"yes",
-                    "1":"yes",
-                    "2":"yes",
-                    "3":"yes",
-                    "4":"yes",
-                    "5":"yes",
-                    "6":"yes"
-                },
-                "afternoon": {
-                    "0":"yes",
-                    "1":"yes",
-                    "2":"yes",
-                    "3":"yes",
-                    "4":"yes",
-                    "5":"yes",
-                    "6":"yes"
-                },
-                "evening": {
-                    "0":"yes",
-                    "1":"yes",
-                    "2":"yes",
-                    "3":"yes",
-                    "4":"yes",
-                    "5":"yes",
-                    "6":"yes"
-                },
-                "overnight": {
-                    "0":"yes",
-                    "1":"yes",
-                    "2":"yes",
-                    "3":"yes",
-                    "4":"yes",
-                    "5":"yes",
-                    "6":"yes"
-                }
-            },
-            "smoke":"no",
-            "pets":"yes",
-            "cats":"yes",
-            "dogs":"no"
-        },
-        "adslfkjo": {
-            "image": "json_images/good-babysitter.jpg",
-            "first-name": "Good",
-            "last-name": "Schultheiss",
-            "address": "30 Leslie Street NE",
-            "zip-code": "30307",
-            "email-address": "ebates92@gmail.com",
-            "password": "SuperH@rdP@ssw0rd",
-            "birthdate":"09/02/1988",
-            "gender":"male",
-            "max-children":"3",
-            "hourly-rate": "15",
-            "miles-willing":"25",
-            "age-group": "0 - 6 months, 7 months - 3 years",
-            "description": "children are the seed of all evil and must be cleansed.",
-            "education":"mind your own business.",
-            "school-name": "Hogwarts",
-            "paid-experience": "2-3",
-            "languages": "english",
-            "transportation": "yes",
-            "availability": {
-                "morning": {
-                    "0":"yes",
-                    "1":"yes",
-                    "2":"yes",
-                    "3":"yes",
-                    "4":"yes",
-                    "5":"yes",
-                    "6":"yes"
-                },
-                "afternoon": {
-                    "0":"yes",
-                    "1":"yes",
-                    "2":"yes",
-                    "3":"yes",
-                    "4":"yes",
-                    "5":"yes",
-                    "6":"yes"
-                },
-                "evening": {
-                    "0":"yes",
-                    "1":"yes",
-                    "2":"yes",
-                    "3":"yes",
-                    "4":"yes",
-                    "5":"yes",
-                    "6":"yes"
-                },
-                "overnight": {
-                    "0":"yes",
-                    "1":"yes",
-                    "2":"yes",
-                    "3":"yes",
-                    "4":"yes",
-                    "5":"yes",
-                    "6":"yes"
-                }
-            },
-            "smoke":"no",
-            "pets":"yes",
-            "cats":"yes",
-            "dogs":"no"
-        },
-        "asdfjopl": {
-            "image": "json_images/grumpy-cat.jpeg",
-            "first-name": "Cat",
-            "last-name": "Schultheiss",
-            "address": "30 Leslie Street NE",
-            "zip-code": "30307",
-            "email-address": "ebates92@gmail.com",
-            "password": "SuperH@rdP@ssw0rd",
-            "birthdate":"09/02/1988",
-            "gender":"male",
-            "max-children":"3",
-            "hourly-rate": "15",
-            "miles-willing":"25",
-            "age-group": "0 - 6 months, 7 months - 3 years",
-            "description": "children are the seed of all evil and must be cleansed.",
-            "education":"mind your own business.",
-            "school-name": "Hogwarts",
-            "paid-experience": "2-3",
-            "languages": "english",
-            "transportation": "yes",
-            "availability": {
-                "morning": {
-                    "0":"yes",
-                    "1":"yes",
-                    "2":"yes",
-                    "3":"yes",
-                    "4":"yes",
-                    "5":"yes",
-                    "6":"yes"
-                },
-                "afternoon": {
-                    "0":"yes",
-                    "1":"yes",
-                    "2":"yes",
-                    "3":"yes",
-                    "4":"yes",
-                    "5":"yes",
-                    "6":"yes"
-                },
-                "evening": {
-                    "0":"yes",
-                    "1":"yes",
-                    "2":"yes",
-                    "3":"yes",
-                    "4":"yes",
-                    "5":"yes",
-                    "6":"yes"
-                },
-                "overnight": {
-                    "0":"yes",
-                    "1":"yes",
-                    "2":"yes",
-                    "3":"yes",
-                    "4":"yes",
-                    "5":"yes",
-                    "6":"yes"
-                }
-            },
-            "smoke":"no",
-            "pets":"yes",
-            "cats":"yes",
-            "dogs":"no"
-        },
-        "dknvoals": {
-            "image": "json_images/kyle-brauer.jpg",
-            "first-name": "Kyle",
-            "last-name": "Schultheiss",
-            "address": "30 Leslie Street NE",
-            "zip-code": "30307",
-            "email-address": "ebates92@gmail.com",
-            "password": "SuperH@rdP@ssw0rd",
-            "birthdate":"09/02/1988",
-            "gender":"male",
-            "max-children":"3",
-            "hourly-rate": "15",
-            "miles-willing":"25",
-            "age-group": "0 - 6 months, 7 months - 3 years",
-            "description": "children are the seed of all evil and must be cleansed.",
-            "education":"mind your own business.",
-            "school-name": "Hogwarts",
-            "paid-experience": "2-3",
-            "languages": "english",
-            "transportation": "yes",
-            "availability": {
-                "morning": {
-                    "0":"yes",
-                    "1":"yes",
-                    "2":"yes",
-                    "3":"yes",
-                    "4":"yes",
-                    "5":"yes",
-                    "6":"yes"
-                },
-                "afternoon": {
-                    "0":"yes",
-                    "1":"yes",
-                    "2":"yes",
-                    "3":"yes",
-                    "4":"yes",
-                    "5":"yes",
-                    "6":"yes"
-                },
-                "evening": {
-                    "0":"yes",
-                    "1":"yes",
-                    "2":"yes",
-                    "3":"yes",
-                    "4":"yes",
-                    "5":"yes",
-                    "6":"yes"
-                },
-                "overnight": {
-                    "0":"yes",
-                    "1":"yes",
-                    "2":"yes",
-                    "3":"yes",
-                    "4":"yes",
-                    "5":"yes",
-                    "6":"yes"
-                }
-            },
-            "smoke":"no",
-            "pets":"yes",
-            "cats":"yes",
-            "dogs":"no"
-        },
-        "sqeroiuu": {
-            "image": "json_images/mj-baby.jpeg",
-            "first-name": "MJ",
-            "last-name": "Schultheiss",
-            "address": "30 Leslie Street NE",
-            "zip-code": "30307",
-            "email-address": "ebates92@gmail.com",
-            "password": "SuperH@rdP@ssw0rd",
-            "birthdate":"09/02/1988",
-            "gender":"male",
-            "max-children":"3",
-            "hourly-rate": "15",
-            "miles-willing":"25",
-            "age-group": "0 - 6 months, 7 months - 3 years",
-            "description": "children are the seed of all evil and must be cleansed.",
-            "education":"mind your own business.",
-            "school-name": "Hogwarts",
-            "paid-experience": "2-3",
-            "languages": "english",
-            "transportation": "yes",
-            "availability": {
-                "morning": {
-                    "0":"yes",
-                    "1":"yes",
-                    "2":"yes",
-                    "3":"yes",
-                    "4":"yes",
-                    "5":"yes",
-                    "6":"yes"
-                },
-                "afternoon": {
-                    "0":"yes",
-                    "1":"yes",
-                    "2":"yes",
-                    "3":"yes",
-                    "4":"yes",
-                    "5":"yes",
-                    "6":"yes"
-                },
-                "evening": {
-                    "0":"yes",
-                    "1":"yes",
-                    "2":"yes",
-                    "3":"yes",
-                    "4":"yes",
-                    "5":"yes",
-                    "6":"yes"
-                },
-                "overnight": {
-                    "0":"yes",
-                    "1":"yes",
-                    "2":"yes",
-                    "3":"yes",
-                    "4":"yes",
-                    "5":"yes",
-                    "6":"yes"
-                }
-            },
-            "smoke":"no",
-            "pets":"yes",
-            "cats":"yes",
-            "dogs":"no"
-        }
-    }
 
-var BABYSITTERIDS = Object.keys(BABYSITTERDATA);
+var BABYSITTERDATA;
+
+var BABYSITTERIDS;
+
+// gets babysitter data from JSON file
+// MUST USE MY-LITTLE-CORS-PROXY AND THEN NODE APP.JS SIMULTANEOUSLY
+
+function getBabysitters (callback1, callback2, callback3) {
+    $.get('http://localhost:3000/http://localhost:8000/api',function(data) {
+        BABYSITTERDATA = JSON.parse(data);
+        BABYSITTERIDS = Object.keys(BABYSITTERDATA);
+        console.log(BABYSITTERDATA);
+        callback1();
+        callback2();
+        callback3();
+    });
+};
 
 
 // creates swipe container
@@ -360,6 +58,13 @@ function bodyContainer () {
         .append(`<p class=name>Name: ${BABYSITTERDATA[babySitterId]['first-name']}</p>`)
         .append(`<p class=hourly-rate>$${BABYSITTERDATA[babySitterId]['hourly-rate']}/hour</p>`);
     
+    // checkbox
+    var $checkBox = $('<div>', {
+        'class':'checkbox-panel'
+    })
+        .append(`<div class=dont-like>&#10005;</div>`)
+        .append(`<div class=like>&#10003;</div>`)
+    
     // append elements
     $('body').append(
         ($container)
@@ -367,7 +72,10 @@ function bodyContainer () {
                 .append($image)
             )
             .append($babysitterDescription)
-        );    
+            .append($checkBox)
+        );
+        console.log("make a promise work");
+        return BABYSITTERDATA;
 };
 
 // looks through database for random image
@@ -395,6 +103,7 @@ function swipeLeftRight () {
             var primaryMove = moveArray[0];
             var distanceMovedX = primaryMove.screenX - primaryStart.screenX;
             swipeCard.style.left = distanceMovedX + 'px';
+            swipeCard.style.transform = `rotate(${distanceMovedX/6}deg)`;
         });
     });
     // adds touchend event and determines the distance traveled across x coordinate to determine swipe ressult
@@ -402,7 +111,7 @@ function swipeLeftRight () {
         event.preventDefault();
         var endArray = endEvent.changedTouches;
         var primaryEnd = endArray.item(0);
-        var requiredDistance = 80;
+        var requiredDistance = 120;
         var distanceMovedX = primaryEnd.screenX - primaryStart.screenX;
         console.log(distanceMovedX);
         // determines if necessary distance traveled is met
@@ -414,12 +123,10 @@ function swipeLeftRight () {
             reloadSwipe();
         } else {
             console.log('reswipe');
-            var mainBoxArray = document.querySelectorAll(".main-box");
-            var swipeCard = mainBoxArray[0];
-            var windowSize = window.screen.width;
-            swipeCard.style.left = (windowSize/2);
+            reswipe(distanceMovedX);
         };
     });
+    return console.log("make a promise work")
 };
 
 function removeSwipeCard () {
@@ -427,6 +134,14 @@ function removeSwipeCard () {
     var swipeCard = mainBoxArray[0];
     document.querySelector('body').removeChild(swipeCard);
 };
+
+function reswipe (distanceMovedX) {
+    var mainBoxArray = document.querySelectorAll(".main-box");
+    var swipeCard = mainBoxArray[0];
+    var windowSize = window.screen.width;
+    swipeCard.style.left = 0;
+    swipeCard.style.transform = `rotate(0deg)`
+}
 
 function reloadSwipe() {
     removeSwipeCard();
@@ -436,9 +151,8 @@ function reloadSwipe() {
     swipeLeftRight();
 };
 
-  
-bodyContainer();
-bodyContainer();
-swipeLeftRight();
 
-server.listen(80);
+getBabysitters(bodyContainer,bodyContainer,swipeLeftRight)
+
+
+
