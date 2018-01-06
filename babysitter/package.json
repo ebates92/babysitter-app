@@ -1,0 +1,15 @@
+{
+  "name": "babysitter",
+  "version": "1.0.0",
+  "description": "app for babysitter searching",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.16.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Evan Bates, Alex Cleoni, Chris Rithmyxay",
+  "license": "ISC"
+}
