@@ -90,20 +90,28 @@ function swipeLeftRight () {
     var mainBoxArray = document.querySelectorAll(".main-box");
     var swipeCard = mainBoxArray[0];
     var primaryStart;
+
     // adds touch start event
     swipeCard.addEventListener("touchstart", function(startEvent) {
         event.preventDefault();
         var startArray = startEvent.targetTouches;
         primaryStart = startArray.item(0);
+
         // track movement of touch across the screen
         swipeCard.addEventListener('touchmove', function(moveEvent){
             event.preventDefault();
             console.log(moveEvent);
             var moveArray = moveEvent.changedTouches;
             var primaryMove = moveArray[0];
+
+            // move along the x axis
             var distanceMovedX = primaryMove.screenX - primaryStart.screenX;
             swipeCard.style.left = distanceMovedX + 'px';
             swipeCard.style.transform = `rotate(${distanceMovedX/6}deg)`;
+
+            // move on the y axis
+            var distanceMovedY = primaryMove.screenY - primaryStart.screenY;
+            swipeCard.style.top = distanceMovedY + 'px';
         });
     });
     // adds touchend event and determines the distance traveled across x coordinate to determine swipe ressult
@@ -140,8 +148,8 @@ function reswipe (distanceMovedX) {
     var swipeCard = mainBoxArray[0];
     var windowSize = window.screen.width;
     swipeCard.style.left = 0;
-    swipeCard.style.transform = `rotate(0deg)`
-}
+    swipeCard.style.transform = `rotate(0deg)`;
+};
 
 function reloadSwipe() {
     removeSwipeCard();
@@ -150,7 +158,6 @@ function reloadSwipe() {
     bodyContainer();
     swipeLeftRight();
 };
-
 
 getBabysitters(bodyContainer,bodyContainer,swipeLeftRight)
 
