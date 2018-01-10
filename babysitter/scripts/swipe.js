@@ -103,15 +103,20 @@ function swipeLeftRight () {
             console.log(moveEvent);
             var moveArray = moveEvent.changedTouches;
             var primaryMove = moveArray[0];
-
-            // move along the x axis
             var distanceMovedX = primaryMove.screenX - primaryStart.screenX;
-            swipeCard.style.left = distanceMovedX + 'px';
-            swipeCard.style.transform = `rotate(${distanceMovedX/6}deg)`;
-
-            // move on the y axis
             var distanceMovedY = primaryMove.screenY - primaryStart.screenY;
-            swipeCard.style.top = distanceMovedY + 'px';
+
+            console.log(distanceMovedX);
+            console.log(distanceMovedY)
+            // move along the x axis         
+            if(Math.abs(distanceMovedX) > Math.abs(distanceMovedY)) {
+                swipeCard.style.left = distanceMovedX + 'px';
+                swipeCard.style.transform = `rotate(${distanceMovedX/6}deg)`;
+
+            // moves y axis
+            } else {
+                swipeCard.style.top = distanceMovedY + 'px';
+            };
         });
     });
     // adds touchend event and determines the distance traveled across x coordinate to determine swipe ressult
@@ -121,18 +126,24 @@ function swipeLeftRight () {
         var primaryEnd = endArray.item(0);
         var requiredDistance = 120;
         var distanceMovedX = primaryEnd.screenX - primaryStart.screenX;
-        console.log(distanceMovedX);
         // determines if necessary distance traveled is met
-        if (requiredDistance < distanceMovedX) {
-            console.log("true");
-            reloadSwipe();
-        } else if (-requiredDistance > distanceMovedX) {
-            console.log('false');
-            reloadSwipe();
+
+        // determines if swiping left and right
+        if(Math.abs(distanceMovedX) > Math.abs(distanceMovedY)){
+            if (requiredDistance < distanceMovedX) {
+                console.log("true");
+                reloadSwipe();
+            } else if (-requiredDistance > distanceMovedX) {
+                console.log('false');
+                reloadSwipe();
+            } else {
+                console.log('reswipe');
+                reswipe(distanceMovedX);
+            };
         } else {
-            console.log('reswipe');
-            reswipe(distanceMovedX);
-        };
+            // creating different js file to accomodate for this
+        }
+
     });
     return console.log("make a promise work")
 };
@@ -148,6 +159,7 @@ function reswipe (distanceMovedX) {
     var swipeCard = mainBoxArray[0];
     var windowSize = window.screen.width;
     swipeCard.style.left = 0;
+    swipeCard.style.top = 0;
     swipeCard.style.transform = `rotate(0deg)`;
 };
 
