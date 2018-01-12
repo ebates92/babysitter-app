@@ -43,6 +43,11 @@ function bodyContainer () {
         });
     };
 
+    // div for border radius on babysitter image and description
+    var radius = $('<div>', {
+        'class':'radius-babysitter-content'
+    });
+
     // anchor tag for image to sit in
     var $anchor = $('<a>', {
         href: ""
@@ -58,11 +63,8 @@ function bodyContainer () {
         'class':'babysitter-description'
     })
         .append(`<p class=name>${BABYSITTERDATA[babySitterId]['first-name']}</p>`)
-        // .append(`<p class=gender bio-details></p>`)
         .append(`<p class=age bio-details>${BABYSITTERDATA[babySitterId]['gender']} - ${age} - ${BABYSITTERDATA[babySitterId]['city']}, ${BABYSITTERDATA[babySitterId]['state']}</p>`)
-        // .append(`<p class=location bio-details></p>`)
         .append(`<p class=experience bio-details>Experience: ${BABYSITTERDATA[babySitterId]['paid-experience']} - $${BABYSITTERDATA[babySitterId]['hourly-rate']}/hour</p>`)
-        // .append(`<p class=hourly-rate bio-details></p>`);
         .append(`<p class= chevron><i class="fa fa-chevron-up"></i><p>`)
     
     // checkbox
@@ -75,12 +77,14 @@ function bodyContainer () {
     // append elements
     $('body').append(
         ($container)
-            .append(($anchor)
-                .append($image)
+            .append((radius)
+                .append(($anchor)
+                    .append($image)
+                )
+                .append($babysitterDescription)
+                // .append($checkBox)
             )
-            .append($babysitterDescription)
-            // .append($checkBox)
-        );
+        )
         console.log("make a promise work");
         return BABYSITTERDATA;
 };

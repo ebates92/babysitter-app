@@ -14,21 +14,29 @@ body {
 .main-box {
     grid-column-start: 2;
     grid-row-start: 2;
-    display: grid;
-    grid-template-rows: 28rem 12rem;
+
     position: relative;
     width: 100%;
     height: auto;
     padding: 2rem;
     margin: 0;
+    border-radius: 1rem;
+}
+
+.radius-babysitter-content {
+    border-radius: 1.2rem;
+    display: grid;
+    grid-template-rows: 28rem 12rem;
+    overflow:hidden;
+    border: .1px solid white;
+    color: rgb(0,74,119);
 }
 
 .babysitter-description {
     display: grid;
     grid-template-rows: 2fr 1fr 1fr 1fr;
     grid-template-columns: 1;
-    /* justify-content: space-between;
-    align-content: center; */
+    background-color: rgb(218, 213, 213);
 }
 
 img {
@@ -36,7 +44,6 @@ img {
     height: 100%;
     display: block;
     justify-self: center;
-    border-radius: 1rem;
 }
 
 p {
@@ -70,14 +77,15 @@ p {
     grid-column-start: 1;
 } */
 
+
 .name {
     font-size: 2.5rem;
     grid-row-start: 1;
     text-align: center;
 }
 
-.bio-details {
-    
+.gender, .age, .location,.experience, .hourly-rate  {
+    color: rgb(2,94,150);
 }
 
 .gender, .age, .location {
@@ -95,7 +103,7 @@ p {
 .chevron {
     grid-row-start: 4;
     text-align: center;
-
+    background-color: lightskyblue;
 }
 
 .fa-chevron-up {
