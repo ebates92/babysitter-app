@@ -1,15 +1,14 @@
 
 
 var BABYSITTERDATA;
-
 var BABYSITTERIDS;
 
 // gets babysitter data from JSON file
 // MUST USE MY-LITTLE-CORS-PROXY AND THEN NODE APP.JS SIMULTANEOUSLY
 
 function getBabysitters (callback1, callback2, callback3) {
-    $.get('http://localhost:3000/http://localhost:8000/api',function(data) {
-        BABYSITTERDATA = JSON.parse(data);
+    $.get('scripts/test-data.json',function(data) {
+        BABYSITTERDATA = data;
         BABYSITTERIDS = Object.keys(BABYSITTERDATA);
         console.log(BABYSITTERDATA);
         callback1();
@@ -24,9 +23,13 @@ function bodyContainer () {
     // random babysitter selected
     var babySitterId = grabBabysitters();
 
-    // swipe container
+    // to calculate age of babysitter
+    let birthday = `${BABYSITTERDATA[babySitterId]['birth-year']}${BABYSITTERDATA[babySitterId]['birth-month']}${BABYSITTERDATA[babySitterId]['birth-day']}`
+    let age = moment(birthday, "YYYYMMDD").fromNow().slice(0,2);
 
-        // if making a second container, needs to be at -1 z-index
+    // SWIPE CONTAINER
+
+    // if making a second container, needs to be at -1 z-index
     var mainBoxArray = document.querySelectorAll(".main-box")
     if (mainBoxArray[0]) {
         var $container = $('<div>', {
@@ -39,7 +42,6 @@ function bodyContainer () {
             'id': babySitterId
         });
     };
-
 
     // anchor tag for image to sit in
     var $anchor = $('<a>', {
@@ -55,8 +57,13 @@ function bodyContainer () {
     var $babysitterDescription = $('<div>', {
         'class':'babysitter-description'
     })
-        .append(`<p class=name>Name: ${BABYSITTERDATA[babySitterId]['first-name']}</p>`)
-        .append(`<p class=hourly-rate>$${BABYSITTERDATA[babySitterId]['hourly-rate']}/hour</p>`);
+        .append(`<p class=name>${BABYSITTERDATA[babySitterId]['first-name']}</p>`)
+        // .append(`<p class=gender bio-details></p>`)
+        .append(`<p class=age bio-details>${BABYSITTERDATA[babySitterId]['gender']} - ${age} - ${BABYSITTERDATA[babySitterId]['city']}, ${BABYSITTERDATA[babySitterId]['state']}</p>`)
+        // .append(`<p class=location bio-details></p>`)
+        .append(`<p class=experience bio-details>Experience: ${BABYSITTERDATA[babySitterId]['paid-experience']} - $${BABYSITTERDATA[babySitterId]['hourly-rate']}/hour</p>`)
+        // .append(`<p class=hourly-rate bio-details></p>`);
+        .append(`<p class= chevron><i class="fa fa-chevron-up"></i><p>`)
     
     // checkbox
     var $checkBox = $('<div>', {
@@ -72,7 +79,7 @@ function bodyContainer () {
                 .append($image)
             )
             .append($babysitterDescription)
-            .append($checkBox)
+            // .append($checkBox)
         );
         console.log("make a promise work");
         return BABYSITTERDATA;
@@ -86,7 +93,7 @@ function grabBabysitters () {
 
 // swipe functionality
 
-function swipeLeftRight () {
+function swipeEvents () {
     var mainBoxArray = document.querySelectorAll(".main-box");
     var swipeCard = mainBoxArray[0];
     var primaryStart;
@@ -96,6 +103,7 @@ function swipeLeftRight () {
         event.preventDefault();
         var startArray = startEvent.targetTouches;
         primaryStart = startArray.item(0);
+        var directionDecided = 0;
 
         // track movement of touch across the screen
         swipeCard.addEventListener('touchmove', function(moveEvent){
@@ -106,17 +114,28 @@ function swipeLeftRight () {
             var distanceMovedX = primaryMove.screenX - primaryStart.screenX;
             var distanceMovedY = primaryMove.screenY - primaryStart.screenY;
 
-            console.log(distanceMovedX);
-            console.log(distanceMovedY)
-            // move along the x axis         
-            if(Math.abs(distanceMovedX) > Math.abs(distanceMovedY)) {
+            // // creates a determined direction that doesn't change unless touch is restarted
+            // if (directionDecided === 0) {
+            //     if(Math.abs(distanceMovedX) > Math.abs(distanceMovedY)) {
+            //         directionDecided = 'left/right'
+            //         console.log('left/right')
+            //     } else if (Math.abs(distanceMovedX) < Math.abs(distanceMovedY)) {
+            //         directionDecided = 'up'
+            //         createProfileStats();
+            //         console.log('up')
+            //     };
+            // };
+
+            // // move along the x axis         
+            // if(directionDecided === 'left/right') {
                 swipeCard.style.left = distanceMovedX + 'px';
                 swipeCard.style.transform = `rotate(${distanceMovedX/6}deg)`;
 
-            // moves y axis
-            } else {
-                swipeCard.style.top = distanceMovedY + 'px';
-            };
+            // // moves y axis
+            // } else {
+            //     swipeCard.style.top = distanceMovedY + 'px';
+
+            // };
         });
     });
     // adds touchend event and determines the distance traveled across x coordinate to determine swipe ressult
@@ -126,6 +145,7 @@ function swipeLeftRight () {
         var primaryEnd = endArray.item(0);
         var requiredDistance = 120;
         var distanceMovedX = primaryEnd.screenX - primaryStart.screenX;
+        var distanceMovedY = primaryEnd.screenY - primaryStart.screenY;
         // determines if necessary distance traveled is met
 
         // determines if swiping left and right
@@ -138,14 +158,20 @@ function swipeLeftRight () {
                 reloadSwipe();
             } else {
                 console.log('reswipe');
-                reswipe(distanceMovedX);
+                reswipe();
             };
+        // determines swipe up/down
         } else {
-            // creating different js file to accomodate for this
-        }
 
+            if (-requiredDistance > distanceMovedY) {
+                console.log("true");
+
+            } else {
+                console.log('reswipe');
+                reswipe();
+            }
+        }
     });
-    return console.log("make a promise work")
 };
 
 function removeSwipeCard () {
@@ -154,7 +180,7 @@ function removeSwipeCard () {
     document.querySelector('body').removeChild(swipeCard);
 };
 
-function reswipe (distanceMovedX) {
+function reswipe () {
     var mainBoxArray = document.querySelectorAll(".main-box");
     var swipeCard = mainBoxArray[0];
     var windowSize = window.screen.width;
@@ -168,10 +194,15 @@ function reloadSwipe() {
     // remove behind class  REFACTOR AT SOME POINT
     document.querySelector(".main-box").classList.remove('behind');
     bodyContainer();
-    swipeLeftRight();
+    swipeEvents();
 };
 
-getBabysitters(bodyContainer,bodyContainer,swipeLeftRight)
+function createProfileStats () {
+    var mainBoxArray = $(".main-box")
+    mainBoxArray[0].append('<div>')
+};
+
+getBabysitters(bodyContainer,bodyContainer,swipeEvents)
 
 
 
