@@ -21,6 +21,9 @@ function getBabysitters (callback1, callback2, callback3) {
 function bodyContainer () {
     // random babysitter selected
     var babySitterId = grabBabysitters();
+    const surroundContentDiv = $(".radius-babysitter-content")
+    const surroundDivHeight = surroundContentDiv.height();
+    console.log(surroundDivHeight)
 
     // to calculate age of babysitter
     let birthday = `${BABYSITTERDATA[babySitterId]['birth-year']}${BABYSITTERDATA[babySitterId]['birth-month']}${BABYSITTERDATA[babySitterId]['birth-day']}`
@@ -57,6 +60,22 @@ function bodyContainer () {
         'src': BABYSITTERDATA[babySitterId]["image"]
     });
 
+    // profile elements
+    var $profileElements = $('<div>', {
+        'class': 'profile-page'
+    })
+        .append(`<div class = profile-icons><div class='profile-icon'>Image#1</div><div class='profile-icon'>Image#2</div><div class='profile-icon'>Image#3</div><div class='profile-icon'>Image#4</div></div>`)
+        .append(`<div class = profile-description>${BABYSITTERDATA[babySitterId]['description']}</div>`)
+        .append(`<div class=profile-bottom><div class=language>${BABYSITTERDATA[babySitterId]['languages']}</div><div class=age-group>${BABYSITTERDATA[babySitterId]['age-group']}</div></div>`)
+
+    // chevron/profile container
+    var $babysitterProfile = $('<div>', {
+        'class': 'chevron-container'
+    })
+        .append(`<p class = chevron-box><i class="fa chevron-icon fa-chevron-up"></i></p>`)
+        .append($profileElements)
+        // .append(`<div><h3>profile</h3><h3>profile</h3><h3>profile</h3><h3>profile</h3><h3>profile</h3><h3>profile</h3></div></div>`)
+
     // swipe description
     var $babysitterDescription = $('<div>', {
         'class':'babysitter-description'
@@ -64,8 +83,9 @@ function bodyContainer () {
         .append(`<p class=name>${BABYSITTERDATA[babySitterId]['first-name']}</p>`)
         .append(`<p class=age bio-details>${BABYSITTERDATA[babySitterId]['gender']} - ${age} - ${BABYSITTERDATA[babySitterId]['city']}, ${BABYSITTERDATA[babySitterId]['state']}</p>`)
         .append(`<p class=experience bio-details>Experience: ${BABYSITTERDATA[babySitterId]['paid-experience']} - $${BABYSITTERDATA[babySitterId]['hourly-rate']}/hour</p>`)
-        .append(`<p class = chevron-box top=0px><i class="fa chevron-icon fa-chevron-up"></i><p>`)
-    
+        // .append(`<div class="chevron-container"><p class = chevron-box><i class="fa chevron-icon fa-chevron-up"></i></p><div><h3>profile</h3><h3>profile</h3><h3>profile</h3><h3>profile</h3><h3>profile</h3><h3>profile</h3></div></div>`)
+        .append($babysitterProfile)
+
     // checkbox
     var $checkBox = $('<div>', {
         'class':'checkbox-panel'
@@ -84,7 +104,12 @@ function bodyContainer () {
                 // .append($checkBox)
             )
         )
-        return BABYSITTERDATA;
+    
+    $('.chevron-container').css({
+        'height': surroundDivHeight
+    });
+
+    return BABYSITTERDATA;
 };
 
 // looks through database for random image
@@ -97,7 +122,8 @@ function grabBabysitters () {
 
 function swipeEvents () {
     var swipeCard = document.querySelector(".main-box");
-    let chevron = document.querySelector(".chevron-box")
+    let chevronContainer = document.querySelector('.chevron-container')
+    let chevronBox = document.querySelector(".chevron-box")
     let primaryStart;
 
     // adds touch start event
@@ -107,7 +133,7 @@ function swipeEvents () {
         primaryStart = startArray.item(0);
 
         // determine what has been clicked
-        if (startEvent.target === chevron) {
+        if (startEvent.target === chevronBox) {
 
             // CHEVRON VARIABLES. Get the starting spot of the chevron div so that it can transition smoothly
             // let topStart = ((window.getComputedStyle(chevron)).getPropertyValue('top')).replace('px','');
@@ -120,7 +146,7 @@ function swipeEvents () {
             let notDirection;
             let directionValue;
 
-            chevron.addEventListener('touchmove', function(moveEvent) {
+            chevronBox.addEventListener('touchmove', function(moveEvent) {
                 event.preventDefault();
 
                 // set variables for each move event logged
@@ -141,22 +167,22 @@ function swipeEvents () {
                         direction = 'down'
                         notDirection ='up';
                         directionValue = ""
-                        topStyleStart = (-surroundDivHeight)+chevron.clientHeight
+                        topStyleStart = (-surroundDivHeight)+chevronBox.clientHeight
                     }
                     firstPass = 1;
                     console.log(direction)
                 };
 
                 // move the chevron with finger
-                chevron.style.position = 'relative';
+                chevronContainer.style.position = 'relative';
                 let moveTopPosition = topStyleStart + distanceMovedY;
-                chevron.style.top = moveTopPosition +'px';
-                chevron.style.transform = `translateY(0px)`;
+                chevronContainer.style.top = moveTopPosition +'px';
+                chevronContainer.style.transform = `translateY(0px)`;
             });
 
-            chevron.addEventListener('touchend', function(endEvent) {
+            chevronBox.addEventListener('touchend', function(endEvent) {
                 event.preventDefault();
-                requiredDistance = 120;
+                requiredDistance = 100;
                 var endArray = endEvent.changedTouches;
                 var primaryEnd = endArray.item(0);
                 var distanceMovedY = primaryEnd.screenY - primaryStart.screenY;
@@ -166,10 +192,10 @@ function swipeEvents () {
 
                     // determines div size and automatically attaches to the top
                     // takes swipecard height, subtracts the height of the chevron box to justify it to the top and then accounts for the distance already moved.
-                    let distanceNeededToMove = surroundDivHeight-(Math.abs(distanceMovedY)+Math.abs(chevron.clientHeight));
-                    chevron.style.transform = `translateY(${directionValue}${distanceNeededToMove}px)`;
-                    chevron.style.transitionDuration = '1s';
-                    chevron.style.transitionTimingFunction = 'cubic-bezier(.28,.79,.8,.96)';
+                    let distanceNeededToMove = surroundDivHeight-(Math.abs(distanceMovedY)+Math.abs(chevronBox.clientHeight));
+                    chevronContainer.style.transform = `translateY(${directionValue}${distanceNeededToMove}px)`;
+                    chevronContainer.style.transitionDuration = '1s';
+                    chevronContainer.style.transitionTimingFunction = 'cubic-bezier(.28,.79,.8,.96)';
                     
                     // change chevron image
                     const chevronImage = document.querySelector('.chevron-icon');
@@ -178,10 +204,12 @@ function swipeEvents () {
                     chevronImage.classList.add(chevronClassToAdd);
                     chevronImage.classList.remove(chevronClassToRemove);
 
+                    // To add and remove profile elements
+
                 } else {
-                    chevron.style.top = `0px`;
-                    chevron.style.transform = `translateY(${topStyleStart}px)`;
-                    chevron.style.transitionDuration = '1s';
+                    chevronContainer.style.top = `0px`;
+                    chevronContainer.style.transform = `translateY(${topStyleStart}px)`;
+                    chevronContainer.style.transitionDuration = '1s';
                 }
             });
 
