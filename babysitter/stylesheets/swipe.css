@@ -100,7 +100,7 @@ p {
     margin-bottom: .5rem;
 }
 
-.chevron {
+.chevron-box {
     grid-row-start: 4;
     text-align: center;
     background-color: lightskyblue;
@@ -108,4 +108,10 @@ p {
 
 .fa-chevron-up {
     font-size: 2rem;
+}
+
+.chevron-down {
+    position: relative;
+    text-align: center;
+    background-color: lightskyblue;
 }

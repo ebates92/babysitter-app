@@ -65,7 +65,7 @@ function bodyContainer () {
         .append(`<p class=name>${BABYSITTERDATA[babySitterId]['first-name']}</p>`)
         .append(`<p class=age bio-details>${BABYSITTERDATA[babySitterId]['gender']} - ${age} - ${BABYSITTERDATA[babySitterId]['city']}, ${BABYSITTERDATA[babySitterId]['state']}</p>`)
         .append(`<p class=experience bio-details>Experience: ${BABYSITTERDATA[babySitterId]['paid-experience']} - $${BABYSITTERDATA[babySitterId]['hourly-rate']}/hour</p>`)
-        .append(`<p class= chevron><i class="fa fa-chevron-up"></i><p>`)
+        .append(`<p class = chevron-box><i class="fa fa-chevron-up"></i><p>`)
     
     // checkbox
     var $checkBox = $('<div>', {
@@ -85,7 +85,6 @@ function bodyContainer () {
                 // .append($checkBox)
             )
         )
-        console.log("make a promise work");
         return BABYSITTERDATA;
 };
 
@@ -98,9 +97,10 @@ function grabBabysitters () {
 // swipe functionality
 
 function swipeEvents () {
-    var mainBoxArray = document.querySelectorAll(".main-box");
-    var swipeCard = mainBoxArray[0];
-    var primaryStart;
+    var swipeCard = document.querySelector(".main-box");
+    let chevron = document.querySelector(".chevron-box")
+    let surroundContentDiv = document.querySelector(".radius-babysitter-content")
+    let primaryStart;
 
     // adds touch start event
     swipeCard.addEventListener("touchstart", function(startEvent) {
@@ -109,38 +109,72 @@ function swipeEvents () {
         primaryStart = startArray.item(0);
         var directionDecided = 0;
 
-        // track movement of touch across the screen
-        swipeCard.addEventListener('touchmove', function(moveEvent){
-            event.preventDefault();
-            console.log(moveEvent);
-            var moveArray = moveEvent.changedTouches;
-            var primaryMove = moveArray[0];
-            var distanceMovedX = primaryMove.screenX - primaryStart.screenX;
-            var distanceMovedY = primaryMove.screenY - primaryStart.screenY;
+        // determine what has been clicked
+        if (startEvent.target === chevron) {
+            chevron.addEventListener('touchmove', function(moveEvent) {
+                event.preventDefault();
+                var moveArray = moveEvent.changedTouches;
+                var primaryMove = moveArray[0];
+                var distanceMovedY = primaryMove.screenY - primaryStart.screenY;
+                // move the chevron with finger
+                chevron.style.position = 'relative';
+                chevron.style.top = distanceMovedY +'px';
+            });
+            chevron.addEventListener('touchend', function(endEvent) {
+                event.preventDefault();
+                requiredDistance = 120;
+                var endArray = endEvent.changedTouches;
+                var primaryEnd = endArray.item(0);
+                var distanceMovedY = primaryEnd.screenY - primaryStart.screenY;
+                console.log(distanceMovedY)
+                // did the vertical swipe travel far enough
+                if (-distanceMovedY > requiredDistance) {
+                    chevron.style.position = 'relative';
+                    console.log(surroundContentDiv.clientHeight)
+                    chevron.style.top = -(surroundContentDiv.clientHeight-chevron.clientHeight) +'px';
+                } else {
+                    // will need to reset the chevron
+                }
+            })
 
-            // // creates a determined direction that doesn't change unless touch is restarted
-            // if (directionDecided === 0) {
-            //     if(Math.abs(distanceMovedX) > Math.abs(distanceMovedY)) {
-            //         directionDecided = 'left/right'
-            //         console.log('left/right')
-            //     } else if (Math.abs(distanceMovedX) < Math.abs(distanceMovedY)) {
-            //         directionDecided = 'up'
-            //         createProfileStats();
-            //         console.log('up')
-            //     };
-            // };
 
-            // // move along the x axis         
-            // if(directionDecided === 'left/right') {
-                swipeCard.style.left = distanceMovedX + 'px';
-                swipeCard.style.transform = `rotate(${distanceMovedX/6}deg)`;
 
-            // // moves y axis
-            // } else {
-            //     swipeCard.style.top = distanceMovedY + 'px';
+        } else {
+        
+            // track movement of touch across the screen
+            swipeCard.addEventListener('touchmove', function(moveEvent){
+                event.preventDefault();
+                console.log(moveEvent);
+                var moveArray = moveEvent.changedTouches;
+                var primaryMove = moveArray[0];
+                var distanceMovedX = primaryMove.screenX - primaryStart.screenX;
 
-            // };
-        });
+
+                // // creates a determined direction that doesn't change unless touch is restarted
+                // if (directionDecided === 0) {
+                //     if(Math.abs(distanceMovedX) > Math.abs(distanceMovedY)) {
+                //         directionDecided = 'left/right'
+                //         console.log('left/right')
+                //     } else if (Math.abs(distanceMovedX) < Math.abs(distanceMovedY)) {
+                //         directionDecided = 'up'
+                //         createProfileStats();
+                //         console.log('up')
+                //     };
+                // };
+
+                // // move along the x axis         
+                // if(directionDecided === 'left/right') {
+                    swipeCard.style.left = distanceMovedX + 'px';
+                    swipeCard.style.transform = `rotate(${distanceMovedX/6}deg)`;
+
+                // // moves y axis
+                // } else {
+                //     swipeCard.style.top = distanceMovedY + 'px';
+
+                // };
+            });
+        }    
+  
     });
     // adds touchend event and determines the distance traveled across x coordinate to determine swipe ressult
     swipeCard.addEventListener("touchend", function(endEvent) {
