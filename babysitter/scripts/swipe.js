@@ -64,7 +64,7 @@ function bodyContainer () {
         .append(`<p class=name>${BABYSITTERDATA[babySitterId]['first-name']}</p>`)
         .append(`<p class=age bio-details>${BABYSITTERDATA[babySitterId]['gender']} - ${age} - ${BABYSITTERDATA[babySitterId]['city']}, ${BABYSITTERDATA[babySitterId]['state']}</p>`)
         .append(`<p class=experience bio-details>Experience: ${BABYSITTERDATA[babySitterId]['paid-experience']} - $${BABYSITTERDATA[babySitterId]['hourly-rate']}/hour</p>`)
-        .append(`<p class = chevron-box top=0px><i class="fa fa-chevron-up"></i><p>`)
+        .append(`<p class = chevron-box top=0px><i class="fa chevron-icon fa-chevron-up"></i><p>`)
     
     // checkbox
     var $checkBox = $('<div>', {
@@ -117,6 +117,7 @@ function swipeEvents () {
             const surroundDivHeight = surroundContentDiv.clientHeight;
             let firstPass = 0
             let direction;
+            let notDirection;
             let directionValue;
 
             chevron.addEventListener('touchmove', function(moveEvent) {
@@ -133,10 +134,12 @@ function swipeEvents () {
                     // establish direction and set variables
                     if (distanceMovedY < 0) {
                         direction = 'up';
+                        notDirection ='down';
                         directionValue = "-";
                         topStyleStart = 0;
                     } else {
                         direction = 'down'
+                        notDirection ='up';
                         directionValue = ""
                         topStyleStart = (-surroundDivHeight)+chevron.clientHeight
                     }
@@ -167,12 +170,20 @@ function swipeEvents () {
                     chevron.style.transform = `translateY(${directionValue}${distanceNeededToMove}px)`;
                     chevron.style.transitionDuration = '1s';
                     chevron.style.transitionTimingFunction = 'cubic-bezier(.28,.79,.8,.96)';
+                    
+                    // change chevron image
+                    const chevronImage = document.querySelector('.chevron-icon');
+                    let chevronClassToRemove = `fa-chevron-${direction}`
+                    let chevronClassToAdd = `fa-chevron-${notDirection}`
+                    chevronImage.classList.add(chevronClassToAdd);
+                    chevronImage.classList.remove(chevronClassToRemove);
+
                 } else {
                     chevron.style.top = `0px`;
                     chevron.style.transform = `translateY(${topStyleStart}px)`;
                     chevron.style.transitionDuration = '1s';
                 }
-            })
+            });
 
         } else {
         
@@ -184,66 +195,35 @@ function swipeEvents () {
                 var primaryMove = moveArray[0];
                 var distanceMovedX = primaryMove.screenX - primaryStart.screenX;
 
-
-                // // creates a determined direction that doesn't change unless touch is restarted
-                // if (directionDecided === 0) {
-                //     if(Math.abs(distanceMovedX) > Math.abs(distanceMovedY)) {
-                //         directionDecided = 'left/right'
-                //         console.log('left/right')
-                //     } else if (Math.abs(distanceMovedX) < Math.abs(distanceMovedY)) {
-                //         directionDecided = 'up'
-                //         createProfileStats();
-                //         console.log('up')
-                //     };
-                // };
-
                 // // move along the x axis         
-                // if(directionDecided === 'left/right') {
+
                     swipeCard.style.left = distanceMovedX + 'px';
                     swipeCard.style.transform = `rotate(${distanceMovedX/6}deg)`;
-
-                // // moves y axis
-                // } else {
-                //     swipeCard.style.top = distanceMovedY + 'px';
-
-                // };
             });
-        }    
-  
-    });
-    // adds touchend event and determines the distance traveled across x coordinate to determine swipe ressult
-    swipeCard.addEventListener("touchend", function(endEvent) {
-        event.preventDefault();
-        var endArray = endEvent.changedTouches;
-        var primaryEnd = endArray.item(0);
-        var requiredDistance = 120;
-        var distanceMovedX = primaryEnd.screenX - primaryStart.screenX;
-        var distanceMovedY = primaryEnd.screenY - primaryStart.screenY;
-        // determines if necessary distance traveled is met
 
-        // determines if swiping left and right
-        if(Math.abs(distanceMovedX) > Math.abs(distanceMovedY)){
-            if (requiredDistance < distanceMovedX) {
-                console.log("true");
-                reloadSwipe();
-            } else if (-requiredDistance > distanceMovedX) {
-                console.log('false');
-                reloadSwipe();
-            } else {
-                console.log('reswipe');
-                reswipe();
-            };
-        // determines swipe up/down
-        } else {
+            // adds touchend event and determines the distance traveled across x coordinate to determine swipe ressult
+            swipeCard.addEventListener("touchend", function(endEvent) {
+                event.preventDefault();
+                var endArray = endEvent.changedTouches;
+                var primaryEnd = endArray.item(0);
+                var requiredDistance = 120;
+                var distanceMovedX = primaryEnd.screenX - primaryStart.screenX;
 
-            if (-requiredDistance > distanceMovedY) {
-                console.log("true");
-
-            } else {
-                console.log('reswipe');
-                reswipe();
-            }
-        }
+                // determines if necessary distance traveled is met
+                // determines if swiping left and right
+                if (requiredDistance < distanceMovedX) {
+                    console.log("true");
+                    reloadSwipe();
+                } else if (-requiredDistance > distanceMovedX) {
+                    console.log('false');
+                    reloadSwipe();
+                } else {
+                    console.log('reswipe');
+                    reswipe();
+                };
+            });
+    
+        };
     });
 };
 

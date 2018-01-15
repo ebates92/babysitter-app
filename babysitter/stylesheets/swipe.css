@@ -104,8 +104,5 @@ p {
     grid-row-start: 4;
     text-align: center;
     background-color: lightskyblue;
-}
-
-.fa-chevron-up {
     font-size: 2rem;
 }
