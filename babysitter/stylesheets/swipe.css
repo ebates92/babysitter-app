@@ -109,9 +109,3 @@ p {
 .fa-chevron-up {
     font-size: 2rem;
 }
-
-.chevron-down {
-    position: relative;
-    text-align: center;
-    background-color: lightskyblue;
-}

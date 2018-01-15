@@ -1,5 +1,4 @@
 
-
 var BABYSITTERDATA;
 var BABYSITTERIDS;
 
@@ -65,7 +64,7 @@ function bodyContainer () {
         .append(`<p class=name>${BABYSITTERDATA[babySitterId]['first-name']}</p>`)
         .append(`<p class=age bio-details>${BABYSITTERDATA[babySitterId]['gender']} - ${age} - ${BABYSITTERDATA[babySitterId]['city']}, ${BABYSITTERDATA[babySitterId]['state']}</p>`)
         .append(`<p class=experience bio-details>Experience: ${BABYSITTERDATA[babySitterId]['paid-experience']} - $${BABYSITTERDATA[babySitterId]['hourly-rate']}/hour</p>`)
-        .append(`<p class = chevron-box><i class="fa fa-chevron-up"></i><p>`)
+        .append(`<p class = chevron-box top=0px><i class="fa fa-chevron-up"></i><p>`)
     
     // checkbox
     var $checkBox = $('<div>', {
@@ -99,7 +98,6 @@ function grabBabysitters () {
 function swipeEvents () {
     var swipeCard = document.querySelector(".main-box");
     let chevron = document.querySelector(".chevron-box")
-    let surroundContentDiv = document.querySelector(".radius-babysitter-content")
     let primaryStart;
 
     // adds touch start event
@@ -107,37 +105,74 @@ function swipeEvents () {
         event.preventDefault();
         var startArray = startEvent.targetTouches;
         primaryStart = startArray.item(0);
-        var directionDecided = 0;
 
         // determine what has been clicked
         if (startEvent.target === chevron) {
+
+            // CHEVRON VARIABLES. Get the starting spot of the chevron div so that it can transition smoothly
+            // let topStart = ((window.getComputedStyle(chevron)).getPropertyValue('top')).replace('px','');
+            // let topStartParse = parseInt(topStart);
+            let topStyleStart;
+            const surroundContentDiv = document.querySelector(".radius-babysitter-content")
+            const surroundDivHeight = surroundContentDiv.clientHeight;
+            let firstPass = 0
+            let direction;
+            let directionValue;
+
             chevron.addEventListener('touchmove', function(moveEvent) {
                 event.preventDefault();
-                var moveArray = moveEvent.changedTouches;
-                var primaryMove = moveArray[0];
-                var distanceMovedY = primaryMove.screenY - primaryStart.screenY;
+
+                // set variables for each move event logged
+                let moveArray = moveEvent.changedTouches;
+                let primaryMove = moveArray[0];
+                let distanceMovedY = primaryMove.screenY - primaryStart.screenY;
+
+                // only do on first move event
+                if (firstPass === 0) {
+
+                    // establish direction and set variables
+                    if (distanceMovedY < 0) {
+                        direction = 'up';
+                        directionValue = "-";
+                        topStyleStart = 0;
+                    } else {
+                        direction = 'down'
+                        directionValue = ""
+                        topStyleStart = (-surroundDivHeight)+chevron.clientHeight
+                    }
+                    firstPass = 1;
+                    console.log(direction)
+                };
+
                 // move the chevron with finger
                 chevron.style.position = 'relative';
-                chevron.style.top = distanceMovedY +'px';
+                let moveTopPosition = topStyleStart + distanceMovedY;
+                chevron.style.top = moveTopPosition +'px';
+                chevron.style.transform = `translateY(0px)`;
             });
+
             chevron.addEventListener('touchend', function(endEvent) {
                 event.preventDefault();
                 requiredDistance = 120;
                 var endArray = endEvent.changedTouches;
                 var primaryEnd = endArray.item(0);
                 var distanceMovedY = primaryEnd.screenY - primaryStart.screenY;
-                console.log(distanceMovedY)
+
                 // did the vertical swipe travel far enough
-                if (-distanceMovedY > requiredDistance) {
-                    chevron.style.position = 'relative';
-                    console.log(surroundContentDiv.clientHeight)
-                    chevron.style.top = -(surroundContentDiv.clientHeight-chevron.clientHeight) +'px';
+                if (Math.abs(distanceMovedY) > requiredDistance) {
+
+                    // determines div size and automatically attaches to the top
+                    // takes swipecard height, subtracts the height of the chevron box to justify it to the top and then accounts for the distance already moved.
+                    let distanceNeededToMove = surroundDivHeight-(Math.abs(distanceMovedY)+Math.abs(chevron.clientHeight));
+                    chevron.style.transform = `translateY(${directionValue}${distanceNeededToMove}px)`;
+                    chevron.style.transitionDuration = '1s';
+                    chevron.style.transitionTimingFunction = 'cubic-bezier(.28,.79,.8,.96)';
                 } else {
-                    // will need to reset the chevron
+                    chevron.style.top = `0px`;
+                    chevron.style.transform = `translateY(${topStyleStart}px)`;
+                    chevron.style.transitionDuration = '1s';
                 }
             })
-
-
 
         } else {
         
