@@ -23,7 +23,7 @@ function fileStarter(x){
             }
 
     } else if (size > 3.5) {
-        document.getElementById("error").innerHTML= "File is too large ! Largest acceptable file size is 3.5Mb!";
+        document.getElementById("error").innerHTML="File is too large ! Largest acceptable file size is 3.5Mb!";
         $("error").toggleClass('block'); 
 
     } else {
