@@ -1,28 +1,28 @@
-/* html {
+html {
     box-sizing: border-box;
     font-size: 8px;
     height: 100%;
     background: rgb(242,242,242);
-} */
+}
 
 *, *:before, *:after {
     box-sizing: inherit;
 }
 
-/* body {
+body {
     display: flex;
     flex-direction: column;
     padding: 2rem;
     height: 100%;
-    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     margin: 2rem;
     background: rgba(252, 252, 252);
     border-radius: 1rem;
-} */
+}
 
 /* form */
 
-.form-intro, .request {
+.form-intro, p {
     margin: 0;
 }
 
@@ -38,21 +38,21 @@
     color: white;
 }
 
-.request {
+p {
     font-size: 1.5rem;
     padding-bottom: 1.5rem;
 }
 
 /* chart */
 
-#schedule {
+table {
     margin-right: auto;
     margin-left: auto;
     background: white;
     margin-bottom: 1.5rem;
 }
 
-.weekday{
+th, td {
     width: 10vw;
     height: 10vw;
     text-align: center;
@@ -60,20 +60,7 @@
     font-size: 1.5rem;
 }
 
-.day-box{
-    width: 10vw;
-    height: 10vw;
-    text-align: center;
-    border: 1px solid black;
-    font-size: 1.5rem;
-}
-
-.time-of-day{
-    width: 10vw;
-    height: 10vw;
-    text-align: center;
-    border: 1px solid black;
-    font-size: 1.5rem;
+.time-of-day {
     text-align: left;
     width: auto;
     padding: 1.5vw;
