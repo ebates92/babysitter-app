@@ -1,15 +1,15 @@
-html {
+/* html {
     box-sizing: border-box;
     font-size: 8px;
     height: 100%;
     background: rgb(242,242,242);
-}
+} */
 
 *, *:before, *:after {
     box-sizing: inherit;
 }
 
-body {
+/* body {
     display: flex;
     flex-direction: column;
     padding: 2rem;
@@ -18,11 +18,11 @@ body {
     margin: 2rem;
     background: rgba(252, 252, 252);
     border-radius: 1rem;
-}
+} */
 
 /* form */
 
-.form-intro, p {
+.form-intro, .request {
     margin: 0;
 }
 
@@ -38,7 +38,7 @@ body {
     color: white;
 }
 
-p {
+.request {
     font-size: 1.5rem;
     padding-bottom: 1.5rem;
 }

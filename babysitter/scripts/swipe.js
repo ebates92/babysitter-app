@@ -2,6 +2,11 @@
 var BABYSITTERDATA;
 var BABYSITTERIDS;
 
+const checkOrNo = {
+    yes: '&check;',
+    no: ''
+};
+
 // gets babysitter data from JSON file
 // MUST USE MY-LITTLE-CORS-PROXY AND THEN NODE APP.JS SIMULTANEOUSLY
 
@@ -60,12 +65,72 @@ function bodyContainer () {
         'src': BABYSITTERDATA[babySitterId]["image"]
     });
 
+    // calendar elements
+
+    var $profileCalendar = $('<div>', {
+        'class': 'profile-calendar'
+    })
+        .append(`
+        <table>
+            <tr>
+                <th class="time-of-day"></th>
+                <th class="weekday">S</th>
+                <th class="weekday">M</th>
+                <th class="weekday">T</th>
+                <th class="weekday">W</th>
+                <th class="weekday">T</th>
+                <th class="weekday">F</th>
+                <th class="weekday">S</th>
+            </tr>
+            <tr>
+                <td class="time-of-day">Morning</td>
+                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['availability']['morning'][0]]}</td>
+                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['availability']['morning'][1]]}</td>
+                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['availability']['morning'][2]]}</td>
+                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['availability']['morning'][3]]}</td>
+                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['availability']['morning'][4]]}</td>
+                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['availability']['morning'][5]]}</td>
+                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['availability']['morning'][6]]}</td>
+            </tr>
+            <tr>
+                <td class="time-of-day">Afternoon</td>
+                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['availability']['afternoon'][0]]}</td>
+                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['availability']['afternoon'][1]]}</td>
+                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['availability']['afternoon'][2]]}</td>
+                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['availability']['afternoon'][3]]}</td>
+                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['availability']['afternoon'][4]]}</td>
+                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['availability']['afternoon'][5]]}</td>
+                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['availability']['afternoon'][6]]}</td>
+            </tr>
+            <tr>
+                <td class="time-of-day">Evening</td>
+                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['availability']['evening'][0]]}</td>
+                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['availability']['evening'][1]]}</td>
+                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['availability']['evening'][2]]}</td>
+                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['availability']['evening'][3]]}</td>
+                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['availability']['evening'][4]]}</td>
+                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['availability']['evening'][5]]}</td>
+                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['availability']['evening'][6]]}</td>
+            </tr>
+            <tr>
+                <td class="time-of-day">Overnight</td>
+                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['availability']['overnight'][0]]}</td>
+                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['availability']['overnight'][1]]}</td>
+                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['availability']['overnight'][2]]}</td>
+                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['availability']['overnight'][3]]}</td>
+                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['availability']['overnight'][4]]}</td>
+                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['availability']['overnight'][5]]}</td>
+                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['availability']['overnight'][6]]}</td>
+            </tr>
+        </table>`)
+
     // profile elements
     var $profileElements = $('<div>', {
         'class': 'profile-page'
     })
         .append(`<div class = profile-icons><div class='profile-icon'>Image#1</div><div class='profile-icon'>Image#2</div><div class='profile-icon'>Image#3</div><div class='profile-icon'>Image#4</div></div>`)
         .append(`<div class = profile-description>${BABYSITTERDATA[babySitterId]['description']}</div>`)
+        .append($profileCalendar)
         .append(`<div class=profile-bottom><div class=language>${BABYSITTERDATA[babySitterId]['languages']}</div><div class=age-group>${BABYSITTERDATA[babySitterId]['age-group']}</div></div>`)
 
     // chevron/profile container
@@ -74,7 +139,6 @@ function bodyContainer () {
     })
         .append(`<p class = chevron-box><i class="fa chevron-icon fa-chevron-up"></i></p>`)
         .append($profileElements)
-        // .append(`<div><h3>profile</h3><h3>profile</h3><h3>profile</h3><h3>profile</h3><h3>profile</h3><h3>profile</h3></div></div>`)
 
     // swipe description
     var $babysitterDescription = $('<div>', {
@@ -83,7 +147,6 @@ function bodyContainer () {
         .append(`<p class=name>${BABYSITTERDATA[babySitterId]['first-name']}</p>`)
         .append(`<p class=age bio-details>${BABYSITTERDATA[babySitterId]['gender']} - ${age} - ${BABYSITTERDATA[babySitterId]['city']}, ${BABYSITTERDATA[babySitterId]['state']}</p>`)
         .append(`<p class=experience bio-details>Experience: ${BABYSITTERDATA[babySitterId]['paid-experience']} - $${BABYSITTERDATA[babySitterId]['hourly-rate']}/hour</p>`)
-        // .append(`<div class="chevron-container"><p class = chevron-box><i class="fa chevron-icon fa-chevron-up"></i></p><div><h3>profile</h3><h3>profile</h3><h3>profile</h3><h3>profile</h3><h3>profile</h3><h3>profile</h3></div></div>`)
         .append($babysitterProfile)
 
     // checkbox
