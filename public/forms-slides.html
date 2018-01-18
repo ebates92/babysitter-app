@@ -7,7 +7,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="stylesheets/filters.css">
     <link rel="stylesheet" href="stylesheets/calendar.css">
+    <link rel="stylesheet" href="stylesheets/main.css">
     <link rel="stylesheet" href="stylesheets/form-styles.css">
     <title>Form Submission</title>
 </head>
@@ -159,8 +161,55 @@
                             <label for="maxMiles"> Miles</label>
                         </p>
                         <p>
+                            <div class=space></div>
                             <label for="car">Do you have your own transportation?</label>
+                            <div class="shift">
+                                <label class="custom-control custom-radio">
+                                    <input id="radio1" name="car" type="radio" class="custom-control-input">
+                                    <span class="custom-control-description"><img class="form-image" src="images/car_image.png"></span>
+                                </label>
+                                <label class="custom-control custom-radio">
+                                    <input id="radio2" name="car" type="radio" checked="checked" class="custom-control-input">
+                                    <span class="custom-control-description"><img class="form-image" src="images/car_image_no.png"></span>
+                                </label>
+                            </div>
                         </p>
+                    </fieldset>
+                    <fieldset class="step">
+                        <legend>Additional Preferences</legend>
+                        <p>
+                            <div class=space></div>
+                            <label for="smoking">Do you smoke?</label>
+                            <div class="shift">
+                                <label class="custom-control custom-radio">
+                                    <input id="likes-pets" name="smoking" type="radio" class="custom-control-input">
+                                    <span class="custom-control-description"><img class="form-image" src="images/smoking.png"></span>
+                                </label>
+                                <label class="custom-control custom-radio">
+                                    <input id="radio2" name="smoking" type="radio" checked="checked" class="custom-control-input">
+                                    <span class="custom-control-description"><img class="form-image" src="images/smoking_no.png"></span>
+                                </label>
+                            </div>
+                        </p>
+                        <p>
+                            <div class=space></div>
+                            <label for="pets">Comfortable with pets?</label>
+                            <div class="shift">
+                                <label class="custom-control custom-radio">
+                                    <input id="radio1" name="pets" type="radio" class="custom-control-input likes-pets">
+                                    <span class="custom-control-description"><img class="form-image" src="images/cat_dog_image.png"></span>
+                                </label>
+                                <label class="custom-control custom-radio">
+                                    <input id="radio2" name="pets" type="radio" checked="checked" class="custom-control-input does-not-like-pets">
+                                    <span class="custom-control-description"><img class="form-image" src="images/cat_dog_image_no.png"></span>
+                                </label>
+                            </div>
+                            <div id="pets" class="shift hidden">
+                                <label class="checkbox-inline"><input type="checkbox" name="dog" value=""><img class="form-image" src="images/dog_image.png"></label>
+                                <label class="checkbox-inline"><input type="checkbox" name="cat" value=""><img class="form-image cat-image" src="images/cat_image.png"></label>
+                            </div>
+                        </p>
+                        
                     </fieldset>
                     <fieldset class="step">
                         <legend>Experience</legend>
@@ -263,19 +312,19 @@
                     <fieldset class="step">
                         <legend>Upload Profile Image</legend>
                         <div id="image-container" class="preview">
-                                Preview
+                            <label for="profile-pic" type="button">
+                                <img src="images/camera.png"/>
+                        </label>
                         </div>
-                        <form action="#" method="post" enctype="multipart/form-data" onsubmit="console.log('Image Uploaded')">
+                        <!-- <form action="#" method="post" enctype="multipart/form-data" onsubmit="console.log('Image Uploaded')"> -->
                                 <div class="input">
-                                        <label for="profile-pic">
-                                                <img src="images/camera.png"/>
-                                        </label>
-                                        <input type="file" class="form-control-file" id="profile-pic" onchange="fileStarter(this);">
+                                    <input type="file" class="form-control-file" id="profile-pic" onchange="fileStarter(this);">
                                 </div>
                                 <div class="invalid" id="error"></div>
-                                <div class="confirmation" id="confirmation">
-                                        <input type="submit" name="submit" class="btn btn-primary" value="Upload Image">
-                                </div>
+                    </fieldset>
+                    <fieldset class="step">
+                        <legend>Please verify that all your information is correct</legend>
+                        <input type="submit" name="submit" class="btn btn-primary" value="Sign Up">
                     </fieldset>
                 </form>
             </div>
@@ -287,10 +336,11 @@
                 <span class="dot" onclick="currentSlide(1)">My Info</span> 
                 <span class="dot" onclick="currentSlide(2)">Address</span> 
                 <span class="dot" onclick="currentSlide(3)">Preferences</span>
-                <span class="dot" onclick="currentSlide(4)">Experience</span> 
-                <span class="dot" onclick="currentSlide(5)">Schedule</span> 
-                <span class="dot" onclick="currentSlide(6)">Image</span>
-                <span class="dot" onclick="currentSlide(7)">Confirm</span>
+                <span class="dot" onclick="currentSlide(4)">Add'l Pref</span>
+                <span class="dot" onclick="currentSlide(5)">Experience</span> 
+                <span class="dot" onclick="currentSlide(6)">Schedule</span> 
+                <span class="dot" onclick="currentSlide(7)">Image</span>
+                <span class="dot" onclick="currentSlide(8)">Confirm</span>
             </div>
         </div>
     </div>
@@ -306,6 +356,7 @@
           } );</script>
     <script src="scripts/calendar.js"></script>
     <script src="scripts/main.js"></script>
+    <script src="scripts/image_upload.js"></script>
     <script src="scripts/slidingform.js"></script>
 </body>
 </html>

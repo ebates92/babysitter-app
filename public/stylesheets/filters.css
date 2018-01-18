@@ -8,19 +8,19 @@ html {
     box-sizing: inherit;
 }
 
-body {
+/* body {
     background: rgb(242,242,242);
 }
 
 /* form container */
-form {
+/* form {
     margin: 2rem;
     padding: 2rem 10%;
     background: rgb(252, 252, 252);
-    /* border: .2rem solid grey; */
+    border: .2rem solid grey;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 1rem;
-}
+}  */
 
 label {
     font-size: 1.75rem;
