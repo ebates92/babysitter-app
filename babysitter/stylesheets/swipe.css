@@ -14,19 +14,29 @@ body {
 .main-box {
     grid-column-start: 2;
     grid-row-start: 2;
-    display: grid;
-    grid-template-rows: 8fr 1fr 1fr;
+
     position: relative;
     width: 100%;
     height: auto;
     padding: 2rem;
     margin: 0;
+    border-radius: 1rem;
+}
+
+.radius-babysitter-content {
+    border-radius: 1.2rem;
+    display: grid;
+    grid-template-rows: 28rem 12rem;
+    overflow:hidden;
+    border: .1px solid white;
+    color: rgb(0,74,119);
 }
 
 .babysitter-description {
-    display: flex;
-    justify-content: space-between;
-    align-content: center;
+    display: grid;
+    grid-template-rows: 2fr 1fr 1fr 1fr;
+    grid-template-columns: 1;
+    background-color: rgb(218, 213, 213);
 }
 
 img {
@@ -44,15 +54,15 @@ p {
 .behind {
     z-index: -1;
 }
-
+/* 
 .checkbox-panel {
     display: grid;
     grid-template-columns: 50% 50%;
     justify-content: center;
     align-content: center;
-}
+} */
 
-.like, .dont-like {
+/* .like, .dont-like {
     text-align: center;
     display: inline-block;
     height: 100%;
@@ -65,4 +75,85 @@ p {
 
 .dont-like {
     grid-column-start: 1;
+} */
+
+/* MAIN SWIPE DATA */
+
+.name {
+    font-size: 2.5rem;
+    grid-row-start: 1;
+    text-align: center;
 }
+
+.gender, .age, .location,.experience, .hourly-rate  {
+    color: rgb(2,94,150);
+}
+
+.gender, .age, .location {
+    grid-row-start: 2;
+    text-align: center;
+    margin-bottom: .5rem;
+}
+
+.experience, .hourly-rate {
+    grid-row-start: 3;
+    text-align: center;
+    margin-bottom: .5rem;
+}
+
+/* PROFILE PAGE */
+
+.chevron-container {
+    background-color: rgb(218, 213, 213);
+}
+
+.chevron-box {
+    grid-row-start: 4;
+    text-align: center;
+    background-color: lightskyblue;
+    font-size: 2rem;
+    height: 3.5rem;
+}
+
+.profile-page {
+    padding: 1rem;
+    font-size: 1.5rem;
+}
+
+.profile-icons{
+    display:flex;
+    justify-content: space-around;
+    margin-bottom: 1rem;
+}
+
+.profile-icon {
+    display: inline-block;
+}
+
+.profile-description {
+
+    margin-bottom:1rem;
+    padding: .3rem;
+    border: .1rem solid rgb(57, 57, 57);
+    background-color:white;
+    border-radius: .3rem;
+}
+
+.profile-bottom {
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.language, .age-group {
+    padding: 1rem;
+}
+
+.language {
+    grid-column-start: 1;
+}
+
+.age-group {
+    grid-column-start: 2;
+}
+
+
