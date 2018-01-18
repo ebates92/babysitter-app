@@ -7,14 +7,20 @@ const Babysitter = connection.define('babysitter', {
         unique: true,
         allowNull: false,
         validate: {
-            is: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+            is: {
+                args: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                msg: 'Please enter a valid email address.'
+            }
         }
     },
     password: {
         type: Sequelize.STRING,
         allowNull: false,
         validate: {
-            is: /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/,
+            is: {
+                args: /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/,
+                msg: 'Passwords must contain a combination of 6 characters, capital letters, lowercase letters and special characters.'
+            }
         }
     },
     firstname: {
@@ -37,9 +43,6 @@ const Babysitter = connection.define('babysitter', {
     zipcode: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        validate: {
-            is: /^[0-9]+$/,
-        }
     },
     image: {
         type: Sequelize.STRING,
@@ -47,9 +50,6 @@ const Babysitter = connection.define('babysitter', {
     birthyear: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        validate: {
-            is: /^[0-9]+$/
-        }
     },
     birthmonth: {
         type: Sequelize.INTEGER,
@@ -62,12 +62,18 @@ const Babysitter = connection.define('babysitter', {
     gender: {
         type: Sequelize.STRING,
         allowNull: false,
+        validate: {
+            is: {
+                args: /^male$|^female$/,
+                msg: 'The value for gender must be either male or female.'
+            }
+        }
     },
     maxchildren: {
         type: Sequelize.INTEGER,
     },
-    paidexperience: {
-        type: Sequelize.INTEGER,
+    experience: {
+        type: Sequelize.STRING,
     },
     hourlyrate: {
         type: Sequelize.INTEGER,
@@ -80,13 +86,19 @@ const Babysitter = connection.define('babysitter', {
     agegroup: {
         type: Sequelize.STRING,
     },
-    description: {
+    summary: {
         type: Sequelize.TEXT,
+        validate: {
+            len:{
+                args: [20,150],
+                msg: 'Please enter between 20 - 150 characters.'
+            }
+        }
     },
     education: {
         type: Sequelize.STRING,
     },
-    schoolname: {
+    institution: {
         type: Sequelize.STRING,
     },
     languages: {
@@ -96,27 +108,61 @@ const Babysitter = connection.define('babysitter', {
     transportation: {
         type: Sequelize.STRING,
         allowNull: false,
+        validate: {
+            is: {
+                // arg: /^yes$|^no$/,
+                // msg: 'The value for transportation must be yes or no.'
+            }
+        }
     },
     smoke: {
         type: Sequelize.STRING,
         allowNull: false,
+        validate: {
+            is: {
+                // arg: /^yes$|^no$/,
+                // msg: 'The value for smoking must be yes or no.'
+            }
+        }
     },
     pets: {
         type: Sequelize.STRING,
         allowNull: false,
+        validate: {
+            is: {
+                // arg: /^yes$|^no$/,
+                // msg: 'The value for liking pets must be yes or no.'
+            }
+        }
     },
     cats: {
         type: Sequelize.STRING,
         allowNull: false,
+        validate: {
+            is: {
+                // arg: /^yes$|^no$/,
+                // msg: 'The value for liking cats must be yes or no.'
+            }
+        }
     },
     dogs: {
         type: Sequelize.STRING,
         allowNull: false,
-    },
+        validate: {
+            is: {
+                // arg: /^yes$|^no$/,
+                // msg: 'The value for liking dogs must be yes or no.'
+            }
+        }
+    }
 });
 
+
+// on first run you will need to enable force = true
 connection.sync ({
-    force: true
+    // force: true
 }).then( () => {
 
 });
+
+module.exports = Babysitter;
