@@ -3,8 +3,8 @@ var BABYSITTERDATA;
 var BABYSITTERIDS;
 
 const checkOrNo = {
-    yes: '&check;',
-    no: ''
+    true: '&check;',
+    false: ''
 };
 
 // gets babysitter data from JSON file
@@ -20,7 +20,6 @@ function getBabysitters (callback1, callback2, callback3) {
         callback3();
     });
 };
-
 
 // creates swipe container
 function bodyContainer () {
@@ -86,43 +85,43 @@ function bodyContainer () {
             </tr>
             <tr>
                 <td class="time-of-day">Morning</td>
-                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['availability']['morning'][0]]}</td>
-                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['availability']['morning'][1]]}</td>
-                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['availability']['morning'][2]]}</td>
-                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['availability']['morning'][3]]}</td>
-                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['availability']['morning'][4]]}</td>
-                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['availability']['morning'][5]]}</td>
-                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['availability']['morning'][6]]}</td>
+                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['sun_morning']]}</td>
+                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['mon_morning']]}</td>
+                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['tues_morning']]}</td>
+                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['wed_morning']]}</td>
+                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['thurs_morning']]}</td>
+                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['fri_morning']]}</td>
+                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['sat_morning']]}</td>
             </tr>
             <tr>
                 <td class="time-of-day">Afternoon</td>
-                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['availability']['afternoon'][0]]}</td>
-                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['availability']['afternoon'][1]]}</td>
-                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['availability']['afternoon'][2]]}</td>
-                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['availability']['afternoon'][3]]}</td>
-                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['availability']['afternoon'][4]]}</td>
-                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['availability']['afternoon'][5]]}</td>
-                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['availability']['afternoon'][6]]}</td>
+                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['sun_afternoon']]}</td>
+                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['mon_afternoon']]}</td>
+                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['tues_afternoon']]}</td>
+                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['wed_afternoon']]}</td>
+                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['thurs_afternoon']]}</td>
+                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['fri_afternoon']]}</td>
+                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['sat_afternoon']]}</td>
             </tr>
             <tr>
                 <td class="time-of-day">Evening</td>
-                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['availability']['evening'][0]]}</td>
-                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['availability']['evening'][1]]}</td>
-                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['availability']['evening'][2]]}</td>
-                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['availability']['evening'][3]]}</td>
-                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['availability']['evening'][4]]}</td>
-                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['availability']['evening'][5]]}</td>
-                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['availability']['evening'][6]]}</td>
+                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['sun_evening']]}</td>
+                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['mon_evening']]}</td>
+                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['tues_evening']]}</td>
+                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['wed_evening']]}</td>
+                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['thurs_evening']]}</td>
+                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['fri_evening']]}</td>
+                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['sat_evening']]}</td>
             </tr>
             <tr>
                 <td class="time-of-day">Overnight</td>
-                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['availability']['overnight'][0]]}</td>
-                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['availability']['overnight'][1]]}</td>
-                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['availability']['overnight'][2]]}</td>
-                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['availability']['overnight'][3]]}</td>
-                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['availability']['overnight'][4]]}</td>
-                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['availability']['overnight'][5]]}</td>
-                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['availability']['overnight'][6]]}</td>
+                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['sun_overnight']]}</td>
+                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['mon_overnight']]}</td>
+                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['tues_overnight']]}</td>
+                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['wed_overnight']]}</td>
+                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['thurs_overnight']]}</td>
+                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['fri_overnight']]}</td>
+                <td class="day-box">${checkOrNo[BABYSITTERDATA[babySitterId]['sat_overnight']]}</td>
             </tr>
         </table>`)
 
@@ -131,7 +130,7 @@ function bodyContainer () {
         'class': 'profile-page'
     })
         .append(`<div class = profile-icons><div class='profile-icon'>Image#1</div><div class='profile-icon'>Image#2</div><div class='profile-icon'>Image#3</div><div class='profile-icon'>Image#4</div></div>`)
-        .append(`<div class = profile-description>${BABYSITTERDATA[babySitterId]['description']}</div>`)
+        .append(`<div class = profile-description>${BABYSITTERDATA[babySitterId]['summary']}</div>`)
         .append($profileCalendar)
         .append(`<div class=profile-bottom><div class=language>${BABYSITTERDATA[babySitterId]['languages']}</div><div class=age-group>${BABYSITTERDATA[babySitterId]['age-group']}</div></div>`)
 
@@ -146,9 +145,9 @@ function bodyContainer () {
     var $babysitterDescription = $('<div>', {
         'class':'babysitter-description'
     })
-        .append(`<p class=name>${BABYSITTERDATA[babySitterId]['first-name']}</p>`)
+        .append(`<p class=name>${BABYSITTERDATA[babySitterId]['firstname']}</p>`)
         .append(`<p class=age bio-details>${BABYSITTERDATA[babySitterId]['gender']} - ${age} - ${BABYSITTERDATA[babySitterId]['city']}, ${BABYSITTERDATA[babySitterId]['state']}</p>`)
-        .append(`<p class=experience bio-details>Experience: ${BABYSITTERDATA[babySitterId]['paid-experience']} - $${BABYSITTERDATA[babySitterId]['hourly-rate']}/hour</p>`)
+        .append(`<p class=experience bio-details>Experience: ${BABYSITTERDATA[babySitterId]['experience']} - $${BABYSITTERDATA[babySitterId]['hourlyrate']}/hour</p>`)
         .append($babysitterProfile)
 
     // checkbox

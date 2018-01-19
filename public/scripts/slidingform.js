@@ -153,11 +153,13 @@ function fileStarter(x){
 $('.day-box').on("click", function (event) {
     console.log(event.target)
     $(this).toggleClass('selected');
-    if (event.target.innerHTML === '') {
-        event.target.innerHTML = "&check;";
-    } else {
-        event.target.innerHTML = "";
-    }
+    // if (event.target.innerHTML === '') {
+    //     event.target.innerHTML = "&check;";
+    //     event.target.setAttribute('value','true');
+    // } else {
+    //     event.target.innerHTML = "";
+    //     event.target.setAttribute('value','false');
+    // }
 });
 
 $( function() {

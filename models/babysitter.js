@@ -155,90 +155,90 @@ const Babysitter = connection.define('babysitter', {
         //     }
         // }
     },
-    SunMorning: {
+    sun_morning: {
         type: Sequelize.BOOLEAN
     },
-    SunAfternoon: {
+    sun_afternoon: {
         type: Sequelize.BOOLEAN
     },
-    SunEvening: {
+    sun_evening: {
         type: Sequelize.BOOLEAN
     },
-    SunOvernight: {
+    sun_overnight: {
         type: Sequelize.BOOLEAN
     },
-    MonMorning: {
+    mon_morning: {
         type: Sequelize.BOOLEAN
     },
-    MonAfternoon: {
+    mon_afternoon: {
         type: Sequelize.BOOLEAN
     },
-    MonEvening: {
+    mon_evening: {
         type: Sequelize.BOOLEAN
     },
-    MonOvernight: {
+    mon_overnight: {
         type: Sequelize.BOOLEAN
     },
-    TuesMorning: {
+    tues_morning: {
         type: Sequelize.BOOLEAN
     },
-    TuesAfternoon: {
+    tues_afternoon: {
         type: Sequelize.BOOLEAN
     },
-    TuesEvening: {
+    tues_evening: {
         type: Sequelize.BOOLEAN
     },
-    TuesOvernight: {
+    tues_overnight: {
         type: Sequelize.BOOLEAN
     },
-    WedMorning: {
+    wed_morning: {
         type: Sequelize.BOOLEAN
     },
-    WedAfternoon: {
+    wed_afternoon: {
         type: Sequelize.BOOLEAN
     },
-    WedEvening: {
+    wed_evening: {
         type: Sequelize.BOOLEAN
     },
-    WedOvernight: {
+    wed_overnight: {
         type: Sequelize.BOOLEAN
     },
-    ThurMorning: {
+    thurs_morning: {
         type: Sequelize.BOOLEAN
     },
-    ThurAfternoon: {
+    thurs_afternoon: {
         type: Sequelize.BOOLEAN
     },
-    ThurEvening: {
+    thurs_evening: {
         type: Sequelize.BOOLEAN
     },
-    ThurOvernight: {
+    thurs_overnight: {
         type: Sequelize.BOOLEAN
     },
-    FriMorning: {
+    fri_morning: {
         type: Sequelize.BOOLEAN
     },
-    FriAfternoon: {
+    fri_afternoon: {
         type: Sequelize.BOOLEAN
     },
-    FriEvening: {
+    fri_evening: {
         type: Sequelize.BOOLEAN
     },
-    FriOvernight: {
+    fri_overnight: {
         type: Sequelize.BOOLEAN
     },
-    SatMorning: {
+    sat_morning: {
         type: Sequelize.BOOLEAN
     },
-    SatAfternoon: {
+    sat_afternoon: {
         type: Sequelize.BOOLEAN
     },
-    SatEvening: {
+    sat_evening: {
         type: Sequelize.BOOLEAN
     },
-    SatOvernight: {
+    sat_overnight: {
         type: Sequelize.BOOLEAN
-    }
+    },
 });
 
 
