@@ -7,7 +7,6 @@ const Availability = require('../models/calendar')
 // POST babysitter form into database
 router.route('/babysitter')
   .post((req, res, next) => {
-      console.log(req.body)
       Babysitter.create({
         emailaddress: req.body.emailaddress,
         password: req.body.password,
@@ -66,9 +65,10 @@ router.route('/babysitter')
         SatEvening: req.body.SatEvening,
         SatOvernight: req.body.SatOvernight
       }).then(newBabysitter => {
-        console.log(newBabysitter)
         res.render('form-success.hbs', {
-          name: `Evan Bates`
+          name: `${newBabysitter.dataValues.firstname} ${newBabysitter.dataValues.lastname}`,
+          firstname: newBabysitter.dataValues.firstname,
+          type: 'babysitter'
         });
       })
     });
@@ -77,7 +77,6 @@ router.route('/babysitter')
 // POST parent form into database
 router.route('/parent')
 .post((req, res, next) => {
-    console.log(req.body)
     Parent.create({
       emailaddress: req.body.emailaddress,
       password: req.body.password,
@@ -107,10 +106,11 @@ router.route('/parent')
       girls_12_years: req.body.girls_12_years,
       dog: req.body.dog,
       cat:req.body.cat
-    }).then(newBabysitter => {
-      console.log(newBabysitter)
+    }).then(newParent => {
       res.render('form-success.hbs', {
-        name: 'Evan Bates'
+        name: `${newParent.dataValues.firstname} ${newParent.dataValues.lastname}`,
+        firstname: newParent.dataValues.firstname,
+        type: 'parent'
       });
     })
   });

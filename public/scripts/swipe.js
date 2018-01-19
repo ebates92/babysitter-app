@@ -11,7 +11,7 @@ const checkOrNo = {
 // MUST USE MY-LITTLE-CORS-PROXY AND THEN NODE APP.JS SIMULTANEOUSLY
 
 function getBabysitters (callback1, callback2, callback3) {
-    $.get('scripts/test-data.json',function(data) {
+    $.get('/swipe/babysitters',function(data) {
         BABYSITTERDATA = data;
         BABYSITTERIDS = Object.keys(BABYSITTERDATA);
         console.log(BABYSITTERDATA);
@@ -26,6 +26,8 @@ function getBabysitters (callback1, callback2, callback3) {
 function bodyContainer () {
     // random babysitter selected
     var babySitterId = grabBabysitters();
+    console.log(babySitterId);
+    console.log(BABYSITTERDATA)
     const surroundContentDiv = $(".radius-babysitter-content")
     const surroundDivHeight = surroundContentDiv.height();
     console.log(surroundDivHeight)
