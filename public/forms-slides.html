@@ -15,9 +15,16 @@
 </head>
 <body>
     <div id="slides-container">
-        <!-- <h2>
-            Please fill out the following information:
-        </h2> -->
+        <div style="text-align:center" class="buttons">
+            <span class="dot" onclick="currentSlide(1)">My Info</span> 
+            <span class="dot" onclick="currentSlide(2)">Address</span> 
+            <span class="dot" onclick="currentSlide(3)">Preferences</span>
+            <span class="dot" onclick="currentSlide(4)">Add'l Pref</span>
+            <span class="dot" onclick="currentSlide(5)">Experience</span> 
+            <span class="dot" onclick="currentSlide(6)">Schedule</span> 
+            <span class="dot" onclick="currentSlide(7)">Image</span>
+            <span class="dot" onclick="currentSlide(8)">Confirm</span>
+        </div>
             <div id="steps">
                 <form id="formElement" name="formElement" action="" method="post">
                     <fieldset class="step">
@@ -64,7 +71,7 @@
                             </label>
                         </p>
                     </fieldset>
-                    <fieldset class="step">
+                    <fieldset class="step fade">
                         <legend>Address Information</legend>
                         <p>
                             <label for="address">Address</label>
@@ -253,6 +260,17 @@
                                 <option>5+</option>
                             </select>
                         </p>
+                        <p>
+                            <label for="language">Please list the languages you are fluent in:</label>
+                            <input type='text' id='language' onclick="this.value=''" placeholder="Five languages max" data-language-input />
+                            <input type='button' value='Add language' id='add' data-add-language />
+                            <div class="alert hide" role="alert" data-alert></div>
+                            <div>
+                                <ul id='list'>
+                                        
+                                </ul>
+                            </div>
+                        </p>
                     </fieldset>
                     <fieldset class="step">
                         <legend>Set your schedule</legend>
@@ -347,16 +365,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>
-            $( function() {
-            $( "#datepicker" ).datepicker({
-              changeMonth: true,
-              changeYear: true
-            });
-          } );</script>
-    <script src="scripts/calendar.js"></script>
-    <script src="scripts/main.js"></script>
-    <script src="scripts/image_upload.js"></script>
     <script src="scripts/slidingform.js"></script>
 </body>
 </html>
