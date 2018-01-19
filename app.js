@@ -5,7 +5,9 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+// ROUTING FILES
 var formRouting = require('./routes/form-routing');
+var swipeRouting = require('./routes/swipe-routing')
 
 var app = express();
 
@@ -21,7 +23,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// USING THE ROUTE FILES
 app.use('/form', formRouting);
+app.use('/swipe', swipeRouting);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -1,17 +1,18 @@
 var express = require('express');
 var router = express.Router();
 const Babysitter = require('../models/babysitter')
-const Parent = require('../models/parent')
+// const Parent = require('../models/parent')
 
-// POST babysitter form into database
-router.route('/babysitter')
+// GET Babysitter data to share with Parents
+router.route('/babysitters')
   .get((req, res, next) => {
-      }).then(newBabysitter => {
-        res.render('form-success.hbs', {
-          name: `${newBabysitter.dataValues.firstname} ${newBabysitter.dataValues.lastname}`,
-          firstname: newBabysitter.dataValues.firstname,
-          type: 'babysitter'
-        });
-    });
+    console.log('I MADE IT TO HERE*************')
+    Babysitter.findAll().then((babysitter_data) =>{
+      console.log(babysitter_data)
+      res.send(babysitter_data);
+    }).catch((err) => {
+      console.log(err);
+    })
+  });
 
 module.exports = router;
