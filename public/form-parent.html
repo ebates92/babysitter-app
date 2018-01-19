@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="stylesheets/main.css">
+    <link rel="stylesheet" href="stylesheets/form-styles.css">
+    <title>Form Submission</title>
+</head>
+<body>
+        <div id="slides-container">
+            <!-- <h2>
+                Please fill out the following information:
+            </h2> -->
+                <div id="steps">
+                    <form id="formElement" name="formElement" action="/form/parent" method="post">
+                        <fieldset class="step">
+                            <legend>Personal Details</legend>
+                            <p>
+                                <lable for="firstname">First Name</lable>
+                                <input id="firstname" name ="firstname" />
+                            </p>
+                            <p>
+                                <label for="lastname">Last Name</label>
+                                <input id="lastname" name="lastname" />
+                            </p>
+                            <p>
+                                <label for="datepicker">Birthdate</label>
+                                <input type="text" name="datepicker" id="datepicker"></p>
+                            </p>
+                            <p>
+                                <label for="form-check">Gender</label>
+                                    <span class="form-check">
+                                        <label class="form-check-label">
+                                            <input class="form-check-input" type="radio" name="gender" id="radio1" value="Male" checked>
+                                            Male
+                                        </label>
+                                    </span>
+                                    <span class="form-check">
+                                        <label class="form-check-label">
+                                            <input class="form-check-input" type="radio" name="gender" id="radio2" value="Female">
+                                            Female
+                                        </label>
+                                    </span>
+                            </p>
+                            <p>
+                                <lable for="emailaddress">Email Address</lable>
+                                <input id="emailaddress" name="emailaddress" />
+                            </p>
+                            <p>
+                                <lable for="password">Password</lable>
+                                <input id="password" name="password" type="password" autocomplete="off" />
+                            </p>
+                            <p>
+                                <label>
+                                    <input type="checkbox" />
+                                    Remember Me
+                                </label>
+                            </p>
+                        </fieldset>
+                        <fieldset class="step">
+                            <legend>Address Information</legend>
+                            <p>
+                                <label for="address">Address</label>
+                                <input id="address" name="address" placeholder="123 Main St">
+                            </p>
+                            <p>
+                                <label for="city">City</label>
+                                <input id="city" name="city" placeholder="Atlanta">
+                            </p>
+                            <p>
+                                <label for="state">State</label>
+                                <select id="state" name="state">
+                                    <option value="breaker" disabled>Select State</option>
+                                    <option value="alabama">Alabama</option>
+                                    <option value="alaska">Alaska</option>
+                                    <option value="arizona">Arizona</option>
+                                    <option value="arkansas">Arkansas</option>
+                                    <option value="california">California</option>
+                                    <option value="colorado">Colorado</option>
+                                    <option value="connecticut">Connecticut</option>
+                                    <option value="deleware">Deleware</option>
+                                    <option value="district of columbia">District of Columbia</option>
+                                    <option value="florida">Florida</option>
+                                    <option value="georgia" selected>Georgia</option>
+                                    <option value="hawaii">Hawaii</option>
+                                    <option value="idaho">Idaho</option>
+                                    <option value="illinois">Illinois</option>
+                                    <option value="indiana">Indiana</option>
+                                    <option value="iowa">Iowa</option>
+                                    <option value="kansas">Kansas</option>
+                                    <option value="kentucky">Kentucky</option>
+                                    <option value="louisiana">Louisiana</option>
+                                    <option value="maine">Maine</option>
+                                    <option value="maryland">Maryland</option>
+                                    <option value="massachusetts">Massachusetts</option>
+                                    <option value="michigan">Michigan</option>
+                                    <option value="minnisota">Minnisota</option>
+                                    <option value="mississippi">Mississippi</option>
+                                    <option value="missouri">Missouri</option>
+                                    <option value="montana">Montana</option>
+                                    <option value="nebraska">Nebraska</option>
+                                    <option value="nevada">Nevada</option>
+                                    <option value="new hampshire">New Hampshire</option>
+                                    <option value="new jersey">New Jersey</option>
+                                    <option value="new mexico">New Mexico</option>
+                                    <option value="new york">New York</option>
+                                    <option value="north carolina">North Carolina</option>
+                                    <option value="north dakota">North Dakota</option>
+                                    <option value="ohio">Ohio</option>
+                                    <option value="oklahoma">Oklahoma</option>
+                                    <option value="oregon">Oregon</option>
+                                    <option value="pennsylvania">Pennsylvania</option>
+                                    <option value="rhode island">Rhode Island</option>
+                                    <option value="south carolina">South Carolina</option>
+                                    <option value="south dakota">South Dakota</option>
+                                    <option value="tennessee">Tennessee</option>
+                                    <option value="texas">Texas</option>
+                                    <option value="utah">Utah</option>
+                                    <option value="vermont">Vermont</option>
+                                    <option value="virginia">Virginia</option>
+                                    <option value="washington">Washington</option>
+                                    <option value="west virginia">West Virginia</option>
+                                    <option value="wisconsin">Wisconsin</option>
+                                    <option value="wyoming">Wyoming</option>
+                                </select>
+                            </p>
+                            <p>
+                                <label for="zipcode">Zip Code</label>
+                                <input id="zipcode" name="zipcode" placeholder="12345" />
+                            </p>
+                        </fieldset>
+                        <fieldset class="step">
+                            <legend>Household</legend>
+                            <p>
+                                <label for="boys">Boys</label>
+                                <select id="boys" name="boys">
+                                    <option>0</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5+</option>
+                                </select>
+                            </p>
+                                <!-- <option>0 - 6 months</option>
+                                <option>7 months - 3 years</option>
+                                <option>4 - 6 years</option>
+                                <option>7 - 11 years</option>
+                                <option>12+ years</option> -->
+                            <p>
+                                <label for="boys_0-6months">0-6 months:</label>
+                                <select id="boys_0-6months" name="boys_0-6months">
+                                    <option>0</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5+</option>
+                                </select>
+                            </p>
+                            <p>
+                                <label for="boys_7months-3years">7 months - 3 years:</label>
+                                <select id="boys_7months-3years" name="boys_7months-3years">
+                                    <option>0</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5+</option>
+                                </select>
+                            </p>
+                            <p>
+                                <label for="boys_4-6years">4-6 years:</label>
+                                <select id="boys_4-6years" name="boys_4-6years">
+                                    <option>0</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5+</option>
+                                </select>
+                            </p>
+                            <p>
+                                <label for="boys_7-11years">7-11 years:</label>
+                                <select id="boys_7-11years" name="boys_7-11years">
+                                    <option>0</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5+</option>
+                                </select>
+                            </p>
+                            <p>
+                                <label for="boys_12+years">12+ years:</label>
+                                <select id="boys_12+years" name="boys_12+years">
+                                    <option>0</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5+</option>
+                                </select>
+                            </p>
+
+                            <p>
+                                <label for="girls">Girls</label>
+                                <select id="girls" name="girls">
+                                    <option>0</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5+</option>
+                                </select>
+                            </p>
+                            <p>
+                                <label for="girls_0-6months">0-6 months:</label>
+                                <select id="girls_0-6months" name="girls_0-6months">
+                                    <option>0</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5+</option>
+                                </select>
+                            </p>
+                            <p>
+                                <label for="girls_7months-3years">7 months - 3 years:</label>
+                                <select id="girls_7months-3years" name="girls_7months-3years">
+                                    <option>0</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5+</option>
+                                </select>
+                            </p>
+                            <p>
+                                <label for="girls_4-6years">4-6 years:</label>
+                                <select id="girls_4-6years" name="girls_4-6years">
+                                    <option>0</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5+</option>
+                                </select>
+                            </p>
+                            <p>
+                                <label for="girls_7-11years">7-11 years:</label>
+                                <select id="girls_7-11years" name="girls_7-11years">
+                                    <option>0</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5+</option>
+                                </select>
+                            </p>
+                            <p>
+                                <label for="girls_12+years">12+ years:</label>
+                                <select id="girls_12+years" name="girls_12+years">
+                                    <option>0</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5+</option>
+                                </select>
+                            </p>
+                        <p>
+                                <div class=space></div>
+                                <label for="pets">Do you have pets?</label>
+                                <div id="pets">
+                                    <label class="checkbox-inline"><input type="checkbox" name="dog"><img class="form-image" src="images/dog_image.png"></label>
+                                    <label class="checkbox-inline"><input type="checkbox" name="cat"><img class="form-image cat-image" src="images/cat_image.png"></label>
+                                </div>
+                            </p>    
+                        </fieldset>
+                        <fieldset class="step">
+                            <legend>Upload Profile Image</legend>
+                            <div id="image-container" class="preview">
+                                <label for="profile-pic" type="button">
+                                    <img src="images/camera.png"/>
+                            </label>
+                            </div>
+                            <!-- <form action="#" method="post" enctype="multipart/form-data" onsubmit="console.log('Image Uploaded')"> -->
+                                    <div class="input">
+                                        <input type="file" class="form-control-file" id="profile-pic" onchange="fileStarter(this);">
+                                    </div>
+                                    <div class="invalid" id="error"></div>
+                        </fieldset>
+                        <fieldset class="step">
+                            <legend>Please verify that all your information is correct</legend>
+                            <input type="submit" name="submit" class="btn btn-primary" value="Submit">
+                        </fieldset>
+                    </form>
+                </div>
+                <div id="navigation">
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                </div>
+                <div style="text-align:center" class="buttons">
+                    <span class="dot" onclick="currentSlide(1)">My Info</span> 
+                    <span class="dot" onclick="currentSlide(2)">Address</span> 
+                    <span class="dot" onclick="currentSlide(3)">Household</span>
+                    <span class="dot" onclick="currentSlide(4)">Image</span>
+                    <span class="dot" onclick="currentSlide(5)">Confirm</span>
+                </div>
+            </div>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="scripts/slidingform.js"></script>
+    </body>
+    </html>
+</html>
