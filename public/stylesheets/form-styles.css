@@ -50,6 +50,10 @@ label > img {
   display: block;
 }
 
+.active{
+  display: block;
+}
+
 .btn{
   background: lightskyblue;
   color:#fff;
@@ -136,9 +140,10 @@ label > img {
   /* Fading animation */
   .fade {
     -webkit-animation-name: fade;
-    -webkit-animation-duration: 1.5s; 
+    -webkit-animation-duration: 1s; 
     animation-name: fade;
-    animation-duration: 1.5s; 
+    animation-duration: 1s; 
+    animation-fill-mode: forwards;
   }
   
   @-webkit-keyframes fade {
