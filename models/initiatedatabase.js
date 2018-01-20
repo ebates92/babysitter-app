@@ -1,6 +1,6 @@
-const Parent = require('./parent')
-const Babysitter = require('./babysitter')
-// const Calendar = require('./calendar')
+const Parent = require('./parent');
+const Babysitter = require('./babysitter');
+const Filter = require('./filter');
 const Faker = require('faker');
 
 // generating random data variables
@@ -64,7 +64,7 @@ let randomData = () => {
         sat_overnight: false
     }
     
-    let calendar_data = null;
+    let filter_data = null;
 
     let parent_data = {
         emailaddress: Faker.internet.email(),
@@ -104,11 +104,11 @@ let randomData = () => {
 Parent.sync({force:true})
 .then(() => {
    Babysitter.sync({force:true}).then(()=>{
-    //    Calenar.sync({force:true}).then(()=> {
-        Promise.all(create_all()).then(() => {
-            process.exit()
-        });
-    //    })
+       Filter.sync({force:true}).then(()=> {
+            Promise.all(create_all()).then(() => {
+                process.exit()
+            });
+       })
    })
 });
 
@@ -119,13 +119,13 @@ const create_all = () => {
         let data = randomData()
         // async(data) => {
             babysitter_data = data[0];
-            // calendar_data = data[1];
+            // filter_data = data[1];
             parent_data = data[2];
             let babysitter = Babysitter.create(babysitter_data);
-            // let calendar = await Calendar.create(calendar_data);
-            // calendar.setUser(babysitter);
-            // calendar.save();
             let parent = Parent.create(parent_data);
+            // let filter = await Filter.create(filter_data);
+            // filter.setUser(parent);
+            // filter.save();
         // })
         promise.push(parent);
     }
