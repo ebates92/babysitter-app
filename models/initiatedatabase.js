@@ -64,7 +64,39 @@ let randomData = () => {
         sat_overnight: false
     }
     
-    let filter_data = null;
+    let filter_data = {
+        transportation: 'on',
+        smoke: 'on',
+        hourlyrate: '15',
+        sun_morning: true,
+        sun_afternoon: true,
+        sun_evening: true,
+        sun_overnight: true,
+        mon_morning: false,
+        mon_afternoon: false,
+        mon_evening: false,
+        mon_overnight: true,
+        tues_morning: true,
+        tues_afternoon: false,
+        tues_evening: false,
+        tues_overnight: true,
+        wed_morning: false,
+        wed_afternoon: false,
+        wed_evening: false,
+        wed_overnight: false,
+        thurs_morning: true,
+        thurs_afternoon: true,
+        thurs_evening: true,
+        thurs_overnight: true,
+        fri_morning: false,
+        fri_afternoon: false,
+        fri_evening: true,
+        fri_overnight: true,
+        sat_morning: true,
+        sat_afternoon: true,
+        sat_evening: false,
+        sat_overnight: false
+    };
 
     let parent_data = {
         emailaddress: Faker.internet.email(),
@@ -95,7 +127,7 @@ let randomData = () => {
         dog: 'on',
         cat:''
     };
-    return [babysitter_data, calendar_data, parent_data]
+    return [babysitter_data, filter_data, parent_data]
 }
 
 
@@ -105,11 +137,9 @@ Parent.sync({force:true})
 .then(() => {
    Babysitter.sync({force:true}).then(()=>{
        Filter.sync({force:true}).then(()=> {
-            Promise.all(create_all()).then(() => {
-                process.exit()
-            });
-       })
-   })
+            create_all();
+       });
+   });
 });
 
 // create all of the fake data
@@ -117,17 +147,19 @@ const create_all = () => {
     let promise = [];
     for (x=0; x < 15; x++) {
         let data = randomData()
-        // async(data) => {
-            babysitter_data = data[0];
-            // filter_data = data[1];
-            parent_data = data[2];
+            let babysitter_data = data[0];
+            let filter_data = data[1];
+            let parent_data = data[2];
+            console.log(filter_data)
             let babysitter = Babysitter.create(babysitter_data);
-            let parent = Parent.create(parent_data);
-            // let filter = await Filter.create(filter_data);
-            // filter.setUser(parent);
-            // filter.save();
-        // })
-        promise.push(parent);
+            Parent.create(parent_data).then((parent) => {
+                Filter.create(filter_data)
+                    .then((filter) => {
+                        filter.setParent(parent);
+                        filter.save();
+                    })
+                })
+            promise.push(babysitter);
     }
     return promise
 };

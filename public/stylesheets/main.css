@@ -30,6 +30,7 @@ body {
     color: lightskyblue;
     font-size: 4.5rem;
     margin-bottom: .5rem;
+    margin-top: .5rem;
 }
 
 #mission {
@@ -40,7 +41,7 @@ body {
 #homepage_container {
     display:grid;
     grid-template-rows: 2fr 3fr;
-    padding: 2rem;
+    padding: 2.5rem;
     height: 100vh;
     color:white;
     background: none;
@@ -49,7 +50,7 @@ body {
     background-position: center; */
 }
 
-#homepage_background {
+.background_faded {
     content:"";
     background-image: url('../images/mother-edited.jpg');
     background-size: cover;
