@@ -1,8 +1,22 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+#welcome_container {
+  display:grid;
+  grid-template-rows: 1fr 4fr;
+  padding: 2.5rem;
+  height: 100vh;
+  color:white;
+  background: none;
 }
 
-a {
-  color: #00B7FF;
+#welcome {
+  font-size: 3rem;
+  padding-bottom:.5rem;
 }
+
+#welcome_baby {
+  background-image: url('../images/baby-photo-edited.jpeg');
+}
+
+.content {
+  font-size: 2rem;
+}
+
