@@ -13,17 +13,18 @@ function currentSlide(n){
 function showSlides(n){
 	var i;
 	var slides = document.getElementsByClassName("step");
-	var dots = document.getElementsByClassName("dot");
+    var dots = document.getElementsByClassName("dot");
+    var prev = document.getElementsByClassName("prev");
 	if (n > slides.length) {slideIndex = 1}
 	if (n < 1) {slideIndex = slides.length}
 	for (i = 0; i < slides.length; i++) {
 		slides[i].classList.remove("active");
 	}
 	for (i = 0; i < dots.length; i++) {
-	    dots[i].classList.remove("active");	
+	    dots[i].classList.remove("active", "textchange");	
 	}
 	slides[slideIndex - 1].classList.add("active");
-	dots[slideIndex - 1].classList.add("active");
+    dots[slideIndex - 1].classList.add("active", "textchange");
 }
 
 function likesPets () {
@@ -42,6 +43,30 @@ function doesNotLikePets () {
         console.log($(".dog"));
     });
 };
+
+//  Lines 47 - 69 handles male and female selectors
+window.onload = load ()
+
+function load () {
+    $(".female").addClass('fill-in-female');
+}
+
+function male () {
+    $("#male-radio").on('click', function (event){
+        $(".male").addClass('fill-in-male');
+        $(".female").removeClass('fill-in-female');
+    })
+}
+
+function female () {
+    $("#female-radio").on('click', function (event){
+        $(".female").addClass('fill-in-female');
+        $(".male").removeClass('fill-in-male');
+    })
+}
+
+male();
+female();
 
 
 likesPets();
@@ -153,14 +178,14 @@ function fileStarter(x){
 $('.day-box').on("click", function (event) {
     console.log(event.target)
     $(this).toggleClass('selected');
-    // if (event.target.innerHTML === '') {
-    //     event.target.innerHTML = "&check;";
-    //     event.target.setAttribute('value','true');
-    // } else {
-    //     event.target.innerHTML = "";
-    //     event.target.setAttribute('value','false');
-    // }
+    if (event.target.innerHTML === '') {
+        event.target.innerHTML = "&check;";
+        $('hidden').value = true;
+    } else {
+        event.target.innerHTML = "";
+    }
 });
+
 
 $( function() {
     $( "#datepicker" ).datepicker({
@@ -168,3 +193,7 @@ $( function() {
       changeYear: true
     });
   });
+
+  $('.day-box').on("click", function(event){
+      console.log("checked")
+  })

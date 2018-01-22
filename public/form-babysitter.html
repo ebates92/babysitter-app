@@ -19,47 +19,55 @@
             Please fill out the following information:
         </h2> -->
             <div id="steps">
-                <form id="formElement" name="formElement" action="/form/babysitter" method="post">
-                    <fieldset class="step fade">
+                <form id="formElement" name="formElement" action="/form/babysitter" method="POST">
+                    <fieldset class="step fade personal">
                         <legend>Personal Details</legend>
                         <p>
-                            <lable for="firstname">First Name</lable>
-                            <input id="firstname" name ="firstname" />
+                            <!-- <label for="firstname">First Name</label> -->
+                            <input id="firstname" name ="firstname" placeholder="First Name" />
                         </p>
+                        <br>
                         <p>
-                            <label for="lastname">Last Name</label>
-                            <input id="lastname" name="lastname" />
+                            <!-- <label for="lastname">Last Name</label> -->
+                            <input id="lastname" name="lastname" placeholder="Last Name" />
                         </p>
-                        <p>
-                            <label for="datepicker">Birthdate</label>
-                            <input type="text" name="datepicker" id="datepicker">
-                        </p>
-                        <p>
-                            <label for="form-check">Gender</label>
-                                <span class="form-check">
-                                    <label class="form-check-label">
-                                        <input class="form-check-input" type="radio" name="gender" id="radio1" value="Male" checked>
-                                        Male
-                                    </label>
-                                </span>
-                                <span class="form-check">
-                                    <label class="form-check-label">
-                                        <input class="form-check-input" type="radio" name="gender" id="radio2" value="Female">
-                                        Female
-                                    </label>
-                                </span>
-                        </p>
-                        <p>
-                            <lable for="emailaddress">Email Address</lable>
-                            <input id="emailaddress" name="emailaddress" />
-                        </p>
-                        <p>
-                            <lable for="password">Password</lable>
-                            <input id="password" name="password" type="password" autocomplete="off" />
-                        </p>
+                            <br>
+                        <!-- </div> -->
+                        <!-- <div class="gender-bday"> -->
+                            <p class="bday-select">
+                                <!-- <label for="datepicker">Birthdate</label> -->
+                                <input type="text" name="datepicker" id="datepicker" placeholder="Date of Birth">
+                            </p>
+                            <br>
+                            <p  class="radio-form">
+                                <!-- <label for="form-check">Gender</label> -->
+                                    <span class="form-check">
+                                        <label for="male-radio" class="form-check-label male">
+                                            <input class="form-check-input" type="radio" name="gender" id="male-radio" value="Male">
+                                            <img src="/images/male-icon.png">
+                                        </label>
+                                    </span>
+                                    <span class="form-check">
+                                        <label for="female-radio" class="form-check-label female">
+                                            <input class="form-check-input" type="radio" name="gender" id="female-radio" value="Female" checked>
+                                            <img src="/images/female-icon.png">
+                                        </label>
+                                    </span>
+                            </p>
+                            <br>
+                            <p>
+                                <!-- <label for="emailaddress" class="form-label">Email Address</label> -->
+                                <input id="emailaddress" name="emailaddress" placeholder="Email Address" />
+                            </p>
+                            <br>
+                            <p>
+                                <!-- <label for="password">Password</label> -->
+                                <input id="password" name="password" type="password" autocomplete="off" placeholder="Password" />
+                            </p>
+                        
                         <p>
                             <label>
-                                <input type="checkbox" />
+                                <input class="saveinfo" type="checkbox" />
                                 Remember Me
                             </label>
                         </p>
@@ -148,14 +156,14 @@
                                 <option>5+</option>
                             </select>
                         </p>
-                        <p>
-                            <label for="hourlyrate">Preferred Hourly Rate</label>
+                        <p class="hourlyrate">
+                            <!-- <label for="hourlyrate">Preferred Hourly Rate</label> -->
                             <label for="textInput">$</label>
                             <input id="hourlyrate" name="hourlyrate" type="text">
                         </p>
                         <p>
                             <label for="mileswilling">How far are you willing to travel?</label>
-                            <select>
+                            <select id="mileswilling" name="mileswilling">
                                 <option>5</option>
                                 <option>10</option>
                                 <option>15</option>
@@ -174,11 +182,11 @@
                             <label for="car">Do you have your own transportation?</label>
                             <div class="shift">
                                 <label class="custom-control custom-radio">
-                                    <input id="radio1" name="car" type="radio" class="custom-control-input">
+                                    <input id="car-radio" name="car" type="radio" class="custom-control-input" value="true">
                                     <span class="custom-control-description"><img class="form-image" src="images/car_image.png"></span>
                                 </label>
                                 <label class="custom-control custom-radio">
-                                    <input id="radio2" name="car" type="radio" checked="checked" class="custom-control-input">
+                                    <input id="no-car-radio" name="car" type="radio" checked="checked" class="custom-control-input" value="null">
                                     <span class="custom-control-description"><img class="form-image" src="images/car_image_no.png"></span>
                                 </label>
                             </div>
@@ -195,7 +203,7 @@
                                     <span class="custom-control-description"><img class="form-image" src="images/smoking.png"></span>
                                 </label>
                                 <label class="custom-control custom-radio">
-                                    <input id="radio2" name="smoking" type="radio" checked="checked" class="custom-control-input">
+                                    <input id="no-smoke-radio" name="smoking" type="radio" checked="checked" class="custom-control-input">
                                     <span class="custom-control-description"><img class="form-image" src="images/smoking_no.png"></span>
                                 </label>
                             </div>
@@ -289,8 +297,8 @@
                                 </tr>
                                 <tr>
                                     <td class="time-of-day">Morning</td>
-                                    <td class="day-box"><input type='checkbox' name="sun_morning"></td>
-                                    <td class="day-box"></td>
+                                    <td class="day-box"><label for="sun_morning" class="sun"><input type="checkbox" name="sun_morning" id="sun_morning" /></label></td>
+                                    <td class="day-box"><label for="mon_morning" class="mon"><input type="checkbox" name="mon_morning" id="mon_morning" /></label></td>
                                     <td class="day-box"></td>
                                     <td class="day-box"></td>
                                     <td class="day-box"></td>
@@ -333,24 +341,25 @@
                         <legend>Upload Profile Image</legend>
                         <div id="image-container" class="preview">
                             <label for="profile-pic" type="button">
-                                <img src="images/camera.png"/>
-                        </label>
+                                <img src="images/camera.png" class="camera" />
+                            </label>
                         </div>
-                        <!-- <form action="#" method="post" enctype="multipart/form-data" onsubmit="console.log('Image Uploaded')"> -->
-                                <div class="input">
-                                    <input type="file" class="form-control-file" id="profile-pic" onchange="fileStarter(this);">
-                                </div>
-                                <div class="invalid" id="error"></div>
+                        <div class="input">
+                            <input type="file" class="form-control-file" id="profile-pic" onchange="fileStarter(this);">
+                        </div>
+                        <div class="invalid" id="error"></div>
                     </fieldset>
                     <fieldset class="step fade">
                         <legend>Please verify that all your information is correct</legend>
-                        <input type="submit" name="submit" class="btn btn-primary" value="Submit">
+                        <div class="submit-button">
+                        <input type="submit" name="submit" class="btn btn-primary" value="Join Now!">
+                        </div>
                     </fieldset>
                 </form>
             </div>
             <div id="navigation">
-                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                <a class="prev" onclick="plusSlides(-1)">Prev</a>
+                <a class="next" onclick="plusSlides(1)">Next</a>
             </div>
             <div style="text-align:center" class="buttons">
                 <span class="dot" onclick="currentSlide(1)">My Info</span> 
