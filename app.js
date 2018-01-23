@@ -5,6 +5,10 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+// PASSPORT SET-UP
+var passportFacebook = require('./config/passport-facebook');
+var passportFacebook = require('./config/passport-linkedin');
+
 // ROUTING FILES
 var passport = require ('./routes/auth-routing')
 var formRouting = require('./routes/form-routing');

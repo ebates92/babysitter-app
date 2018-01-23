@@ -1,7 +1,9 @@
 var express = require('express');
 var router = express.Router();
-const Babysitter = require('../models/babysitter')
-const Parent = require('../models/parent')
+const Babysitter = require('../models/babysitter');
+const Parent = require('../models/parent');
+const passportFacebook = require('passport-facebook');
+const passportLinkedIn = require('passport-linkedin');
 
 
 // login application
@@ -25,7 +27,10 @@ router.route('/facebook/:type')
   .get((req, res, next) => {
       // handle with passport
       let type = req.params.type;
-      res.send(`logging in with facebook as a ${type}`)
+      passportFacebook.authenticate('facebook', {
+        // look up api scopes
+        scope: ['']
+      });
     })
 
 // send user to sign in with Linked-In
@@ -33,7 +38,10 @@ router.route('/linked-in/:type')
   .get((req, res, next) => {
       // handle with passport
       let type = req.params.type
-      res.send(`logging in with linked-in as a ${type}`)
+      passportLinkedIn.authenticate('linked-in', {
+        // look up api scopes
+        scope: ['']
+      })
     })
 
 
