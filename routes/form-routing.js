@@ -118,7 +118,7 @@ router.route('/parent')
 router.route('/filter')
     .post((req,res,next) => {
       parentFilter.create({
-        car: req.body.car,
+        transportation: req.body.car,
         smoke: req.body.smoke,
         hourlyrate: req.body.hourlyrate,
         sun_morning: req.body.sun_morning,

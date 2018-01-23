@@ -6,8 +6,10 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 // ROUTING FILES
+var passport = require ('./routes/auth-routing')
 var formRouting = require('./routes/form-routing');
 var swipeRouting = require('./routes/swipe-routing')
+
 
 var app = express();
 
@@ -24,6 +26,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // USING THE ROUTE FILES
+app.use('/auth', passport);
 app.use('/form', formRouting);
 app.use('/swipe', swipeRouting);
 
