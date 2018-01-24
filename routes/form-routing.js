@@ -76,6 +76,9 @@ router.route('/babysitter')
 
 // POST parent form into database
 router.route('/parent')
+  .get((req,res) => {
+    res.render('form-parent')
+      })
   .post((req, res, next) => {
       Parent.create({
         emailaddress: req.body.emailaddress,
@@ -115,10 +118,11 @@ router.route('/parent')
       });
     });
 
+
 router.route('/filter')
     .post((req,res,next) => {
       parentFilter.create({
-        car: req.body.car,
+        transportation: req.body.car,
         smoke: req.body.smoke,
         hourlyrate: req.body.hourlyrate,
         sun_morning: req.body.sun_morning,

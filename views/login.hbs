@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>mySitter</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/stylesheets/main.css">
+    <link rel='stylesheet' href='/stylesheets/login.css'>
+  </head>
+  <body>
+    <div id='sign_in_container'>
+      <div>
+          <h1 id='company_name'>mySitter</h1>
+        <br>
+      </div>
+      <div id='join_now_container'>
+        {{!-- <h3 id='welcome'>Welcome {{{firstname}}}!</h3> --}}
+        <p class='content'>New or returning {{type}}. Sign in with Facebook or Linked-In below.</p>
+        <br>
+        <div class='button_box'>
+          <a href="/auth/facebook/{{type}}"><input type="button" class="one btn btn-primary" value="Facebook"></a>
+          <a href="/auth/linked-in/{{type}}"><input type="button" class="two btn btn-primary" value="Linked-In"></a>
+        </div>
+      </div>
+    </div>
+    <div class='background_faded' id='welcome_baby'></div>
+      
+  </body>
+</html>
