@@ -51,7 +51,7 @@ const setupAuth = (app) => {
           // If there was an error, pass that as 1st arg
           // And null as the 2nd arg (because there was no user retrieved
           // from the database);
-          done(err, null);
+          return done(err, null);
         })
     
       }));
@@ -111,11 +111,12 @@ const setupAuth = (app) => {
       // actually said it was ok.
       // The actual route handler is just going to redirect us to the home page.
       app.get('/auth/facebook/callback',
-        passport.authenticate('facebook', { failureRedirect: '/login' }),
+        // AVOIDING DOUBLE AUTHENTICATION BECAUSE FACEBOOK SUCKS
+        // passport.authenticate('facebook', { failureRedirect: '/login' }),
         (req, res) => {
           // if you don't have your own route handler after the passport.authenticate middleware
           // then you get stuck in the infinite loop
-    
+            console.log(req)
           console.log('you just logged in');
           console.log(req.isAuthenticated());
     
