@@ -4,10 +4,10 @@ const Parent = require('./parent')
 
 const parentFilters = connection.define('parent_filter', {
     transportation: {
-        type: Sequelize.STRING,
+        type: Sequelize.BOOLEAN,
     }, 
     smoke: {
-        type: Sequelize.STRING,
+        type: Sequelize.BOOLEAN,
     }, 
     hourlyrate: {
         type: Sequelize.INTEGER,

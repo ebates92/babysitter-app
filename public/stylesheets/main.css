@@ -86,3 +86,14 @@ body {
     color:white;
     font-size: 2rem;
 }
+
+/* .button_box {
+    display: flex;
+    justify-content: space-between;
+  } */
+
+.one, .two {
+    margin-left: 2rem;
+    margin-right: 2rem;
+    margin-top: 1rem;
+}

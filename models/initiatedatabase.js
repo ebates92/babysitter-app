@@ -7,6 +7,8 @@ const Faker = require('faker');
 let randomData = () => {
     let babysitter_data = 
     {
+        isnew: false,
+        facebook_profile_id: Faker.random.number(),
         emailaddress: Faker.internet.email(),
         password: 'SuperH@rdP@ssw0rd',
         firstname: Faker.name.firstName(),
@@ -16,9 +18,9 @@ let randomData = () => {
         state: 'Georgia',
         zipcode: '30307',
         image: '/json_images/good-babysitter.jpg',
-        birthyear: '1988',
-        birthmonth: '09',
-        birthdate: '02',
+        birthyear: 1988,
+        birthmonth: 09,
+        birthdate: 02,
         gender: 'Female',
         maxchildren: '5',
         experience: '2-3 years',
@@ -29,11 +31,11 @@ let randomData = () => {
         education: Faker.lorem.words(),
         institution: Faker.lorem.words(),
         languages: 'English, Spanish, Alien',
-        transportation: 'on',
-        smoke: 'on',
-        pets: 'on',
-        cats: '',
-        dogs: 'on',
+        transportation: true,
+        smoke: true,
+        pets: true,
+        cats: false,
+        dogs: true,
         sun_morning: true,
         sun_afternoon: true,
         sun_evening: true,
@@ -65,9 +67,9 @@ let randomData = () => {
     }
     
     let filter_data = {
-        transportation: 'on',
-        smoke: 'on',
-        hourlyrate: '15',
+        transportation: true,
+        smoke: true,
+        hourlyrate: 15,
         sun_morning: true,
         sun_afternoon: true,
         sun_evening: true,
@@ -99,6 +101,8 @@ let randomData = () => {
     };
 
     let parent_data = {
+        isnew: false,
+        facebook_profile_id: Faker.random.number(),
         emailaddress: Faker.internet.email(),
         password: 'SuperH@rdP@ssw0rd',
         firstname: Faker.name.firstName(),
@@ -124,8 +128,8 @@ let randomData = () => {
         girls_4_6years: '1',
         girls_7_11years: '0',
         girls_12_years: '1',
-        dog: 'on',
-        cat:''
+        dog: true,
+        cat: true
     };
     return [babysitter_data, filter_data, parent_data]
 }

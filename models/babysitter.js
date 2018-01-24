@@ -2,6 +2,12 @@ const Sequelize = require('sequelize');
 const connection = require('../database');
 
 const Babysitter = connection.define('babysitter', {
+    isnew: {
+        type: Sequelize.BOOLEAN,
+    },
+    facebook_profile_id: {
+        type: Sequelize.STRING,
+    },
     emailaddress: {
         type: Sequelize.STRING,
         // unique: true,
@@ -106,7 +112,7 @@ const Babysitter = connection.define('babysitter', {
         defaultValue: 'English',
     },
     transportation: {
-        type: Sequelize.STRING,
+        type: Sequelize.BOOLEAN,
         // allowNull: false,
         // validate: {
         //     is: {
@@ -116,7 +122,7 @@ const Babysitter = connection.define('babysitter', {
         // }
     },
     smoke: {
-        type: Sequelize.STRING,
+        type: Sequelize.BOOLEAN,
         // allowNull: false,
         // validate: {
         //     is: {
@@ -126,7 +132,7 @@ const Babysitter = connection.define('babysitter', {
         // }
     },
     pets: {
-        type: Sequelize.STRING,
+        type: Sequelize.BOOLEAN,
         // allowNull: false,
         // validate: {
         //     is: {
@@ -136,7 +142,8 @@ const Babysitter = connection.define('babysitter', {
         // }
     },
     cats: {
-        type: Sequelize.STRING,
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
         // allowNull: false,
         // validate: {
         //     is: {
@@ -146,7 +153,8 @@ const Babysitter = connection.define('babysitter', {
         // }
     },
     dogs: {
-        type: Sequelize.STRING,
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
         // allowNull: false,
         // validate: {
         //     is: {
@@ -156,89 +164,117 @@ const Babysitter = connection.define('babysitter', {
         // }
     },
     sun_morning: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
     },
     sun_afternoon: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
     },
     sun_evening: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
     },
     sun_overnight: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
     },
     mon_morning: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
     },
     mon_afternoon: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
     },
     mon_evening: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
     },
     mon_overnight: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
     },
     tues_morning: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
     },
     tues_afternoon: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
     },
     tues_evening: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
     },
     tues_overnight: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
     },
     wed_morning: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
     },
     wed_afternoon: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
     },
     wed_evening: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
     },
     wed_overnight: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
     },
     thurs_morning: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
     },
     thurs_afternoon: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
     },
     thurs_evening: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
     },
     thurs_overnight: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
     },
     fri_morning: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
     },
     fri_afternoon: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
     },
     fri_evening: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
     },
     fri_overnight: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
     },
     sat_morning: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
     },
     sat_afternoon: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
     },
     sat_evening: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
     },
     sat_overnight: {
-        type: Sequelize.BOOLEAN
-    },
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
+    }
 });
 
 

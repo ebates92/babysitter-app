@@ -1,0 +1,29 @@
+#sign_in_container {
+  display:grid;
+  grid-template-rows: 2fr 3fr;
+  padding: 2.5rem;
+  height: 100vh;
+  color:white;
+  background: none;
+}
+
+#welcome {
+  font-size: 3rem;
+  padding-bottom:.5rem;
+}
+
+#welcome_baby {
+  background-image: url('../images/cool_baby.jpg');
+}
+
+.button_box {
+  display: flex;
+  /* justify-content: space-around; */
+}
+
+.content {
+  font-size: 2rem;
+  font-weight: 500;
+
+}
+
