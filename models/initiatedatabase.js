@@ -7,6 +7,7 @@ const Faker = require('faker');
 let randomData = () => {
     let babysitter_data = 
     {
+        facebook_profile_id: Faker.random.number(),
         emailaddress: Faker.internet.email(),
         password: 'SuperH@rdP@ssw0rd',
         firstname: Faker.name.firstName(),
@@ -29,11 +30,11 @@ let randomData = () => {
         education: Faker.lorem.words(),
         institution: Faker.lorem.words(),
         languages: 'English, Spanish, Alien',
-        transportation: 'on',
-        smoke: 'on',
-        pets: 'on',
-        cats: '',
-        dogs: 'on',
+        transportation: true,
+        smoke: true,
+        pets: true,
+        cats: false,
+        dogs: true,
         sun_morning: true,
         sun_afternoon: true,
         sun_evening: true,
@@ -65,8 +66,8 @@ let randomData = () => {
     }
     
     let filter_data = {
-        transportation: 'on',
-        smoke: 'on',
+        transportation: true,
+        smoke: true,
         hourlyrate: '15',
         sun_morning: true,
         sun_afternoon: true,
@@ -99,6 +100,7 @@ let randomData = () => {
     };
 
     let parent_data = {
+        facebook_profile_id: Faker.random.number(),
         emailaddress: Faker.internet.email(),
         password: 'SuperH@rdP@ssw0rd',
         firstname: Faker.name.firstName(),
@@ -124,8 +126,8 @@ let randomData = () => {
         girls_4_6years: '1',
         girls_7_11years: '0',
         girls_12_years: '1',
-        dog: 'on',
-        cat:''
+        dog: true,
+        cat: true
     };
     return [babysitter_data, filter_data, parent_data]
 }
