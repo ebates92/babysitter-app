@@ -7,6 +7,8 @@ const parentFilter = require('../models/filter')
 // POST babysitter form into database
 router.route('/babysitter')
   .post((req, res, next) => {
+    console.log('monday morning'+ req.body.mon_morning);
+    console.log('sunday morning' + req.body.sun_morning);
       Babysitter.create({
         emailaddress: req.body.emailaddress,
         password: req.body.password,
@@ -16,7 +18,7 @@ router.route('/babysitter')
         city: req.body.city,
         state: req.body.state,
         zipcode: req.body.zipcode,
-        // image: req.body.image,
+        image: req.body.image,
         // need to break this out from req.body.datepicker
         birthyear: req.body.birthyear,
         birthmonth: req.body.birthmonth,
@@ -122,7 +124,7 @@ router.route('/parent')
 router.route('/filter')
     .post((req,res,next) => {
       parentFilter.create({
-        transportation: req.body.car,
+        transportation: req.body.transportation,
         smoke: req.body.smoke,
         hourlyrate: req.body.hourlyrate,
         sun_morning: req.body.sun_morning,

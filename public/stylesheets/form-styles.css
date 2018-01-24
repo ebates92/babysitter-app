@@ -13,6 +13,7 @@ html, body {
   height: 100%;
   font-family: 'Roboto Condensed', sans-serif;
   background-color: rgba(255, 255, 255, 0.5);
+  overflow-y: scroll;
 }
 
 #slides-container {
@@ -67,6 +68,22 @@ p{
   align-items: center;
 }
 
+.birthday{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.message{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+#message{
+  width: 125px;
+}
+
 .form-check-label{
   font-weight: 400;
 }
@@ -99,6 +116,8 @@ p{
     box-shadow: 1px 1px 1px lightgrey;
     height: 35px;
     transition: background-color 0.6s ease;
+    font-size: 16px;
+    padding-top: .5rem;
 }
 
 .female {
@@ -110,6 +129,8 @@ p{
     box-shadow: 1px 1px 1px lightgrey;
     height: 35px;
     transition: background-color 0.6s ease;
+    font-size: 16px;
+    padding-top: .5rem;
 }
 
 #female-radio, #male-radio {
@@ -126,10 +147,12 @@ p{
 
 .fill-in-male{
   background-color: lightskyblue;
+  color: white;
 }
 
 .fill-in-female{
   background-color: lightpink;
+  color: white;
 }
 
 .hourlyrate, #mileswilling {
@@ -187,13 +210,9 @@ p{
     background-color: rgba(0,0,0,0.8);
   } */
 
-  .numbertext {
-    color: #f2f2f2;
-    font-size: 12px;
-    padding: 8px 12px;
-    position: absolute;
-    top: 0;
-  }
+  /* #mon_morning {
+    display: none;
+  } */
 
   #image-container{
     display: flex;
@@ -295,3 +314,5 @@ p{
     from {opacity: .4} 
     to {opacity: 1}
   }
+
+  input.hide-checkbox { display: none }   

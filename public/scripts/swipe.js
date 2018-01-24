@@ -11,7 +11,7 @@ const checkOrNo = {
 // MUST USE MY-LITTLE-CORS-PROXY AND THEN NODE APP.JS SIMULTANEOUSLY
 
 function getBabysitters (callback1, callback2, callback3) {
-    $.get('/swipe/babysitters',function(data) {
+    $.get('/swipe/babysitters', function(data) {
         BABYSITTERDATA = data;
         BABYSITTERIDS = Object.keys(BABYSITTERDATA);
         console.log(BABYSITTERDATA);
@@ -20,6 +20,13 @@ function getBabysitters (callback1, callback2, callback3) {
         callback3();
     });
 };
+
+function matchID () {
+    $.get('/swipe/babysitters', function(data) {
+        BABYSITTERDATA = data;
+        console.log(BABYSITTERDATA);
+    })
+}
 
 // creates swipe container
 function bodyContainer () {
@@ -306,6 +313,8 @@ function swipeEvents () {
                 if (requiredDistance < distanceMovedX) {
                     console.log("true");
                     reloadSwipe();
+                     matchID();
+
                 } else if (-requiredDistance > distanceMovedX) {
                     console.log('false');
                     reloadSwipe();
