@@ -1,4 +1,5 @@
 module.exports = {
+    isnew: true,
     facebook_profile_id: Faker.random.number(),
     emailaddress: Faker.internet.email(),
     password: 'SuperH@rdP@ssw0rd',

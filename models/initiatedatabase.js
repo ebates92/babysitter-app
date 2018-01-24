@@ -7,6 +7,7 @@ const Faker = require('faker');
 let randomData = () => {
     let babysitter_data = 
     {
+        isnew: false,
         facebook_profile_id: Faker.random.number(),
         emailaddress: Faker.internet.email(),
         password: 'SuperH@rdP@ssw0rd',
@@ -100,6 +101,7 @@ let randomData = () => {
     };
 
     let parent_data = {
+        isnew: false,
         facebook_profile_id: Faker.random.number(),
         emailaddress: Faker.internet.email(),
         password: 'SuperH@rdP@ssw0rd',

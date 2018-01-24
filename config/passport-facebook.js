@@ -39,8 +39,6 @@ const setupAuth = (app) => {
           // The actual user instance is the 0th element in the array
           let parent = result[0];
           let isNew = result[1];
-            
-            console.log(isNew)
           // Pass that to the `done` callback as the 2nd arg.
           // The 1st arg is reserved for any errors that occur.
           return done(null, parent);
@@ -76,16 +74,7 @@ const setupAuth = (app) => {
         // maybe you are going to get the user from mongo by id?
         // null is for errors
         console.log(id)
-        Parent.findOne({
-            where: {
-                id: id
-            }
-        }).then((user) => {
-            done(null, user)
-        }).catch((err) => {
-            console.log(err);
-            done(err, null)
-        })
+        done(null,id)
 
       });
     
@@ -116,13 +105,19 @@ const setupAuth = (app) => {
         (req, res) => {
           // if you don't have your own route handler after the passport.authenticate middleware
           // then you get stuck in the infinite loop
-            console.log(req)
           console.log('you just logged in');
           console.log(req.isAuthenticated());
-    
-          res.redirect('/');
+            if (req.user.isnew === true) {
+                console.log('im new')
+                console.log(req.user.isnew)
+                res.redirect('/form/parent')
+            } else if (req.user.isnew === false) {
+                console.log('im old')
+                console.log(req.user.isnew)
+                res.redirect('/public/swipe')
+            }
         }
-      );
+    );
     
       // That's it.
       // That's the end of our passport setup for github
@@ -143,7 +138,7 @@ const setupAuth = (app) => {
     
       console.log('clearly, they are not authenticated');
       // denied. redirect to login
-      res.redirect('/login');
+      res.redirect('/');
     }
     
     // Our default export is the `setupAuth` function.

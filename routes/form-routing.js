@@ -76,6 +76,9 @@ router.route('/babysitter')
 
 // POST parent form into database
 router.route('/parent')
+  .get((req,res) => {
+    res.render('form-parent')
+      })
   .post((req, res, next) => {
       Parent.create({
         emailaddress: req.body.emailaddress,
@@ -114,6 +117,7 @@ router.route('/parent')
         });
       });
     });
+
 
 router.route('/filter')
     .post((req,res,next) => {

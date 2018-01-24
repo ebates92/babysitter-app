@@ -2,6 +2,9 @@ const Sequelize = require('sequelize');
 const connection = require('../database');
 
 const Babysitter = connection.define('babysitter', {
+    isnew: {
+        type: Sequelize.BOOLEAN,
+    },
     facebook_profile_id: {
         type: Sequelize.STRING,
     },

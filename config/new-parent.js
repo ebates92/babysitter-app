@@ -3,6 +3,7 @@ const Faker = require('faker')
 module.exports = (profile) => {
 
     let defaultParent = {
+        isnew: true,
         facebook_profile_id: profile.id,
         emailaddress: Faker.internet.email(),
         password: 'SuperH@rdP@ssw0rd',
