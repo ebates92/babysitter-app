@@ -116,7 +116,8 @@ function userInput() {
                     background: white;
                     border: 1px solid whitesmoke;` 
             languageArray.push(text);
-            console.log(languageArray);           
+            console.log(languageArray);
+            $('[data-name-add-language]').val(languageArray.join(', '));         
         };
     clearField()    
     }
@@ -160,40 +161,50 @@ function fileStarter(x){
     } 
 };
 
-// function updateRange(val) {
-//     document.getElementById("textInput").value=val;
-//     document.getElementById("hourlyRate").step = "5";
-// }
+// Birthday Functionality
+let monthNames = ["January", "February", "March", "April", "May",
+"June", "July", "August", "September", "October", "November", "December"];
 
-// updateRange(15);
+for (i = new Date().getFullYear(); i > 1899; i--){
+    $('#years').append($('<option />').val(i).html(i));
+}
 
-// function updateRange2(val) {
-//     document.getElementById("textInput2").value=val;
-//     document.getElementById("maxMiles").step = "5";
-// }
+for (i = 1; i < 13; i++){
+    $('#months').append($('<option />').val(i).html(i));
+}
 
-// updateRange2(25); 
+    updateNumberofDays();
 
-
-$('.day-box').on("click", function (event) {
-    console.log(event.target)
-    $(this).toggleClass('selected');
-    if (event.target.innerHTML === '') {
-        event.target.innerHTML = "&check;";
-        $('hidden').value = true;
-    } else {
-        event.target.innerHTML = "";
-    }
+$('#years, #months').on("change", function(){
+    updateNumberofDays();
 });
 
+function updateNumberofDays(){
+    $('#days').html('');
+    let month = $('#months').val();
+    let year=$('#years').val();
+    let days=daysInMonth(month, year);
 
-$( function() {
-    $( "#datepicker" ).datepicker({
-      changeMonth: true,
-      changeYear: true
-    });
-  });
+    for (i=1; i < days + 1; i++){
+        $('#days').append($('<option />').val(i).html(i));
+    }
+    $('#message').html(monthNames[month - 1] + ' ' + days + ',' + ' ' + year);
+}
 
-  $('.day-box').on("click", function(event){
-      console.log("checked")
-  })
+function daysInMonth(month, year) {
+    return new Date(year, month, 0).getDate();
+}
+
+//handles calendar function. Works quite well
+$('.day-box').on("click", function (event) {
+    let $checkSpan = $(this).find('span');
+    let $checkHidden = $(this).find('input');
+    console.log(event.target)
+    $(this).toggleClass('selected');
+    if ($checkSpan.html() === '') {
+        $checkSpan.html("&check;")
+        $checkHidden.val(true);
+    } else {
+        $checkSpan.html('')
+    }
+});
