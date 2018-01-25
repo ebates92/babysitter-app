@@ -2,11 +2,13 @@ const Parent = require('./parent');
 const Babysitter = require('./babysitter');
 const Filter = require('./filter');
 const Faker = require('faker');
+const Messages = require('./messages');
 
 // generating random data variables
 let randomData = () => {
     let babysitter_data = 
     {
+        type: 'babysitter',
         isnew: false,
         facebook_profile_id: Faker.random.number(),
         emailaddress: Faker.internet.email(),
@@ -101,6 +103,7 @@ let randomData = () => {
     };
 
     let parent_data = {
+        type: 'parent',
         isnew: false,
         facebook_profile_id: Faker.random.number(),
         emailaddress: Faker.internet.email(),
@@ -145,6 +148,12 @@ Parent.sync({force:true})
        });
    });
 });
+
+Messages.sync({force:true})
+.then(()=> {
+    console.log('created messages table')
+}
+)
 
 // create all of the fake data
 const create_all = () => {

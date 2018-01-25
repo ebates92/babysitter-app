@@ -1,4 +1,5 @@
 module.exports = {
+    type: 'babysitter',
     isnew: true,
     facebook_profile_id: Faker.random.number(),
     emailaddress: Faker.internet.email(),

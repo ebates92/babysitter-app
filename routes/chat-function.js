@@ -1,18 +1,20 @@
 // var express = require('express');
 // var app = express();
+var Message = require('../models/messages');
 
-const setupChat = (app) => {
 
-    var server = require('http').createServer(app);
+const setupChat = (server, app) => {
+
+    // var server = require('http').createServer(app);
     var io = require('socket.io').listen(server);
     users = [];
     connections = [];
 
-    server.listen(process.env.PORT || 3000);
-    console.log('server running')
+    // server.listen(process.env.PORT || 3000);
+    // console.log('server running')
 
 
-    app.get('/', function(req, res) {
+    app.get('/chat', function(req, res) {
         res.sendFile(__dirname + '/index.html');
     });
 
@@ -30,6 +32,12 @@ const setupChat = (app) => {
 
         // Send Message
         socket.on('send message', function(data){
+            Message.create({
+                content: data ,
+                senderId: socket.username
+            }).then(function(message){
+                message.save();
+            })
             io.sockets.emit('new message', {msg: data, user: socket.username});
         })
 
@@ -45,6 +53,6 @@ const setupChat = (app) => {
             io.sockets.emit('get users', users)
         }
     })
-}
+};
 
-module.export = setupChat;  
+module.exports = setupChat;  

@@ -355,7 +355,18 @@ function createProfileStats () {
     mainBoxArray[0].append('<div>')
 };
 
+// Event listener for navigation bar
+
+function navBarClick () {
+    let $navbar = $('#settings');
+    $navbar.on('click', (event) => {
+        let $settingOptions = $('.setting-options')
+        $settingOptions.toggle('.setting-hidden')
+    })
+}
+
 getBabysitters(bodyContainer,bodyContainer,swipeEvents)
+navBarClick();
 
 
 
