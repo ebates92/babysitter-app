@@ -15,6 +15,7 @@ var setupFacebookParent = require('./config/passport-facebook-parent');
 var passport = require ('./routes/auth-routing');
 var formRouting = require('./routes/form-routing');
 var swipeRouting = require('./routes/swipe-routing');
+
 // var matchRouting = require('./routes/match-routing');
 var chatRouting = require('./routes/chat-routing');
 
@@ -38,8 +39,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/auth', passport);
 app.use('/form', formRouting);
 app.use('/swipe', swipeRouting);
+
+
+
 app.use(chatRouting);
 // app.use('/match', matchRouting)
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
@@ -57,5 +62,10 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+// app.listen(3000, () => {
+//   console.log("Running on port 3000")
+// });
+
 
 module.exports = app;

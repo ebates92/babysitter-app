@@ -22,9 +22,8 @@ function getBabysitters (callback1, callback2, callback3) {
 };
 
 function matchID () {
-    $.get('/swipe/babysitters', function(data) {
-        BABYSITTERDATA = data;
-        console.log(BABYSITTERDATA);
+    $.post('swipe/match', function() {
+        
     })
 }
 

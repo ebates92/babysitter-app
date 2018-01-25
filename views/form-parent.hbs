@@ -18,43 +18,61 @@
                 Please fill out the following information:
             </h2> -->
                 <div id="steps">
-                    <form id="formElement" name="formElement" action="/form/parent" method="post">
+                    <form id="formElement" name="formElement" action="/form/parent" method="POST">
                         <fieldset class="step">
                             <legend>Personal Details</legend>
                             <p>
-                                <label for="firstname">First Name</label>
-                                <input id="firstname" name ="firstname" />
+                                {{!-- <label for="firstname">First Name</label> --}}
+                                <input id="firstname" name ="firstname" placeholder="First Name"/>
                             </p>
                             <p>
                                 <label for="lastname">Last Name</label>
-                                <input id="lastname" name="lastname" />
+                                <input id="lastname" name="lastname" placeholder="Last Name" />
                             </p>
-                            <p>
-                                <label for="datepicker">Birthdate</label>
-                                <input type="text" name="datepicker" id="datepicker"></p>
+                            <p id="bday-select">
+                                <div class="birthday">
+                                    <span>
+                                        <select name="birthmonth" id="months">
+                                            <!-- <option disabled selected>Month</option> -->
+                                        </select>
+                                    </span>
+                                    <span>
+                                        <select name="birthdate" id="days">
+                                            <!-- <option disabled selected>Day</option>  -->
+                                        </select>
+                                    </span>
+                                    <span>
+                                        <select name="birthyear" id="years">
+                                            <!-- <option disabled selected>Year</option>  -->
+                                        </select>
+                                    </span>                
+                                </div>
                             </p>
-                            <p>
-                                <label for="form-check">Gender</label>
+                            <br>
+                            <p class="radio-form">
+                                {{!-- <label for="form-check">Gender</label> --}}
                                     <span class="form-check">
-                                        <label class="form-check-label">
-                                            <input class="form-check-input" type="radio" name="gender" id="radio1" value="Male" checked>
+                                        <label for="male-radio" class="form-check-label male">
+                                            <input class="form-check-input" type="radio" name="gender" id="male-radio" value="Male" checked>
                                             Male
                                         </label>
                                     </span>
                                     <span class="form-check">
-                                        <label class="form-check-label">
-                                            <input class="form-check-input" type="radio" name="gender" id="radio2" value="Female">
+                                        <label for="female-radio" class="form-check-label female">
+                                            <input class="form-check-input" type="radio" name="gender" id="female-radio" value="Female">
                                             Female
                                         </label>
                                     </span>
                             </p>
+                            <br>
                             <p>
-                                <label for="emailaddress">Email Address</label>
-                                <input id="emailaddress" name="emailaddress" />
+                                {{!-- <label for="emailaddress">Email Address</label> --}}
+                                <input id="emailaddress" name="emailaddress" placeholder="Email Address" />
                             </p>
+                            <br>
                             <p>
-                                <label for="password">Password</label>
-                                <input id="password" name="password" type="password" autocomplete="off" />
+                                {{!-- <label for="password">Password</label> --}}
+                                <input id="password" name="password" type="password" placeholder="Password" autocomplete="off" />
                             </p>
                             <p>
                                 <label>
@@ -277,8 +295,9 @@
                             </p>
                         <p>
                                 <div class=space></div>
-                                <label for="pets">Do you have pets?</label>
-                                <div id="pets">
+                                <label for="parent-pets" class="parent-pets">Do you have pets?</label>
+                                <br>
+                                <div id="parent-pets">
                                     <label class="checkbox-inline"><input type="checkbox" name="dog"><img class="form-image" src="../images/dog_image.png"></label>
                                     <label class="checkbox-inline"><input type="checkbox" name="cat"><img class="form-image cat-image" src="../images/cat_image.png"></label>
                                 </div>
@@ -299,13 +318,13 @@
                         </fieldset>
                         <fieldset class="step">
                             <legend>Please verify that all your information is correct</legend>
-                            <input type="submit" name="submit" class="btn btn-primary" value="Submit">
+                            <div class="submit-button"><input type="submit" name="submit" class="btn btn-primary" value="Submit"></div>
                         </fieldset>
                     </form>
                 </div>
                 <div id="navigation">
-                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                    <a class="prev" onclick="plusSlides(-1)">Prev</a>
+                    <a class="next" onclick="plusSlides(1)">Next</a>
                 </div>
                 <div style="text-align:center" class="buttons">
                     <span class="dot" onclick="currentSlide(1)">My Info</span> 

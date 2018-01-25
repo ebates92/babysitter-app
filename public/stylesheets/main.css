@@ -1,6 +1,10 @@
 html {
     box-sizing: border-box;
+
+    height: 100%;
+
     font-family: 'Questrial', sans-serif;
+
 }
 
 *, *:before, *:after {
@@ -9,8 +13,12 @@ html {
 
 body {
     background: rgb(242,242,242);
+
+    height: 100%;
+
     font-family: 'Questrial', sans-serif;
     /* height: 100%; */
+
 }
 
 .main-box {
@@ -89,10 +97,10 @@ body {
     font-size: 2rem;
 }
 
-/* .button_box {
+.button_box {
     display: flex;
-    justify-content: space-between;
-  } */
+    /* justify-content: space-between; */
+  }
 
 .one, .two {
     margin-left: 2rem;
