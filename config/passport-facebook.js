@@ -73,8 +73,11 @@ const setupAuth = (app) => {
         // placeholder for custom user deserialization.
         // maybe you are going to get the user from mongo by id?
         // null is for errors
+        Parent.findById(id).then((user) => {
+          done(null,user)
+        })
         console.log(id)
-        done(null,id)
+        // done(null,id)
 
       });
     
