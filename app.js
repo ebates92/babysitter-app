@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 // PASSPORT SET-UP
-var setupFacebook = require('./config/passport-facebook');
+var setupFacebookParent = require('./config/passport-facebook-parent');
 
 //CHAT SET-UP
 var setupChatRoom = require('./routes/chat-function');
@@ -20,6 +20,7 @@ var chatRouting = require('./routes/chat-routing');
 
 
 var app = express();
+setupFacebookParent(app);
 setupFacebook(app);
 setupChatRoom(app);
 

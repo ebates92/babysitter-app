@@ -1,5 +1,6 @@
 html {
     box-sizing: border-box;
+    font-family: 'Questrial', sans-serif;
 }
 
 *, *:before, *:after {
@@ -8,6 +9,7 @@ html {
 
 body {
     background: rgb(242,242,242);
+    font-family: 'Questrial', sans-serif;
     /* height: 100%; */
 }
 
