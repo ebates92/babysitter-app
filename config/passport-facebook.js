@@ -106,7 +106,7 @@ const setupAuth = (app) => {
         // AVOIDING DOUBLE AUTHENTICATION BECAUSE FACEBOOK SUCKS
         // passport.authenticate('facebook', { failureRedirect: '/login' }),
         (req, res) => {
-          // if you don't have your own route handler after the passport.authenticate middleware
+          // if you don't have your own route hadndler after the passport.authenticate middleware
           // then you get stuck in the infinite loop
           console.log('you just logged in');
           console.log(req.isAuthenticated());

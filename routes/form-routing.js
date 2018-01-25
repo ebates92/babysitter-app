@@ -82,13 +82,15 @@ router.route('/parent')
     res.render('form-parent')
       })
   .post((req, res, next) => {
-    console.log(req.user.id)
+    debugger
+    
+    // console.log(sessionStorage.getItem('id'))
       Parent.findOne({
         where: {
           id: req.user.id
         }
       }).then((parent_data) => {
-        Parent.update({
+        parent_data.update({
           isnew: false,
           emailaddress: req.body.emailaddress,
           password: req.body.password,
@@ -100,9 +102,9 @@ router.route('/parent')
           zipcode: req.body.zipcode,
           // image: req.body.image,
           // need to break this out from req.body.datepicker
-          birthyear: req.body.birthyear,
-          birthmonth: req.body.birthmonth,
-          birthdate: req.body.birthdate,
+          // birthyear: req.body.birthyear,
+          // birthmonth: req.body.birthmonth,
+          // birthdate: req.body.birthdate,
           gender: req.body.gender,
           boys: req.body.boys,
           boys_0_6months: req.body.boys_0_6months,
@@ -117,7 +119,7 @@ router.route('/parent')
           girls_7_11years: req.body.girls_7_11years,
           girls_12_years: req.body.girls_12_years,
           dog: req.body.dog,
-          cat:req.body.cat
+          cat: req.body.cat
         }).then(newParent => {
           res.render('form-success.hbs', {
             name: `${newParent.dataValues.firstname} ${newParent.dataValues.lastname}`,
@@ -126,6 +128,8 @@ router.route('/parent')
           });
 
         })
+      }).catch((err) => {
+        console.log(err)
       })
   })
 
