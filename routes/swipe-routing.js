@@ -39,7 +39,6 @@ router.route('/')
 
 router.route('/match')
   .post((req, res) =>{
-    debugger;
     console.log(req.user.id);
     Match.create({
       like: req.body.like,
