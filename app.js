@@ -9,7 +9,7 @@ var bodyParser = require('body-parser');
 var setupFacebookParent = require('./config/passport-facebook-parent');
 
 //CHAT SET-UP
-var setupChatRoom = require('./routes/chat-function');
+
 
 // ROUTING FILES
 var passport = require ('./routes/auth-routing');
@@ -21,8 +21,6 @@ var chatRouting = require('./routes/chat-routing');
 
 var app = express();
 setupFacebookParent(app);
-setupFacebook(app);
-setupChatRoom(app);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
