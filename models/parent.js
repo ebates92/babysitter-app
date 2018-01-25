@@ -2,6 +2,9 @@ const Sequelize = require('sequelize');
 const connection = require('../database');
 
 const Parent = connection.define('parent', {
+    type: {
+        type: Sequelize.STRING,
+    },
     isnew: {
         type: Sequelize.BOOLEAN,
     },

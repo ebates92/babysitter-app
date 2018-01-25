@@ -2,6 +2,9 @@ const Sequelize = require('sequelize');
 const connection = require('../database');
 
 const Babysitter = connection.define('babysitter', {
+    type: {
+        type: Sequelize.STRING,
+    },
     isnew: {
         type: Sequelize.BOOLEAN,
     },

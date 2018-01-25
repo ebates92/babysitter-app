@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 // PASSPORT SET-UP
-var setupFacebook = require('./config/passport-facebook');
+var setupFacebookParent = require('./config/passport-facebook-parent');
 
 // ROUTING FILES
 var passport = require ('./routes/auth-routing')
@@ -15,7 +15,7 @@ var swipeRouting = require('./routes/swipe-routing');
 // var matchRouting = require('./routes/match-routing');
 
 var app = express();
-setupFacebook(app);
+setupFacebookParent(app);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
