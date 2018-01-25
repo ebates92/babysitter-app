@@ -4,6 +4,7 @@ const Babysitter = require('../models/babysitter')
 const Parent = require('../models/parent')
 const Filter = require('../models/filter')
 const filterBabysitters = require('./filter-function')
+const Match = require('../models/match')
 
 // GET Initial Babysitter data to share with Parents
 // need to capture Parent ID to get their filter preferences
@@ -34,6 +35,16 @@ router.route('/')
   .get((req,res) => {
     res.render('swipe')
       })
+
+
+router.route('/match')
+  .post((req, res) =>{
+    Match.create({
+      like: req.body.like,
+      babysitter_id: req.body.babysitter_id,
+      parent_id: req.body.parent_id
+    })
+})
           
   
 
