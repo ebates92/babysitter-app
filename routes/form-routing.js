@@ -174,10 +174,4 @@ router.route('/filter')
       res.render('filter')
     })
 
-router.route('/swipe')
-.get((req,res) => {
-  res.render('swipe')
-    })
-      
-
 module.exports = router;
