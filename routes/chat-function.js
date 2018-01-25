@@ -1,5 +1,7 @@
 // var express = require('express');
 // var app = express();
+var Message = require('../models/messages');
+
 
 const setupChat = (app) => {
 
@@ -30,6 +32,12 @@ const setupChat = (app) => {
 
         // Send Message
         socket.on('send message', function(data){
+            Message.create({
+                content: data ,
+                senderId: socket.username
+            }).then(function(message){
+                message.save();
+            })
             io.sockets.emit('new message', {msg: data, user: socket.username});
         })
 
@@ -45,6 +53,6 @@ const setupChat = (app) => {
             io.sockets.emit('get users', users)
         }
     })
-}
+};
 
-module.export = setupChat;  
+module.exports = setupChat;  
