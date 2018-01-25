@@ -13,10 +13,10 @@ const Match = connection.define('match', {
     }
 });
 
-connection.sync ({
-    force: true
-}).then( () => {
+// connection.sync ({
+//     force: true
+// }).then( () => {
 
-});
+// });
 
 module.exports = Match;

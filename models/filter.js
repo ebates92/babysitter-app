@@ -100,9 +100,9 @@ const parentFilters = connection.define('parent_filter', {
 
 parentFilters.belongsTo(Parent);
 
-parentFilters.sync()
-    .then(() => {
+// parentFilters.sync()
+//     .then(() => {
 
-    })
+//     })
 
 module.exports = parentFilters;
