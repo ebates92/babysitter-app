@@ -12,7 +12,7 @@ var setupFacebook = require('./config/passport-facebook');
 var passport = require ('./routes/auth-routing')
 var formRouting = require('./routes/form-routing');
 var swipeRouting = require('./routes/swipe-routing');
-var matchRouting = require('./routes/match-routing');
+// var matchRouting = require('./routes/match-routing');
 
 var app = express();
 setupFacebook(app);
@@ -33,7 +33,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/auth', passport);
 app.use('/form', formRouting);
 app.use('/swipe', swipeRouting);
-app.use('/match', matchRouting)
+// app.use('/match', matchRouting)
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
