@@ -117,7 +117,7 @@ const setupAuth = (app) => {
             } else if (req.user.isnew === false) {
                 console.log('im old')
                 console.log(req.user.isnew)
-                res.redirect('/public/swipe')
+                res.redirect('/swipe')
             }
         }
     );

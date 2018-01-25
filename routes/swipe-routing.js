@@ -29,4 +29,12 @@ router.route('/babysitters')
     });
   });
 
+
+router.route('/')
+  .get((req,res) => {
+    res.render('swipe')
+      })
+          
+  
+
 module.exports = router;
