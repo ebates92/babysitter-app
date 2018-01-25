@@ -2,6 +2,7 @@ const Parent = require('./parent');
 const Babysitter = require('./babysitter');
 const Filter = require('./filter');
 const Faker = require('faker');
+const Messages = require('./messages');
 
 // generating random data variables
 let randomData = () => {
@@ -145,6 +146,12 @@ Parent.sync({force:true})
        });
    });
 });
+
+Messages.sync({force:true})
+.then(()=> {
+    console.log('created messages table')
+}
+)
 
 // create all of the fake data
 const create_all = () => {
