@@ -21,12 +21,6 @@ function getBabysitters (callback1, callback2, callback3) {
     });
 };
 
-function matchID () {
-    $.post('swipe/match', function() {
-        
-    })
-}
-
 // creates swipe container
 function bodyContainer () {
     // random babysitter selected
@@ -195,6 +189,8 @@ function swipeEvents () {
     let chevronContainer = document.querySelector('.chevron-container')
     let chevronBox = document.querySelector(".chevron-box")
     let primaryStart;
+    let babysitter_id = swipeCard.getAttribute('id')
+    console.log(babysitter_id)
 
     // adds touch start event
     swipeCard.addEventListener("touchstart", function(startEvent) {
@@ -312,11 +308,12 @@ function swipeEvents () {
                 if (requiredDistance < distanceMovedX) {
                     console.log("true");
                     reloadSwipe();
-                     matchID();
+                    matchID(true, babysitter_id);
 
                 } else if (-requiredDistance > distanceMovedX) {
                     console.log('false');
                     reloadSwipe();
+                    matchID(false, babysitter_id)
                 } else {
                     console.log('reswipe');
                     reswipe();
@@ -326,6 +323,16 @@ function swipeEvents () {
         };
     });
 };
+
+function matchID (likeValue, bID, pID) {
+    $.post('/swipe/match',{
+        like: likeValue,
+        babysitter_id: bID,
+        // parent_id: pID
+    }).then((res) => {
+        console.log(res);
+    })
+}
 
 function removeSwipeCard () {
     var mainBoxArray = document.querySelectorAll(".main-box");

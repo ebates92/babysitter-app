@@ -39,10 +39,14 @@ router.route('/')
 
 router.route('/match')
   .post((req, res) =>{
+    console.log(req.user.id);
     Match.create({
       like: req.body.like,
       babysitter_id: req.body.babysitter_id,
-      parent_id: req.body.parent_id
+      parent_id: req.user.id
+    }).then((match) => {
+      console.log(match);
+      res.send(match)
     })
 })
           
