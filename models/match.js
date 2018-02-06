@@ -1,17 +1,16 @@
 const Sequelize = require('sequelize');
 const connection = require('../database');
+const Babysitter = require('./babysitter')
+const Parent = require('./parent')
 
 const Match = connection.define('match', {
-    like: {
+    is_match: {
         type: Sequelize.BOOLEAN
-    },
-    babysitter_id: {
-        type: Sequelize.INTEGER
-    },
-    parent_id: {
-        type: Sequelize.INTEGER
     }
 });
+
+Match.belongsTo(Parent);
+Match.belongsTo(Babysitter);
 
 // connection.sync ({
 //     force: true
