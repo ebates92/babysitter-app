@@ -12,6 +12,25 @@
     margin: .6rem;
     height: 7rem;
     padding: .6rem;
+    color: black;
+}
+
+/* matches active/hover/clicked */
+
+a:hover {
+    color: skyblue;
+    font-size: 3rem;
+    text-decoration: none;
+}
+
+a:active {
+    color: skyblue;
+    font-size: 3rem;
+    text-decoration: none;
+}
+
+a:clicked {
+    color: black;
 }
 
 /* LEFT SIDE */
@@ -64,4 +83,5 @@
     margin-bottom: auto;
     font-size: 1.5rem;
 }
+
 
