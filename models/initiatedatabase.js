@@ -1,6 +1,7 @@
 const Parent = require('./parent');
 const Babysitter = require('./babysitter');
 const Filter = require('./filter');
+const Match = require('./match')
 const Faker = require('faker');
 const Messages = require('./messages');
 
@@ -144,8 +145,10 @@ Parent.sync({force:true})
 .then(() => {
    Babysitter.sync({force:true}).then(()=>{
        Filter.sync({force:true}).then(()=> {
-            create_all();
-       });
+            Match.sync({force:true}).then(()=> {
+                create_all();
+            });
+        });
    });
 });
 

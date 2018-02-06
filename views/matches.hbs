@@ -9,38 +9,42 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
-    <link rel="stylesheet" href="../public/stylesheets/main.css">
-    <link rel='stylesheet' href='../public/stylesheets/navbar.css'>
-    <link rel='stylesheet' href='../public/stylesheets/matches.css'>
+    <link rel="stylesheet" href="/stylesheets/main.css">
+    <link rel='stylesheet' href='/stylesheets/navbar.css'>
+    <link rel='stylesheet' href='/stylesheets/matches.css'>
   </head>
   <body>
     <div id='navbar'>
         <div id='settings'>Settings
             <div class='setting-options setting-hidden'><a href="/nav/profile">Profile</a></div>
-            <div class='setting-options setting-hidden'><a href="/nav/filters">Filters</a></div>
-            <div class='setting-options setting-hidden'><a href="/nav/logout">Logout</a>Logout</div>
+            {{!-- <div class='setting-options setting-hidden'><a href="/nav/filters">Filters</a></div> --}}
+            <div class='setting-options setting-hidden'><a href="/nav/logout">Logout</a></div>
         </div>
-        <div id='filter'>Filter</div>
-        <div id='matches'><a href="/nav/match">Matches</a></div>
+        {{!-- <div id='filter'>Filter</div> --}}
+        {{!-- <div id='matches'><a href="/nav/match">Matches</a></div> --}}
     </div>
     <div class="matches">
-      {{#each babysitters}}
-        <div class="match">
-          <div class='basics'>
-              <div class="image"><img src={{image}} alt="female-icon"></div>
-              <div class="name">{{firstname}}</div>
-          </div>
-          <div class="details">
-            <div class="cost">{{hourlyrate}}</div>
-            <div class="experience">{{experience}}</div>
-          </div>
-        </div>
-      {{/each}}
+      {{!-- {{#each array}} --}}
+        {{#each array}}
+          <a href="/chat/:{{babysitter.id}}">
+            <div class="match">
+              <div class='basics'>
+                  <div class="image"><img src={{babysitter.image}} alt="female-icon"></div>
+                  <div class="name">{{babysitter.firstname}}</div>
+              </div>
+              <div class="details">
+                <div class="cost">${{babysitter.hourlyrate}}/hour</div>
+                <div class="experience">{{babysitter.experience}}</div>
+              </div>
+            </div>
+          </a>
+        {{/each}}
+      {{!-- {{/each}} --}}
     </div>
     <!-- <div class='background_faded' id='welcome_baby'></div> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="/scripts/moment.min.js"></script>
-    <script src="../public/scripts/navbar.js"></script>
+    <script src="/scripts/navbar.js"></script>
   </body>
 </html>

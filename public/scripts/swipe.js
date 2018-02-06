@@ -326,7 +326,7 @@ function swipeEvents () {
 
 function matchID (likeValue, bID, pID) {
     $.post('/swipe/match',{
-        like: likeValue,
+        is_match: likeValue,
         babysitter_id: bID,
         // parent_id: pID
     }).then((res) => {
