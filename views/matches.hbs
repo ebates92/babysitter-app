@@ -16,45 +16,26 @@
   <body>
     <div id='navbar'>
         <div id='settings'>Settings
-            <div class='setting-options setting-hidden'>Profile</div>
-            <div class='setting-options setting-hidden'>Filters</div>
-            <div class='setting-options setting-hidden'>Logout</div>
+            <div class='setting-options setting-hidden'><a href="/nav/profile">Profile</a></div>
+            <div class='setting-options setting-hidden'><a href="/nav/filters">Filters</a></div>
+            <div class='setting-options setting-hidden'><a href="/nav/logout">Logout</a>Logout</div>
         </div>
         <div id='filter'>Filter</div>
-        <div id='matches'>Matches</div>
+        <div id='matches'><a href="/nav/match">Matches</a></div>
     </div>
     <div class="matches">
+      {{#each babysitters}}
         <div class="match">
           <div class='basics'>
-              <div class="image"><img src="../public/images/female-icon.png" alt="female-icon"></div>
-              <div class="name">firstname</div>
+              <div class="image"><img src={{image}} alt="female-icon"></div>
+              <div class="name">{{firstname}}</div>
           </div>
           <div class="details">
-            <div class="cost">$15/hour</div>
-            <div class="experience">Experience: 2-3 years</div>
+            <div class="cost">{{hourlyrate}}</div>
+            <div class="experience">{{experience}}</div>
           </div>
         </div>
-        <div class="match">
-            <div class='basics'>
-                <div class="image"><img src="../public/images/female-icon.png" alt="female-icon"></div>
-                <div class="name">firstname</div>
-            </div>
-            <div class="details">
-              <div class="cost">$15/hour</div>
-              <div class="experience">Experience: 2-3 years</div>
-            </div>
-          </div>
-          <div class="match">
-            <div class='basics'>
-                <div class="image"><img src="../public/images/female-icon.png" alt="female-icon"></div>
-                <div class="name">firstname</div>
-            </div>
-            <div class="details">
-              <div class="cost">$15/hour</div>
-              <div class="experience">Experience: 2-3 years</div>
-
-            </div>
-          </div>
+      {{/each}}
     </div>
     <!-- <div class='background_faded' id='welcome_baby'></div> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
