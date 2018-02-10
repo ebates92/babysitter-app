@@ -2,7 +2,7 @@ const Sequelize = require('sequelize');
 
 const connection = new Sequelize('babysitter', 'alexandercleoni','', {
 
-    host:'localhost',
+    host: 'localhost',
     dialect: 'postgres'
 });
 
