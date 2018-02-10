@@ -4,6 +4,8 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const keys = require('./keys');
 const Parent = require('../models/parent');
+const Babysitter = require('../models/babysitter')
+const Authentication = require('../models/authentication')
 const defaultParent = require('./new-parent')
 
 
@@ -31,17 +33,21 @@ const setupAuth = (app) => {
         console.log(`refreshToken: ${refreshToken}`)
         console.log(profile)
         // Translate the github profile into a Blog user
-        Parent.findOrCreate({
+        Authentication.findOrCreate({
             where: { facebook_profile_id: profile.id},
-            defaults: defaultParent(profile)
+            defaults: {
+              type: 'parent',
+              isnew: true,
+              facebook_profile_id: profile.id,
+            }
         }).then(result => {
           // `findOrCreate` returns an array
           // The actual user instance is the 0th element in the array
-          let parent = result[0];
+          let authorized_user = result[0];
           let isNew = result[1];
           // Pass that to the `done` callback as the 2nd arg.
           // The 1st arg is reserved for any errors that occur.
-          return done(null, parent);
+          return done(null, authorized_user);
         })
         .catch(err => {
           console.log('that did not work');
@@ -62,21 +68,19 @@ const setupAuth = (app) => {
         // placeholder for custom user serialization
         // null is for errors
         console.log('we are serializing');
-        done(null, user.id);
+        done(null, user);
       });
     
       // #5 call passport.serializeUser
       // This configures how passport checks what's in the
       // session to see if the login is still valid.
-      passport.deserializeUser(function(id, done) {
+      passport.deserializeUser(function(user, done) {
         console.log('we are deserializing');
         // placeholder for custom user deserialization.
         // maybe you are going to get the user from mongo by id?
         // null is for errors
-        Parent.findById(id).then((user) => {
           done(null,user)
-        })
-        console.log(id)
+        console.log(user)
         // done(null,id)
 
       });
@@ -89,7 +93,8 @@ const setupAuth = (app) => {
       app.use(passport.session());
     
       // #8 register our login, logout, and auth routes
-      app.get('/auth/facebook/:type', passport.authenticate('facebook'));
+      app.get('/auth/facebook/:type',
+        passport.authenticate('facebook'));
     
       app.get('/logout', function(req, res, next) {
         console.log('logging out');
