@@ -83,17 +83,16 @@ router.route('/parent')
       })
   .post((req, res, next) => {
     debugger
-    
-    // console.log(sessionStorage.getItem('id'))
-      Parent.findOne({
-        where: {
-          id: req.user.id
-        }
-      }).then((parent_data) => {
-        parent_data.update({
+    console.log(req.user.id)
+    debugger
+    if (req.user.isnew === false) {
+
+    } else {
+        Parent.create({
+          authenticationId: req.user.id,
           isnew: false,
-          emailaddress: req.body.emailaddress,
-          password: req.body.password,
+          // emailaddress: req.body.emailaddress,
+          // password: req.body.password,
           firstname:req.body.firstname,
           lastname: req.body.lastname,
           address: req.body.address,
@@ -126,12 +125,19 @@ router.route('/parent')
             firstname: newParent.dataValues.firstname,
             type: 'parent'
           });
-
-        })
-      }).catch((err) => {
+        }).catch((err) => {
         console.log(err)
       })
-  })
+    }
+    // this is where you updated instead of created before
+      // Parent.findOne({
+      //   where: {
+      //     id: req.user.id
+      //   }
+      // }).then((parent_data) => {
+      //   parent_data.update({
+
+    })
 
 
 router.route('/filter')
