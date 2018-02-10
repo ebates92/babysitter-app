@@ -374,6 +374,3 @@ function navBarClick () {
 
 getBabysitters(bodyContainer,bodyContainer,swipeEvents)
 navBarClick();
-
-
-
