@@ -4,11 +4,13 @@ const Filter = require('./filter');
 const Match = require('./match')
 const Faker = require('faker');
 const Messages = require('./messages');
+const Authentication = require('./authentication')
 
 // generating random data variables
-let randomData = () => {
+let randomData = (index) => {
     let babysitter_data = 
     {
+        authenticationId: index + 1,
         type: 'babysitter',
         isnew: false,
         facebook_profile_id: Faker.random.number(),
@@ -104,6 +106,7 @@ let randomData = () => {
     };
 
     let parent_data = {
+        authenticationId: (index + 16),
         type: 'parent',
         isnew: false,
         facebook_profile_id: Faker.random.number(),
@@ -141,12 +144,15 @@ let randomData = () => {
 
 
 // Create the tables anew
-Parent.sync({force:true})
+Authentication.sync({force:true})
 .then(() => {
    Babysitter.sync({force:true}).then(()=>{
-       Filter.sync({force:true}).then(()=> {
-            Match.sync({force:true}).then(()=> {
-                create_all();
+        Parent.sync({force:true}).then(()=> {
+            Filter.sync({force:true}).then(()=> {
+                Match.sync({force:true}).then(()=> {
+                    createAuthentication()
+                    create_all();
+                });
             });
         });
    });
@@ -158,15 +164,31 @@ Messages.sync({force:true})
 }
 )
 
+const createAuthentication = () => {
+    for (x=0; x < 15; x++) {
+        Authentication.create({
+            type: 'babysitter',
+            isnew: true,
+            facebook_profile_id: x
+        })
+    }
+    for (x=0; x < 15; x++) {
+        Authentication.create({
+            type: 'parent',
+            isnew: true,
+            facebook_profile_id: (x+15)
+        })
+    }
+}
+
 // create all of the fake data
 const create_all = () => {
     let promise = [];
     for (x=0; x < 15; x++) {
-        let data = randomData()
+        let data = randomData(x)
             let babysitter_data = data[0];
             let filter_data = data[1];
             let parent_data = data[2];
-            console.log(filter_data)
             let babysitter = Babysitter.create(babysitter_data);
             Parent.create(parent_data).then((parent) => {
                 Filter.create(filter_data)
