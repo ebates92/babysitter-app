@@ -9,46 +9,6 @@ body {
     font-family: 'Questrial', sans-serif;
 }
 
-/* NAVIGATION BAR */
-
-#navbar {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    width: 100vw;
-    background-color:rgb(95,194,255);
-    margin-bottom: 2rem;
-}
-
-#settings, #matches, #filter {
-    display:grid;
-    font-size: 2rem;
-    /* grid-template-rows: 1fr 1fr 1fr; */
-    padding: .75rem;
-    width: auto;
-    text-align: center;
-}
-
-#filter {
-    grid-column-start: 2;
-}
-
-#matches {
-    grid-column-start: 3;
-}
-
-#filter {
-    grid-column-start: 2;
-}
-
-.setting-options {
-    font-size: 1.6rem;
-    padding-top: .75rem;
-}
-
-.setting-hidden {
-    display: none;
-}
-
 /* swipe */
 
 .main-box {

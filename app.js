@@ -8,27 +8,21 @@ var bodyParser = require('body-parser');
 // PASSPORT SET-UP
 var setupFacebookParent = require('./config/passport-facebook-parent');
 
-//CHAT SET-UP
-
-
 // ROUTING FILES
 var passport = require ('./routes/auth-routing');
 var formRouting = require('./routes/form-routing');
 var swipeRouting = require('./routes/swipe-routing');
-
-// var matchRouting = require('./routes/match-routing');
-var chatRouting = require('./routes/chat-routing');
+var navRouting = require('./routes/nav-routing')
 
 
 var app = express();
 setupFacebookParent(app);
+// setupChatRoom(app);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -39,13 +33,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/auth', passport);
 app.use('/form', formRouting);
 app.use('/swipe', swipeRouting);
+app.use('/nav', navRouting);
 
-
-
-app.use(chatRouting);
-// app.use('/match', matchRouting)
-
-// catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
@@ -62,10 +51,5 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-
-// app.listen(3000, () => {
-//   console.log("Running on port 3000")
-// });
-
 
 module.exports = app;

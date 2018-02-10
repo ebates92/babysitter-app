@@ -10,15 +10,15 @@ const Match = require('../models/match')
 // need to capture Parent ID to get their filter preferences
 router.route('/babysitters')
   .get((req, res, next) => {
+    console.log(req.user)
     Filter.findOne({
       where: {
-        // parentId: req.params.id,
+        // parentId: req.user.id,
         parentId: 1
         // findall filter data by parent foreign key
       }
       // pass the parent data to the babysitter query
     }).then((parent_filter_data) => {
-      console.log(parent_filter_data);
       let filter = filterBabysitters(parent_filter_data);
       Babysitter.findAll({
         where: filter
@@ -39,13 +39,12 @@ router.route('/')
 
 router.route('/match')
   .post((req, res) =>{
-    console.log(req.user.id)
+
     Match.create({
-      like: req.body.like,
-      babysitter_id: req.body.babysitter_id,
-      parent_id: req.user.id
+      is_match: req.body.is_match,
+      babysitterId: req.body.babysitter_id,
+      parentId: req.user.id
     }).then((match) => {
-      console.log(match);
       res.send(match)
     })
 })

@@ -1,0 +1,87 @@
+.matches {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(236,236,236,1);
+}
+
+.match {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: rgba(172,223,255,1);
+    margin: .6rem;
+    height: 7rem;
+    padding: .6rem;
+    color: black;
+}
+
+/* matches active/hover/clicked */
+
+a:hover {
+    color: skyblue;
+    font-size: 3rem;
+    text-decoration: none;
+}
+
+a:active {
+    color: skyblue;
+    font-size: 3rem;
+    text-decoration: none;
+}
+
+a:clicked {
+    color: black;
+}
+
+/* LEFT SIDE */
+
+.basics {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-content: center;
+}
+
+.image {
+    text-align: left;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.image > img {
+    width: 5rem;
+    height: 5rem;
+}
+
+.name {
+    text-align: left;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-size: 2.5rem;
+    padding-left: 1rem;
+}
+
+/* RIGHT SIDE */
+
+.details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: right;
+}
+
+.cost {
+    text-align: right;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-size: 2rem;
+}
+
+.experience {
+    text-align: right;
+    margin-top: auto;
+    margin-bottom: auto;
+    font-size: 1.5rem;
+}
+
+

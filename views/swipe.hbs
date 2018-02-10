@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
     <link rel="stylesheet" href="/stylesheets/calendar.css">
     <link rel="stylesheet" href="/stylesheets/main.css">
+    <link rel="stylesheet" href="/stylesheets/navbar.css">
     <link rel="stylesheet" href="/stylesheets/swipe.css">
 
     <title>BabySitter App</title>
@@ -17,12 +18,12 @@
 <body>
     <div id='navbar'>
         <div id='settings'>Settings
-            <div class='setting-options setting-hidden'>Profile</div>
-            <div class='setting-options setting-hidden'>Filters</div>
-            <div class='setting-options setting-hidden'>Logout</div>
+            <div class='setting-options setting-hidden'><a href="/nav/profile">Profile</a></div>
+            {{!-- <div class='setting-options setting-hidden'><a href="/nav/filters">Filters</a></div> --}}
+            <div class='setting-options setting-hidden'><a href="/nav/logout">Logout</a></div>
         </div>
         <div id='filter'>Filter</div>
-        <div id='matches'>Matches</div>
+        <div id='matches'><a href="/nav/match">Matches</a></div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
