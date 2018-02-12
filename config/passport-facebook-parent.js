@@ -111,19 +111,38 @@ const setupAuth = (app) => {
         // AVOIDING DOUBLE AUTHENTICATION BECAUSE FACEBOOK SUCKS
         // passport.authenticate('facebook', { failureRedirect: '/login' }),
         (req, res) => {
-          // if you don't have your own route hadndler after the passport.authenticate middleware
-          // then you get stuck in the infinite loop
-          console.log('you just logged in');
-          console.log(req.isAuthenticated());
-            if (req.user.isnew === true) {
-                console.log('im new')
-                console.log(req.user.isnew)
-                res.redirect('/form/parent')
-            } else if (req.user.isnew === false) {
-                console.log('im old')
-                console.log(req.user.isnew)
-                res.redirect('/swipe')
-            }
+          console.log(req.cookies.type)
+          Authentication.findOne({
+            where: {id: req.user.id}
+          }).then((authentication_user) => {
+            authentication_user.update({
+              type: req.cookies.type
+            })
+          }).then((d) => {
+            // if you don't have your own route hadndler after the passport.authenticate middleware
+            // then you get stuck in the infinite loop
+            console.log('you just logged in');
+            console.log(req.isAuthenticated());
+              if (req.user.isnew === true) {
+                  console.log('im new')
+                  console.log(req.user.isnew)
+                  if (req.cookies.type === 'parent') {
+                    res.redirect('/form/parent')
+                  } else {
+                    res.redirect('/form/babysitter')
+                  }
+                  
+              } else if (req.user.isnew === false) {
+                  console.log('im old')
+                  console.log(req.user.isnew)
+                  if (req.cookies.type === 'parent') {
+                    res.redirect('/swipe')
+                  } else {
+                    res.redirect('/matches')
+                  }
+              }
+          })
+
         }
     );
     

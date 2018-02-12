@@ -3,6 +3,7 @@ const connection = require('../database');
 const Authentication = require('./authentication')
 
 const Babysitter = connection.define('babysitter', {
+
     // emailaddress: {
     //     type: Sequelize.STRING,
     //     // unique: true,
@@ -26,11 +27,11 @@ const Babysitter = connection.define('babysitter', {
     // },
     firstname: {
         type: Sequelize.STRING,
-        allowNull: false,
+        // allowNull: false,
     },
     lastname: {
         type: Sequelize.STRING,
-        allowNull: false,
+        // allowNull: false,
     },
     address: {
         type: Sequelize.STRING,
@@ -108,6 +109,7 @@ const Babysitter = connection.define('babysitter', {
     },
     transportation: {
         type: Sequelize.BOOLEAN,
+        defaultValue: false
         // allowNull: false,
         // validate: {
         //     is: {
@@ -118,6 +120,7 @@ const Babysitter = connection.define('babysitter', {
     },
     smoke: {
         type: Sequelize.BOOLEAN,
+        defaultValue: false
         // allowNull: false,
         // validate: {
         //     is: {
@@ -128,6 +131,7 @@ const Babysitter = connection.define('babysitter', {
     },
     pets: {
         type: Sequelize.BOOLEAN,
+        defaultValue: false
         // allowNull: false,
         // validate: {
         //     is: {
@@ -137,8 +141,7 @@ const Babysitter = connection.define('babysitter', {
         // }
     },
     cats: {
-        type: Sequelize.BOOLEAN,
-        defaultValue: false
+        type: Sequelize.STRING,
         // allowNull: false,
         // validate: {
         //     is: {
@@ -148,8 +151,7 @@ const Babysitter = connection.define('babysitter', {
         // }
     },
     dogs: {
-        type: Sequelize.BOOLEAN,
-        defaultValue: false
+        type: Sequelize.STRING,
         // allowNull: false,
         // validate: {
         //     is: {
