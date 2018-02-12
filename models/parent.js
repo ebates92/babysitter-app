@@ -122,7 +122,11 @@ const Parent = connection.define('parent', {
      },
 })
 
+
+// // on first run you will need to enable force = true
+
 // on first run you will need to enable force = true
+
 // connection.sync ({
 //     // force: true
 // }).then( () => {
