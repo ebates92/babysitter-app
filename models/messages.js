@@ -1,6 +1,8 @@
 const Sequelize = require('sequelize');
 const connection = require('../database');
 
+
+// To create a model for db for all messages
 const msg = connection.define('message', {
     content: {
         type: Sequelize.STRING
@@ -10,10 +12,5 @@ const msg = connection.define('message', {
     }
 })
 
-// connection.sync ({
-//     force: true
-// }).then( () => {
-
-// })
 
 module.exports = msg;

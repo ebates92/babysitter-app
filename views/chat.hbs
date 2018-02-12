@@ -55,6 +55,10 @@
     </div>
 
     <script>
+        var roomId= {{roomId}}
+    </script>
+
+    <script>
         $(function(){
             var socket = io.connect();
             var $messageForm = $('#messageForm');
@@ -94,6 +98,11 @@
                 }
                 $users.html(html);
             });
+
+            socket.on('connect', function () {
+                socket.emit('room', roomId)
+            })
+
         });
     </script>
 </body>
