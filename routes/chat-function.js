@@ -5,18 +5,14 @@ var Message = require('../models/messages');
 
 const setupChat = (server, app) => {
 
-    // var server = require('http').createServer(app);
-    var io = require('socket.io').listen(server);
-    users = [];
+    const io = require('socket.io').listen(server);
     connections = [];
-
-    // server.listen(process.env.PORT || 3000);
-    // console.log('server running')
+    users = [];
 
 
-    app.get('/chat', function(req, res) {
-        res.sendFile(__dirname + '/index.html');
-    });
+    // app.get('/chat', function(req, res) {
+    //     res.sendFile(__dirname + '/index.html');
+    // });
 
     io.sockets.on('connection', function(socket){
         connections.push(socket);
@@ -30,17 +26,6 @@ const setupChat = (server, app) => {
             console.log('Disconnected: %s sockets connected', connections.length);
         });
 
-        // Send Message
-        socket.on('send message', function(data){
-            Message.create({
-                content: data ,
-                senderId: socket.username
-            }).then(function(message){
-                message.save();
-            })
-            io.sockets.emit('new message', {msg: data, user: socket.username});
-        })
-
         // New User
         socket.on('new user', function(data, callback){
             callback(true);
@@ -48,10 +33,29 @@ const setupChat = (server, app) => {
             users.push(socket.username);
             updateUsernames();
         });
-
+        
+        // Updates usernames list
         function updateUsernames(){
-            io.sockets.emit('get users', users)
+            io.sockets.emit('get users', users);
         }
+        
+        //Room
+        socket.on('room', function(roomId) {
+            
+            socket.join(roomId);
+            // Send Message
+            socket.on('send message', function(data){
+                Message.create({
+                    content: data ,
+                    senderId: socket.username
+                }).then(function(message){
+                    message.save();
+                })
+                io.sockets.in(roomId).emit('new message', {msg: data, user: socket.username});
+            })
+            
+            
+        })
     })
 };
 
