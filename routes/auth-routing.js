@@ -10,6 +10,7 @@ const passport = require('passport');
 // login application
 router.route('/login/:type')
   .get((req,res) => {
+    res.cookie('type', req.params.type ,{expires: new Date(Date.now()+60*10080)});
     res.render('login.hbs', {
       type: req.params.type
     })
