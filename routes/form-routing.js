@@ -6,10 +6,15 @@ const parentFilter = require('../models/filter')
 
 // POST babysitter form into database
 router.route('/babysitter')
+  .get((req, res, next) => {
+    res.render('form-babysitter')
+  })
   .post((req, res, next) => {
+    debugger
     console.log('monday morning'+ req.body.mon_morning);
     console.log('sunday morning' + req.body.sun_morning);
       Babysitter.create({
+        authenticationId: req.user.id,
         emailaddress: req.body.emailaddress,
         password: req.body.password,
         firstname:req.body.firstname,
@@ -19,7 +24,6 @@ router.route('/babysitter')
         state: req.body.state,
         zipcode: req.body.zipcode,
         image: req.body.image,
-        // need to break this out from req.body.datepicker
         birthyear: req.body.birthyear,
         birthmonth: req.body.birthmonth,
         birthdate: req.body.birthdate,
@@ -85,59 +89,47 @@ router.route('/parent')
     debugger
     console.log(req.user.id)
     debugger
-    if (req.user.isnew === false) {
-
-    } else {
-        Parent.create({
-          authenticationId: req.user.id,
-          isnew: false,
-          // emailaddress: req.body.emailaddress,
-          // password: req.body.password,
-          firstname:req.body.firstname,
-          lastname: req.body.lastname,
-          address: req.body.address,
-          city: req.body.city,
-          state: req.body.state,
-          zipcode: req.body.zipcode,
-          // image: req.body.image,
-          // need to break this out from req.body.datepicker
-          // birthyear: req.body.birthyear,
-          // birthmonth: req.body.birthmonth,
-          // birthdate: req.body.birthdate,
-          gender: req.body.gender,
-          boys: req.body.boys,
-          boys_0_6months: req.body.boys_0_6months,
-          boys_7months_3years: req.body.boys_7months_3years,
-          boys_4_6years: req.body.boys_4_6years,
-          boys_7_11years: req.body.boys_7_11years,
-          boys_12_years: req.body.boys_12_years,
-          girls: req.body.girls,
-          girls_0_6months: req.body.girls_0_6months,
-          girls_7months_3years: req.body.girls_7months_3years,
-          girls_4_6years: req.body.girls_4_6years,
-          girls_7_11years: req.body.girls_7_11years,
-          girls_12_years: req.body.girls_12_years,
-          dog: req.body.dog,
-          cat: req.body.cat
-        }).then(newParent => {
-          res.render('form-success.hbs', {
-            name: `${newParent.dataValues.firstname} ${newParent.dataValues.lastname}`,
-            firstname: newParent.dataValues.firstname,
-            type: 'parent'
-          });
-        }).catch((err) => {
-        console.log(err)
-      })
-    }
-    // this is where you updated instead of created before
-      // Parent.findOne({
-      //   where: {
-      //     id: req.user.id
-      //   }
-      // }).then((parent_data) => {
-      //   parent_data.update({
-
+      Parent.create({
+        authenticationId: req.user.id,
+        // isnew: false,
+        // emailaddress: req.body.emailaddress,
+        // password: req.body.password,
+        firstname:req.body.firstname,
+        lastname: req.body.lastname,
+        address: req.body.address,
+        city: req.body.city,
+        state: req.body.state,
+        zipcode: req.body.zipcode,
+        // image: req.body.image,
+        // need to break this out from req.body.datepicker
+        // birthyear: req.body.birthyear,
+        // birthmonth: req.body.birthmonth,
+        // birthdate: req.body.birthdate,
+        gender: req.body.gender,
+        boys: req.body.boys,
+        boys_0_6months: req.body.boys_0_6months,
+        boys_7months_3years: req.body.boys_7months_3years,
+        boys_4_6years: req.body.boys_4_6years,
+        boys_7_11years: req.body.boys_7_11years,
+        boys_12_years: req.body.boys_12_years,
+        girls: req.body.girls,
+        girls_0_6months: req.body.girls_0_6months,
+        girls_7months_3years: req.body.girls_7months_3years,
+        girls_4_6years: req.body.girls_4_6years,
+        girls_7_11years: req.body.girls_7_11years,
+        girls_12_years: req.body.girls_12_years,
+        dog: req.body.dog,
+        cat: req.body.cat
+      }).then(newParent => {
+        res.render('form-success.hbs', {
+          name: `${newParent.dataValues.firstname} ${newParent.dataValues.lastname}`,
+          firstname: newParent.dataValues.firstname,
+          type: 'parent'
+        });
+      }).catch((err) => {
+      console.log(err)
     })
+  })
 
 
 router.route('/filter')
