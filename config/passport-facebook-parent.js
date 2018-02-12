@@ -29,9 +29,8 @@ const setupAuth = (app) => {
         clientSecret: keys.facebook.clientSecret,
         callbackURL:'http://localhost:3000/auth/facebook/callback'
       }, (accessToken, refreshToken, profile, done) => {
-        console.log(`accessToken: ${accessToken}`)
-        console.log(`refreshToken: ${refreshToken}`)
         console.log(profile)
+        console.log(1)
         // Translate the github profile into a Blog user
         Authentication.findOrCreate({
             where: { facebook_profile_id: profile.id},
@@ -41,6 +40,7 @@ const setupAuth = (app) => {
               facebook_profile_id: profile.id,
             }
         }).then(result => {
+          console.log(2)
           // `findOrCreate` returns an array
           // The actual user instance is the 0th element in the array
           let authorized_user = result[0];
@@ -68,6 +68,7 @@ const setupAuth = (app) => {
         // placeholder for custom user serialization
         // null is for errors
         console.log('we are serializing');
+        console.log(4)
         done(null, user);
       });
     
@@ -79,8 +80,8 @@ const setupAuth = (app) => {
         // placeholder for custom user deserialization.
         // maybe you are going to get the user from mongo by id?
         // null is for errors
+        console.log(5)
           done(null,user)
-        console.log(user)
         // done(null,id)
 
       });
@@ -91,10 +92,6 @@ const setupAuth = (app) => {
       // #7 start passport's session management middleware and
       // register it with express
       app.use(passport.session());
-    
-      // #8 register our login, logout, and auth routes
-      app.get('/auth/facebook/:type',
-        passport.authenticate('facebook'));
     
       app.get('/logout', function(req, res, next) {
         console.log('logging out');
@@ -114,8 +111,17 @@ const setupAuth = (app) => {
           // if you don't have your own route hadndler after the passport.authenticate middleware
           // then you get stuck in the infinite loop
           console.log('you just logged in');
+          console.log(6)
           console.log(req.isAuthenticated());
             if (req.user.isnew === true) {
+                Authentication.findOne({
+                  where: {id:req.user.id},
+                }).then((user) => {
+                  console.log(7)
+                  user.update({
+                    type: req.cookies.type
+                  })
+                })
                 console.log('im new')
                 console.log(req.user.isnew)
                 res.redirect('/form/parent')
@@ -126,6 +132,13 @@ const setupAuth = (app) => {
             }
         }
     );
+
+    // #8 register our login, logout, and auth routes
+    app.get('/auth/facebook/:type', (req, res, next) => {
+      console.log(req.params.type)
+      res.cookie('type', req.params.type ,{expires: new Date(Date.now()+60*10080)});
+      next();
+    }, passport.authenticate('facebook'));
     
       // That's it.
       // That's the end of our passport setup for github
