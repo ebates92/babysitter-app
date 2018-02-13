@@ -3,6 +3,7 @@ var router = express.Router();
 const Babysitter = require('../models/babysitter')
 const Parent = require('../models/parent')
 const parentFilter = require('../models/filter')
+const Authentication = require('../models/authentication')
 
 // POST babysitter form into database
 router.route('/babysitter')
@@ -10,9 +11,14 @@ router.route('/babysitter')
     res.render('form-babysitter')
   })
   .post((req, res, next) => {
-    debugger
-    console.log('monday morning'+ req.body.mon_morning);
-    console.log('sunday morning' + req.body.sun_morning);
+      debugger
+      Authentication.findOne({
+        where: {id: req.user.id}
+      }).then((thisprofile) => {
+        thisprofile.update({
+          isnew: false
+        })
+      })
       Babysitter.create({
         authenticationId: req.user.id,
         emailaddress: req.body.emailaddress,
@@ -86,9 +92,13 @@ router.route('/parent')
     res.render('form-parent')
       })
   .post((req, res, next) => {
-    debugger
-    console.log(req.user.id)
-    debugger
+      Authentication.findOne({
+        where: {id: req.user.id}
+      }).then((thisprofile) => {
+        thisprofile.update({
+          isnew: false
+        })
+      })
       Parent.create({
         authenticationId: req.user.id,
         // isnew: false,
