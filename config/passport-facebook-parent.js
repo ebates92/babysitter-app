@@ -27,7 +27,9 @@ const setupAuth = (app) => {
       passport.use(new FacebookStrategy({
         clientID: keys.facebook.clientID,
         clientSecret: keys.facebook.clientSecret,
-        callbackURL:'http://localhost:3000/auth/facebook/callback'
+        callbackURL:'http://localhost:3000/auth/facebook/callback',
+        scope: ['email','basic_info'],
+        profileFields: ['id', 'displayName', 'photos', 'emails', 'birthday']
       }, (accessToken, refreshToken, profile, done) => {
         console.log(`accessToken: ${accessToken}`)
         console.log(`refreshToken: ${refreshToken}`)
@@ -111,6 +113,7 @@ const setupAuth = (app) => {
         // AVOIDING DOUBLE AUTHENTICATION BECAUSE FACEBOOK SUCKS
         // passport.authenticate('facebook', { failureRedirect: '/login' }),
         (req, res) => {
+          // updates the authentication table to the type parent/babysitter so that it can be referenced later
           console.log(req.cookies.type)
           Authentication.findOne({
             where: {id: req.user.id}
