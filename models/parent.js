@@ -24,14 +24,14 @@ const Parent = connection.define('parent', {
     //     //     }
     //     // }
     // },
-    firstname: {
-        type: Sequelize.STRING,
-        allowNull: false,
-    },
-    lastname: {
-        type: Sequelize.STRING,
-        allowNull: false,
-    },
+    // firstname: {
+    //     type: Sequelize.STRING,
+    //     allowNull: false,
+    // },
+    // lastname: {
+    //     type: Sequelize.STRING,
+    //     allowNull: false,
+    // },
     address: {
         type: Sequelize.STRING,
     },
@@ -45,9 +45,9 @@ const Parent = connection.define('parent', {
         type: Sequelize.INTEGER,
         // allowNull: false,
     },
-    image: {
-        type: Sequelize.STRING,
-    },
+    // image: {
+    //     type: Sequelize.STRING,
+    // },
     birthyear: {
         type: Sequelize.INTEGER,
         // allowNull: false,

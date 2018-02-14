@@ -25,22 +25,28 @@ const setupAuth = (app) => {
     
       // #3 set up passport strategy
       passport.use(new FacebookStrategy({
-        clientID: keys.facebook.clientID,
-        clientSecret: keys.facebook.clientSecret,
-        callbackURL:'http://localhost:3000/auth/facebook/callback',
+        clientID: process.env.facebookclientID,
+        clientSecret: process.env.facebookclientSecret,
+        callbackURL:`${process.env.host}/auth/facebook/callback`,
         scope: ['email','basic_info'],
         profileFields: ['id', 'displayName', 'photos', 'emails', 'birthday']
       }, (accessToken, refreshToken, profile, done) => {
-        console.log(`accessToken: ${accessToken}`)
-        console.log(`refreshToken: ${refreshToken}`)
         console.log(profile)
         // Translate the github profile into a Blog user
+        let name = profile.displayName.split(' ')
+        console.log(name)
+        console.log(profile.emails[0].value)
+        console.log(profile.photos[0].value)
         Authentication.findOrCreate({
             where: { facebook_profile_id: profile.id},
             defaults: {
               type: 'parent',
               isnew: true,
               facebook_profile_id: profile.id,
+              firstname: name[0],
+              lastname: name[1],
+              emailaddress: profile.emails[0].value,
+              image: profile.photos[0].value
             }
         }).then(result => {
           // `findOrCreate` returns an array

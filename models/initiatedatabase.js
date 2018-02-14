@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const Parent = require('./parent');
 const Babysitter = require('./babysitter');
 const Filter = require('./filter');
@@ -111,14 +113,14 @@ let randomData = (index) => {
         isnew: false,
         facebook_profile_id: Faker.random.number(),
         emailaddress: Faker.internet.email(),
-        password: 'SuperH@rdP@ssw0rd',
-        firstname: Faker.name.firstName(),
-        lastname: Faker.name.lastName(),
+        // password: 'SuperH@rdP@ssw0rd',
+        // firstname: Faker.name.firstName(),
+        // lastname: Faker.name.lastName(),
         address: '30 Leslie Street NE',
         city: 'Atlanta',
         state: 'Georgia',
         zipcode: '30307',
-        image: '/json_images/good-babysitter.jpg',
+        // image: '/json_images/good-babysitter.jpg',
         birthyear: '1988',
         birthmonth: '09',
         birthdate: '02',
@@ -145,23 +147,24 @@ let randomData = (index) => {
 
 // Create the tables anew
 Authentication.sync({force:true})
-.then(() => {
-   Babysitter.sync({force:true}).then(()=>{
-        Parent.sync({force:true}).then(()=> {
-            Filter.sync({force:true}).then(()=> {
-                Match.sync({force:true}).then(()=> {
-                    createAuthentication()
-                    create_all();
+    .then(() => {
+        // createAuthentication()
+        Babysitter.sync({force:true}).then(()=>{
+            Parent.sync({force:true}).then(()=> {
+                Filter.sync({force:true}).then(()=> {
+                    Match.sync({force:true}).then(()=> {
+                        createAuthentication()
+                        create_all();
+                    });
                 });
             });
         });
-   });
-});
+    });
 
 Messages.sync({force:true})
-.then(()=> {
-    console.log('created messages table')
-}
+    .then(()=> {
+        console.log('created messages table')
+    }
 )
 
 const createAuthentication = () => {
@@ -169,14 +172,22 @@ const createAuthentication = () => {
         Authentication.create({
             type: 'babysitter',
             isnew: true,
-            facebook_profile_id: x
+            facebook_profile_id: x,
+            emailaddress: 'ebates92@gmail.com',
+            firstname: Faker.name.firstName(),
+            lastname: Faker.name.lastName(),
+            image: '/json_images/good-babysitter.jpg',
         })
     }
     for (x=0; x < 15; x++) {
         Authentication.create({
             type: 'parent',
             isnew: true,
-            facebook_profile_id: (x+15)
+            facebook_profile_id: (x+15),
+            emailaddress: 'ebates92@gmail.com',
+            firstname: Faker.name.firstName(),
+            lastname: Faker.name.lastName(),
+            image: '/json_images/good-babysitter.jpg',
         })
     }
 }
