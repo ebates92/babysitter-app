@@ -12,8 +12,9 @@ var setupFacebookParent = require('./config/passport-facebook-parent');
 var passport = require ('./routes/auth-routing');
 var formRouting = require('./routes/form-routing');
 var swipeRouting = require('./routes/swipe-routing');
-var navRouting = require('./routes/nav-routing')
+var navRouting = require('./routes/nav-routing');
 var chatRouting = require('./routes/chat-routing');
+var profileRouting = require('./routes/profile-routing');
 
 
 
@@ -36,6 +37,7 @@ app.use('/auth', passport);
 app.use('/form', formRouting);
 app.use('/swipe', swipeRouting);
 app.use('/nav', navRouting);
+app.use(profileRouting);
 app.use(chatRouting);
 
 app.use(function(req, res, next) {
