@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/filters.css">
+    <link rel="stylesheet" href="/stylesheets/calendar.css">
+    <link rel="stylesheet" href="/stylesheets/main.css">
+    <link rel="stylesheet" href="/stylesheets/form-styles.css">
+    <title>Form Submission</title>
+</head>
+<body>
+        <!-- <h2>
+            Please fill out the following information:
+        </h2> -->
+            <div id="steps">
+                <form id="formElement" name="formElement" action="/form/babysitter" method="POST">
+                    <fieldset class="step fade personal">
+                        <legend>Personal Details</legend>
+                        <p>
+                            <!-- <label for="firstname">First Name</label> -->
+                            <input id="firstname" name ="firstname" placeholder="First Name" />
+                        </p>
+                        <br>
+                        <p>
+                            <!-- <label for="lastname">Last Name</label> -->
+                            <input id="lastname" name="lastname" placeholder="Last Name" />
+                        </p>
+                            <br>
+                        <!-- </div> -->
+                        <!-- <div class="gender-bday"> -->
+                            <p id="bday-select">
+                                <div class="birthday">
+                                    <span>
+                                        <select name="birthmonth" id="months">
+                                            <!-- <option disabled selected>Month</option> -->
+                                        </select>
+                                    </span>
+                                    <span>
+                                        <select name="birthdate" id="days">
+                                            <!-- <option disabled selected>Day</option>  -->
+                                        </select>
+                                    </span>
+                                    <span>
+                                        <select name="birthyear" id="years">
+                                            <!-- <option disabled selected>Year</option>  -->
+                                        </select>
+                                    </span>                
+                                </div>
+                            </p>
+                            <br>
+                            <p  class="radio-form">
+                                <!-- <label for="form-check">Gender</label> -->
+                                    <span class="form-check">
+                                        <label for="male-radio" class="form-check-label male">
+                                            <input class="form-check-input" type="radio" name="gender" id="male-radio" value="Male">
+                                            Male
+                                        </label>
+                                    </span>
+                                    <span class="form-check">
+                                        <label for="female-radio" class="form-check-label female">
+                                            <input class="form-check-input" type="radio" name="gender" id="female-radio" value="Female" checked>
+                                            Female
+                                        </label>
+                                    </span>
+                            </p>
+                            <br>
+                            <p>
+                                <!-- <label for="emailaddress" class="form-label">Email Address</label> -->
+                                <input id="emailaddress" name="emailaddress" placeholder="Email Address" />
+                            </p>
+                            <br>
+                            <p>
+                                <!-- <label for="password">Password</label> -->
+                                <input id="password" name="password" type="password" autocomplete="off" placeholder="Password" />
+                            </p>
+                        
+                        <p>
+                            <label>
+                                <input class="saveinfo" type="checkbox" />
+                                Remember Me
+                            </label>
+                        </p>
+                    </fieldset>
+                    <fieldset class="step fade">
+                        <legend>Address Information</legend>
+                        <p>
+                            <label for="address">Address</label>
+                            <input id="address" name="address" placeholder="123 Main St">
+                        </p>
+                        <p>
+                            <label for="city">City</label>
+                            <input id="city" name="city" placeholder="Atlanta">
+                        </p>
+                        <p>
+                            <label for="state">State</label>
+                            <select id="state" name="state">
+                                <option value="breaker" disabled>Select State</option>
+                                <option value="Alabama">Alabama</option>
+                                <option value="Alaska">Alaska</option>
+                                <option value="Arizona">Arizona</option>
+                                <option value="Arkansas">Arkansas</option>
+                                <option value="California">California</option>
+                                <option value="Colorado">Colorado</option>
+                                <option value="Connecticut">Connecticut</option>
+                                <option value="Deleware">Deleware</option>
+                                <option value="District of Columbia">District of Columbia</option>
+                                <option value="Florida">Florida</option>
+                                <option value="Georgia" selected>Georgia</option>
+                                <option value="Hawaii">Hawaii</option>
+                                <option value="Idaho">Idaho</option>
+                                <option value="Illinois">Illinois</option>
+                                <option value="Indiana">Indiana</option>
+                                <option value="Iowa">Iowa</option>
+                                <option value="Kansas">Kansas</option>
+                                <option value="Kentucky">Kentucky</option>
+                                <option value="Louisiana">Louisiana</option>
+                                <option value="Maine">Maine</option>
+                                <option value="Maryland">Maryland</option>
+                                <option value="Massachusetts">Massachusetts</option>
+                                <option value="Michigan">Michigan</option>
+                                <option value="Minnisota">Minnisota</option>
+                                <option value="Mississippi">Mississippi</option>
+                                <option value="Missouri">Missouri</option>
+                                <option value="Montana">Montana</option>
+                                <option value="Nebraska">Nebraska</option>
+                                <option value="Nevada">Nevada</option>
+                                <option value="New Hampshire">New Hampshire</option>
+                                <option value="New Jersey">New Jersey</option>
+                                <option value="New Mexico">New Mexico</option>
+                                <option value="New York">New York</option>
+                                <option value="North Carolina">North Carolina</option>
+                                <option value="North Dakota">North Dakota</option>
+                                <option value="Ohio">Ohio</option>
+                                <option value="Oklahoma">Oklahoma</option>
+                                <option value="Oregon">Oregon</option>
+                                <option value="Pennsylvania">Pennsylvania</option>
+                                <option value="Rhode Island">Rhode Island</option>
+                                <option value="South Carolina">South Carolina</option>
+                                <option value="South Dakota">South Dakota</option>
+                                <option value="Tennessee">Tennessee</option>
+                                <option value="Texas">Texas</option>
+                                <option value="Utah">Utah</option>
+                                <option value="Vermont">Vermont</option>
+                                <option value="Virginia">Virginia</option>
+                                <option value="Washington">Washington</option>
+                                <option value="West Virginia">West Virginia</option>
+                                <option value="Wisconsin">Wisconsin</option>
+                                <option value="Wyoming">Wyoming</option>
+                            </select>
+                        </p>
+                        <p>
+                            <label for="zipcode">Zip Code</label>
+                            <input id="zipcode" name="zipcode" placeholder="12345" />
+                        </p>
+                    </fieldset>
+                    <fieldset class="step fade">
+                        <legend>Preferences</legend>
+                        <p>
+                            <label for="maxchildren">Max Number of Children to Care For</label>
+                            <select id="maxchildren" name="maxchildren">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5+</option>
+                            </select>
+                        </p>
+                        <p class="hourlyrate">
+                            <!-- <label for="hourlyrate">Preferred Hourly Rate</label> -->
+                            <label for="textInput">$</label>
+                            <input id="hourlyrate" name="hourlyrate" type="text">
+                        </p>
+                        <p>
+                            <label for="mileswilling">How far are you willing to travel?</label>
+                            <select id="mileswilling" name="mileswilling">
+                                <option>5</option>
+                                <option>10</option>
+                                <option>15</option>
+                                <option>20</option>
+                                <option>25</option>
+                                <option>30</option>
+                                <option>35</option>
+                                <option>40</option>
+                                <option>45</option>
+                                <option>50+</option>
+                            </select>
+                            <label for="mileswilling"> Miles</label>
+                        </p>
+                        <p>
+                            <div class=space></div>
+                            <label for="transportation">Do you have your own transportation?</label>
+                            <div class="shift">
+                                <label class="custom-control custom-radio">
+                                    <input id="car-radio" name="transportation" type="radio" class="custom-control-input" value="true">
+                                    <span class="custom-control-description"><img class="form-image" src="../images/car_image.png"></span>
+                                </label>
+                                <label class="custom-control custom-radio">
+                                    <input id="no-car-radio" name="transportation" type="radio" checked="checked" class="custom-control-input" value="false">
+                                    <span class="custom-control-description"><img class="form-image" src="../images/car_image_no.png"></span>
+                                </label>
+                            </div>
+                        </p>
+                    </fieldset>
+                    <fieldset class="step fade">
+                        <legend>Additional Preferences</legend>
+                        <p>
+                            <div class=space></div>
+                            <label for="smoking">Do you smoke?</label>
+                            <div class="shift">
+                                <label class="custom-control custom-radio">
+                                    <input id="smoker-radio" name="smoke" type="radio" class="custom-control-input" value="true">
+                                    <span class="custom-control-description"><img class="form-image" src="../images/smoking.png"></span>
+                                </label>
+                                <label class="custom-control custom-radio">
+                                    <input id="non-smoker-radio" name="smoke" type="radio" checked="checked" class="custom-control-input" value="false">
+                                    <span class="custom-control-description"><img class="form-image" src="../images/smoking_no.png"></span>
+                                </label>
+                            </div>
+                        </p>
+                        <p>
+                            <div class=space></div>
+                            <label for="pets">Comfortable with pets?</label>
+                            <div class="shift">
+                                <label class="custom-control custom-radio">
+                                    <input id="radio1" name="pets" type="radio" class="custom-control-input likes-pets" value="true">
+                                    <span class="custom-control-description"><img class="form-image" src="../images/cat_dog_image.png"></span>
+                                </label>
+                                <label class="custom-control custom-radio">
+                                    <input id="radio2" name="pets" type="radio" checked="checked" class="custom-control-input does-not-like-pets" value="false">
+                                    <span class="custom-control-description"><img class="form-image" src="../images/cat_dog_image_no.png"></span>
+                                </label>
+                            </div>
+                            <div id="pets" class="shift hidden">
+                                <label class="checkbox-inline"><input type="checkbox" name="dogs"><img class="form-image" src="../images/dog_image.png"></label>
+                                <label class="checkbox-inline"><input type="checkbox" name="cats"><img class="form-image cat-image" src="../images/cat_image.png"></label>
+                            </div>
+                        </p>
+                        
+                    </fieldset>
+                    <fieldset class="step fade">
+                        <legend>Experience</legend>
+                        <P>
+                            <label for="summary">Describe your experience caring for children</label>
+                            <textarea id="summary" name="summary" rows="3" maxlength="500" placeholder="500 character max"></textarea>
+                        </P>
+                        <p>
+                            <label for="agegroup">Age groups you are experienced with</label>
+                            <select multiple id="agegroup" name="agegroup">
+                                <option>0 - 6 months</option>
+                                <option>7 months - 3 years</option>
+                                <option>4 - 6 years</option>
+                                <option>7 - 11 years</option>
+                                <option>12+ years</option>
+                            </select>
+                        </p>
+                        <p>
+                            <label for="education">Highest level of education completed</label>
+                            <select id="education" name="education">
+                                <option>High school graduate, diploma or the equivalent</option>
+                                <option>Some College, no degree</option>
+                                <option>Trade/technical/vocational training</option>
+                                <option>Associate's Degree</option>
+                                <option>Bachelor's Degree</option>
+                                <option>Master's Degree</option>
+                                <option>Doctorate</option>
+                            </select>
+                        </p>
+                        <p>
+                            <label for="institution">Name of institution</label>
+                            <input type="text" id="institution" name="institution">
+                        </p>
+                        <p>
+                            <label for="experience">Years of Paid Experience</label>
+                            <select id="experience" name="experience">
+                                <option>0 - 1</option>
+                                <option>1 - 2</option>
+                                <option>2 - 3</option>
+                                <option>3 - 4</option>
+                                <option>5+</option>
+                            </select>
+                        </p>
+                        <p>
+                            <label for="languages">Please list the languages you are fluent in:</label>
+                            <input type='text' id='language' onclick="this.value=''" placeholder="Five languages max" data-language-input />
+                            <input type='button' value='Add language' id='add' data-add-language />
+                            <input type="hidden" name="languages" data-name-add-language />
+                            <div class="alert hide" role="alert" data-alert></div>
+                            <div>
+                                <ul id='list'>
+                                        
+                                </ul>
+                            </div>
+                        </p>
+                    </fieldset>
+                    <fieldset class="step fade">
+                        <legend>Set your schedule</legend>
+                            <table id="schedule">
+                                <tr>
+                                    <th class="time-of-day"></th>
+                                    <th class="weekday">S</th>
+                                    <th class="weekday">M</th>
+                                    <th class="weekday">T</th>
+                                    <th class="weekday">W</th>
+                                    <th class="weekday">T</th>
+                                    <th class="weekday">F</th>
+                                    <th class="weekday">S</th>
+                                </tr>
+                                <tr>
+                                    <td class="time-of-day">Morning</td>
+                                    <td class="day-box"><label for="sun_morning" class="sun"><span></span><input type="hidden" name="sun_morning" id="sun_morning" /></label></td>
+                                    <td class="day-box"><label for="mon_morning" class="mon"><span></span><input type="hidden" name="mon_morning" id="mon_morning" /></label></td>
+                                    <td class="day-box"><label for="tues_morning" class="tues"><span></span><input type="hidden" name="tues_morning" id="tues_morning" /></label></td>
+                                    <td class="day-box"><label for="wed_morning" class="wed"><span></span><input type="hidden" name="wed_morning" id="wed_morning" /></label></td>
+                                    <td class="day-box"><label for="thurs_morning" class="thurs"><span></span><input type="hidden" name="thurs_morning" id="thurs_morning" /></label></td>
+                                    <td class="day-box"><label for="fri_morning" class="fri"><span></span><input type="hidden" name="fri_morning" id="fri_morning" /></label></td>
+                                    <td class="day-box"><label for="sat_morning" class="sat"><span></span><input type="hidden" name="sat_morning" id="sat_morning" /></label></td>
+                                </tr>
+                                <tr>
+                                    <td class="time-of-day">Afternoon</td>
+                                    <td class="day-box"><label for="sun_afternoon" class="sun"><span></span><input type="hidden" name="sun_afternoon" id="sun_afternoon" /></label></td>
+                                    <td class="day-box"><label for="mon_afternoon" class="mon"><span></span><input type="hidden" name="mon_afternoon" id="mon_afternoon" /></label></td>
+                                    <td class="day-box"><label for="tues_afternoon" class="tues"><span></span><input type="hidden" name="tues_afternoon" id="tues_afternoon" /></label></td>
+                                    <td class="day-box"><label for="wed_afternoon" class="wed"><span></span><input type="hidden" name="wed_afternoon" id="wed_afternoon" /></label></td>
+                                    <td class="day-box"><label for="thurs_afternoon" class="thurs"><span></span><input type="hidden" name="thurs_afternoon" id="thurs_afternoon" /></label></td>
+                                    <td class="day-box"><label for="fri_afternoon" class="fri"><span></span><input type="hidden" name="fri_afternoon" id="fri_afternoon" /></label></td>
+                                    <td class="day-box"><label for="sat_afternoon" class="sat"><span></span><input type="hidden" name="sat_afternoon" id="sat_afternoon" /></label></td>
+                                </tr>
+                                <tr>
+                                    <td class="time-of-day">Evening</td>
+                                    <td class="day-box"><label for="sun_evening" class="sun"><span></span><input type="hidden" name="sun_evening" id="sun_evening" /></label></td>
+                                    <td class="day-box"><label for="mon_evening" class="mon"><span></span><input type="hidden" name="mon_evening" id="mon_evening" /></label></td>
+                                    <td class="day-box"><label for="tues_evening" class="tues"><span></span><input type="hidden" name="tues_evening" id="tues_evening" /></label></td>
+                                    <td class="day-box"><label for="wed_evening" class="wed"><span></span><input type="hidden" name="wed_evening" id="wed_evening" /></label></td>
+                                    <td class="day-box"><label for="thurs_evening" class="thurs"><span></span><input type="hidden" name="thurs_evening" id="thurs_evening" /></label></td>
+                                    <td class="day-box"><label for="fri_evening" class="fri"><span></span><input type="hidden" name="fri_evening" id="fri_evening" /></label></td>
+                                    <td class="day-box"><label for="sat_evening" class="sat"><span></span><input type="hidden" name="sat_evening" id="sat_evening" /></label></td>
+                                </tr>
+                                <tr>
+                                    <td class="time-of-day">Overnight</td>
+                                    <td class="day-box"><label for="sun_overnight" class="sun"><span></span><input type="hidden" name="sun_overnight" id="sun_overnight" /></label></td>
+                                    <td class="day-box"><label for="mon_overnight" class="mon"><span></span><input type="hidden" name="mon_overnight" id="mon_overnight" /></label></td>
+                                    <td class="day-box"><label for="tues_overnight" class="tues"><span></span><input type="hidden" name="tues_overnight" id="tues_overnight" /></label></td>
+                                    <td class="day-box"><label for="wed_overnight" class="wed"><span></span><input type="hidden" name="wed_overnight" id="wed_overnight" /></label></td>
+                                    <td class="day-box"><label for="thurs_overnight" class="thurs"><span></span><input type="hidden" name="thurs_overnight" id="thurs_overnight" /></label></td>
+                                    <td class="day-box"><label for="fri_overnight" class="fri"><span></span><input type="hidden" name="fri_overnight" id="fri_overnight" /></label></td>
+                                    <td class="day-box"><label for="sat_overnight" class="sat"><span></span><input type="hidden" name="sat_overnight" id="sat_overnight" /></label></td>
+                                </tr>
+                            </table>   
+                    </fieldset>
+                    <fieldset class="step fade">
+                        <legend>Upload Profile Image</legend>
+                        <div id="image-container" class="preview">
+                            <label for="profile-pic" type="button">
+                                <img src="../images/camera.png" class="camera" />
+                            </label>
+                        </div>
+                        <div class="input">
+                            <input type="file" class="form-control-file" id="profile-pic" name="image" onchange="fileStarter(this);">
+                        </div>
+                        <div class="invalid" id="error"></div>
+                    </fieldset>
+                    <fieldset class="step fade">
+                        <legend>Please verify that all your information is correct</legend>
+                        <div class="submit-button">
+                        <input type="submit" name="submit" class="btn btn-primary" value="Join Now!">
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+            <div id="navigation">
+                <a class="prev" onclick="plusSlides(-1)">Prev</a>
+                <a class="next" onclick="plusSlides(1)">Next</a>
+            </div>
+            <div style="text-align:center" class="buttons">
+                <span class="dot" onclick="currentSlide(1)">My Info</span> 
+                <span class="dot" onclick="currentSlide(2)">Address</span> 
+                <span class="dot" onclick="currentSlide(3)">Preferences</span>
+                <span class="dot" onclick="currentSlide(4)">Add'l Pref</span>
+                <span class="dot" onclick="currentSlide(5)">Experience</span> 
+                <span class="dot" onclick="currentSlide(6)">Schedule</span> 
+                <span class="dot" onclick="currentSlide(7)">Image</span>
+                <span class="dot" onclick="currentSlide(8)">Confirm</span>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="/scripts/slidingform.js"></script>
+</body>
+</html>

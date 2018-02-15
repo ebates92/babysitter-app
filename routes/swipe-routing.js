@@ -3,6 +3,7 @@ var router = express.Router();
 const Babysitter = require('../models/babysitter')
 const Parent = require('../models/parent')
 const Filter = require('../models/filter')
+const Authentication = require('../models/authentication')
 const filterBabysitters = require('./filter-function')
 const Match = require('../models/match')
 
@@ -21,7 +22,10 @@ router.route('/babysitters')
     }).then((parent_filter_data) => {
       let filter = filterBabysitters(parent_filter_data);
       Babysitter.findAll({
-        where: filter
+        where: filter,
+        include: [{
+          model: Authentication,
+        }]
       }).then((babysitter_data) => {
         res.send(babysitter_data)
       }).catch((err) => {
@@ -29,6 +33,8 @@ router.route('/babysitters')
       })
     });
   });
+
+
 
 
 router.route('/')
@@ -39,11 +45,11 @@ router.route('/')
 
 router.route('/match')
   .post((req, res) =>{
-
+    debugger;
     Match.create({
       is_match: req.body.is_match,
-      babysitterId: req.body.babysitter_id,
-      parentId: req.user.id
+      babysitterAuthId: req.body.babysitter_id,
+      parentAuthId: req.user.id
     }).then((match) => {
       res.send(match)
     })

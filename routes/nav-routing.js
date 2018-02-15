@@ -3,6 +3,7 @@ var router = express.Router();
 const Babysitter = require('../models/babysitter')
 const Parent = require('../models/parent')
 const Match = require('../models/match')
+const Authentication = require('../models/authentication')
 
 
 router.route('/profile')
@@ -37,14 +38,14 @@ router.route('/match')
     .get((req, res, next) => {
         Match.findAll({
             where: {
-                parentId: req.user.id,
+                parentAuthId: req.user.id,
                 is_match: true
             },
             include: [{
-                model: Babysitter,
-                // group: 'id'
+                model: Authentication, as: 'babysitterAuth'
             }],
         }).then((babysitters) => {
+            console.log(babysitters)
             // console.log(match_data)
             // res.send(babysitters)
             res.render('matches.hbs',{
@@ -55,6 +56,5 @@ router.route('/match')
         })
     })
 
-router.route('/match')
 
 module.exports = router; 
