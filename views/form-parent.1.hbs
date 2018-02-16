@@ -21,9 +21,15 @@
                     <form id="formElement" name="formElement" action="/form/parent" method="POST">
                         <fieldset class="step">
                             <legend>Personal Details</legend>
-
+                            {{!-- <p>
+                                {{!-- <label for="firstname">First Name</label> --}}
+                                <input id="firstname" name ="firstname" placeholder="First Name"/>
+                            </p>
+                            <p>
+                                <label for="lastname">Last Name</label>
+                                <input id="lastname" name="lastname" placeholder="Last Name" />
+                            </p> --}}
                             <p id="bday-select">
-                            <label for="address">Birthday</label>
                                 <div class="birthday">
                                     <span>
                                         <select name="birthmonth" id="months">
@@ -59,6 +65,23 @@
                                     </span>
                             </p>
                             <br>
+                            {{!-- <p>
+                                {{!-- <label for="emailaddress">Email Address</label> --}}
+                                <input id="emailaddress" name="emailaddress" placeholder="Email Address" />
+                            </p>
+                            <br>
+                            <p>
+                                {{!-- <label for="password">Password</label> --}}
+                                <input id="password" name="password" type="password" placeholder="Password" autocomplete="off" />
+                            </p>
+                            <p>
+                                <label>
+                                    <input type="checkbox" />
+                                    Remember Me
+                                </label>
+                            </p> --}}
+                        </fieldset>
+                        <fieldset class="step">
                             <legend>Address Information</legend>
                             <p>
                                 <label for="address">Address</label>
@@ -132,9 +155,8 @@
                         </fieldset>
                         <fieldset class="step">
                             <legend>Household</legend>
-                            <div class='household-container'>
                             <p>
-                                <label for="boys" class='boys'>Boys</label>
+                                <label for="boys">Boys</label>
                                 <select id="boys" name="boys">
                                     <option>0</option>
                                     <option>1</option>
@@ -204,11 +226,9 @@
                                     <option>5+</option>
                                 </select>
                             </p>
-                            </div>
-                            
-                            <div class='household-container'>
+
                             <p>
-                                <label for="girls" class='girls'>Girls</label>
+                                <label for="girls">Girls</label>
                                 <select id="girls" name="girls">
                                     <option>0</option>
                                     <option>1</option>
@@ -274,8 +294,6 @@
                                 </select>
                             </p>
                         <p>
-                            </div>
-                            
                                 <div class=space></div>
                                 <label for="parent-pets" class="parent-pets">Do you have pets?</label>
                                 <br>
@@ -310,9 +328,10 @@
                 </div>
                 <div style="text-align:center" class="buttons">
                     <span class="dot" onclick="currentSlide(1)">My Info</span> 
-                    <span class="dot" onclick="currentSlide(2)">Household</span>
-                    <span class="dot" onclick="currentSlide(3)">Image</span>
-                    <span class="dot" onclick="currentSlide(4)">Confirm</span>
+                    <span class="dot" onclick="currentSlide(2)">Address</span> 
+                    <span class="dot" onclick="currentSlide(3)">Household</span>
+                    <span class="dot" onclick="currentSlide(4)">Image</span>
+                    <span class="dot" onclick="currentSlide(5)">Confirm</span>
                 </div>
             </div>
         </div>

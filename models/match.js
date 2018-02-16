@@ -2,6 +2,7 @@ const Sequelize = require('sequelize');
 const connection = require('../database');
 const Babysitter = require('./babysitter')
 const Parent = require('./parent')
+const Authentication = require('./authentication')
 
 const Match = connection.define('match', {
     is_match: {
@@ -9,8 +10,8 @@ const Match = connection.define('match', {
     }
 });
 
-Match.belongsTo(Parent);
-Match.belongsTo(Babysitter);
+Match.belongsTo(Authentication, {as: 'babysitterAuth'});
+Match.belongsTo(Authentication, {as: 'parentAuth'});
 
 // connection.sync ({
 //     force: true

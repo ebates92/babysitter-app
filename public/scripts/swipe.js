@@ -1,6 +1,8 @@
 
 var BABYSITTERDATA;
 var BABYSITTERIDS;
+var AUTHENTICATIONDATA;
+var AUTHENTICATIONIDS;
 
 const checkOrNo = {
     true: '&check;',
@@ -29,7 +31,6 @@ function bodyContainer () {
     console.log(BABYSITTERDATA)
     const surroundContentDiv = $(".radius-babysitter-content")
     const surroundDivHeight = surroundContentDiv.height();
-    console.log(surroundDivHeight)
 
     // to calculate age of babysitter
     let birthday = `${BABYSITTERDATA[babySitterId]['birth-year']}${BABYSITTERDATA[babySitterId]['birth-month']}${BABYSITTERDATA[babySitterId]['birth-day']}`
@@ -42,12 +43,12 @@ function bodyContainer () {
     if (mainBoxArray[0]) {
         var $container = $('<div>', {
             'class': 'main-box behind',
-            'id': babySitterId
+            'id': BABYSITTERDATA[babySitterId].authentication.id
         });
     } else {
         var $container = $('<div>', {
             'class': 'main-box',
-            'id': babySitterId
+            'id': BABYSITTERDATA[babySitterId].authentication.id
         });
     };
 
@@ -63,7 +64,7 @@ function bodyContainer () {
 
     // swipe image
     var $image = $('<img>', {
-        'src': BABYSITTERDATA[babySitterId]["image"]
+        'src': BABYSITTERDATA[babySitterId].authentication.image
     });
 
     // calendar elements
@@ -145,7 +146,7 @@ function bodyContainer () {
     var $babysitterDescription = $('<div>', {
         'class':'babysitter-description'
     })
-        .append(`<p class=name>${BABYSITTERDATA[babySitterId]['firstname']}</p>`)
+        .append(`<p class=name>${BABYSITTERDATA[babySitterId].authentication.firstname}</p>`)
         .append(`<p class=age bio-details>${BABYSITTERDATA[babySitterId]['gender']} - ${age} - ${BABYSITTERDATA[babySitterId]['city']}, ${BABYSITTERDATA[babySitterId]['state']}</p>`)
         .append(`<p class=experience bio-details>Experience: ${BABYSITTERDATA[babySitterId]['experience']} - $${BABYSITTERDATA[babySitterId]['hourlyrate']}/hour</p>`)
         .append($babysitterProfile)
@@ -308,12 +309,12 @@ function swipeEvents () {
                 if (requiredDistance < distanceMovedX) {
                     console.log("true");
                     reloadSwipe();
-                    matchID(true, babysitter_id);
-
+                    matchID(true, BABYSITTERDATA[babysitter_id].authentication.id);
+                    console.log(`babysitterid: ${BABYSITTERDATA[babysitter_id].authentication.id}`)
                 } else if (-requiredDistance > distanceMovedX) {
                     console.log('false');
                     reloadSwipe();
-                    matchID(false, babysitter_id)
+                    matchID(false, BABYSITTERDATA[babysitter_id].authentication.id)
                 } else {
                     console.log('reswipe');
                     reswipe();
@@ -324,7 +325,7 @@ function swipeEvents () {
     });
 };
 
-function matchID (likeValue, bID, pID) {
+function matchID (likeValue, bID) {
     $.post('/swipe/match',{
         is_match: likeValue,
         babysitter_id: bID,

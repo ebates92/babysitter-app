@@ -3,35 +3,7 @@ const connection = require('../database');
 const Authentication = require('./authentication')
 
 const Parent = connection.define('parent', {
-    // emailaddress: {
-    //     type: Sequelize.STRING,
-    //     // unique: true,
-    //     // allowNull: false,
-    //     // validate: {
-    //     //     is: {
-    //     //         args: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-    //     //         msg: 'Please enter a valid email address.'
-    //     //     }
-    //     // }
-    // },
-    // password: {
-    //     type: Sequelize.STRING,
-    //     // allowNull: false,
-    //     // validate: {
-    //     //     is: {
-    //     //         args: /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/,
-    //     //         msg: 'Passwords must contain a combination of 6 characters, capital letters, lowercase letters and special characters.'
-    //     //     }
-    //     // }
-    // },
-    firstname: {
-        type: Sequelize.STRING,
-        allowNull: false,
-    },
-    lastname: {
-        type: Sequelize.STRING,
-        allowNull: false,
-    },
+
     address: {
         type: Sequelize.STRING,
     },
@@ -44,9 +16,6 @@ const Parent = connection.define('parent', {
     zipcode: {
         type: Sequelize.INTEGER,
         // allowNull: false,
-    },
-    image: {
-        type: Sequelize.STRING,
     },
     birthyear: {
         type: Sequelize.INTEGER,

@@ -31,19 +31,20 @@ legend{
   width: 100%;
   padding: 0;
   margin-bottom: 20px;
-  font-size: 21px;
+  font-size: 3rem;
   line-height: inherit;
   color: lightcoral;
   border: 0;
   border-bottom: 1px solid #e5e5e5;
   box-shadow: aqua;
-  box-shadow: 2px 2px 2px lightcoral;
-  text-shadow: 2px 2px lightgrey;
+  /* box-shadow: 2px 2px 2px lightcoral; */
+  /* text-shadow: 2px 2px lightgrey; */
   text-align: center;
 }
 
 .step{
     display: none;
+    padding-bottom: 2rem;
 }
 
 .btn {
@@ -215,12 +216,17 @@ p{
    width: 100%;
    display: flex;
    justify-content: center;
+   font-size: 2.2rem;
+   margin-bottom: 2rem;
  }
 
   #image-container{
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
+    margin: 0;
+    padding: auto;
     width: 300px;
     height: 300px;
     margin-left: 1.2rem;
@@ -237,6 +243,7 @@ p{
   #image-container > img {
     width: 100%;
   }
+
 
   /* The dots/bullets/indicators */
 
@@ -256,7 +263,7 @@ p{
     width: 100%;
     justify-content: center;
     align-items: center;
-    height: 30rem;
+    height: 16rem;
   }
 
   .btn-primary{
@@ -319,3 +326,40 @@ p{
   }
 
   input.hide-checkbox { display: none }   
+
+  .household-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding-bottom: 4rem;
+    padding-top: 3rem;
+  }
+
+  .household-container > p {
+    padding:1rem;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .household-container > p > label {
+    padding-right: 1rem;
+  }
+
+  .boys {
+    font-size: 2.2rem;
+    color: lightblue;
+    font-weight: 700;
+  }
+
+  .girls {
+    font-size: 2.2rem;
+    color: lightpink;
+    font-weight: 700;
+  }
+
+  input, #state {
+    max-width: 400px;
+  }
+
+  label {
+    padding-bottom: 1rem;
+  }

@@ -3,8 +3,8 @@ const LinkedInStrategy = require("passport-linkedin-oauth2").Strategy;
 const keys = require('./keys')
 
 passport.use(new LinkedInStrategy({
-    clientID: keys.linkedin.clientID,
-    clientSecret: keys.linkedin.clientSecret,
+    clientID: process.env.linkedinclientID,
+    clientSecret: process.env.linkedinclientSecret,
     callbackURL:'/auth/linked-in/callback',
     // options for the LinkedIn strategy
     scope: ['emailaddress', 'basicprofile'],
