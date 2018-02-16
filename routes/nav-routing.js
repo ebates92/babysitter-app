@@ -42,10 +42,15 @@ router.route('/match')
                 is_match: true
             },
             include: [{
-                model: Authentication, as: 'babysitterAuth'
+                model: Authentication, as: 'babysitterAuth', include: [{ model: Babysitter}]
             }],
         }).then((babysitters) => {
+            debugger;
             console.log(babysitters)
+            console.log(`test 1: ${babysitters[0].babysitterAuth.dataValues.firstname}`)
+            console.log(`test 2: ${babysitters[0].babysitterAuth.firstname}`)
+            console.log(`test 3: ${babysitters[0].dataValues.firstname}`)
+            console.log(`test 4: ${babysitters[0].firstname}`)
             // console.log(match_data)
             // res.send(babysitters)
             res.render('matches.hbs',{
