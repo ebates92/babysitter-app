@@ -42,7 +42,8 @@ router.route('/match')
                 is_match: true
             },
             include: [{
-                model: Authentication, as: 'babysitterAuth', include: [{ model: Babysitter}]
+                model: Authentication, as: 'babysitterAuth'
+                // , include: [{ model: Babysitter}]
             }],
         }).then((babysitters) => {
             debugger;
